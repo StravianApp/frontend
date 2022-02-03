@@ -5,13 +5,13 @@ import {
 import './App.scss';
 
 import Layout from './Layout';
-import Home from './pages/home/Home';
+import Nest from './pages/nest/Nest';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<Nest />} />
 
         {/* Using path="*"" means "match anything", so this route
               acts like a catch-all for URLs that we don't have explicit
