@@ -36,9 +36,10 @@ function App() {
 
   return (
     <BrowserRouter>
-        <Routes>
+      <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Nest />} />
+          <Route path="/offline" element={<Offline />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit

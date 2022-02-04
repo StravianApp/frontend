@@ -13,9 +13,32 @@
     padding: 24px;
 }
 
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    .logo {
+        max-width: 100%;
+    }
+}
+
 .error-caption {
     font-size: 2.5em;
+    font-weight: 600;
     text-align: center;
+}
+
+.no-wifi-icon {
+    max-width: 100%;
+    padding: 30px 60px 30px 60px;
+    text-align: center;
+    img {
+        max-width: 70%;
+    }
 }
 
 .error-msg {
