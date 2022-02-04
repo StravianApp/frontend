@@ -7,6 +7,7 @@ import './App.scss';
 import { useEffect, useState } from 'react';
 
 import Layout from './Layout';
+import DownloadPage from './pages/download-page/DownloadPage';
 import Nest from './pages/nest/Nest';
 import Offline from './pages/offline/Offline';
 
@@ -37,9 +38,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<DownloadPage />} />
+        <Route path="/app" element={<Layout />}>
           <Route index element={<Nest />} />
-          <Route path="/offline" element={<Offline />} />
+          <Route path="offline" element={<Offline />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
