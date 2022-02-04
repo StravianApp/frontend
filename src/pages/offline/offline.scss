@@ -1,0 +1,24 @@
+@import '../../theme.scss';
+
+.main {
+    background-color: $primaryColor;
+    height: 100%;
+    color: $textColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-section {
+    padding: 24px;
+}
+
+.error-caption {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.error-msg {
+    text-align: center;
+    font-size: 1.5em;
+}

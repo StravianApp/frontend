@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80">
+    <!-- <defs> -->
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One');
+        .primary {fill: #87e5eb; font-family: 'Fredoka One'}
+    </style>
+    <!-- </defs> -->
+    <!-- <text x="0" class="primary">STRA</text>
+    <text x="60" class="primary">IAN</text> -->
+    <path d="M 0 0
+            A 1 2, 0, 0, 0, 1 0" />
+</svg>

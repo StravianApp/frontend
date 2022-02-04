@@ -1,0 +1,59 @@
+<svg
+   width="2000px"
+   height="600px"
+   viewBox="0 0 2000 600"
+   version="1.1"
+   id="SVGRoot"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9">
+    <linearGradient
+       id="linearGradient48382">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop48380" />
+    </linearGradient>
+  </defs>
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka+One');
+  </style>
+  <g
+     id="layer1">
+    <g
+       id="g52853"
+       transform="translate(-42.166382)">
+      <text
+         xml:space="preserve"
+         style="font-size:333.333px;line-height:1.25;font-family:'Fredoka One';"
+         x="100.16973"
+         y="422.49988"
+         id="text11550"><tspan
+           id="tspan11548"
+           x="100.16973"
+           y="422.49988"
+           style="font-size:333.333px;fill:#87e5eb;fill-opacity:1">STRA     IAN</tspan></text>
+      <g
+         id="g48539"
+         transform="matrix(0.62103949,0,0,0.62029004,1022.1361,-252.05683)"
+         style="stroke-width:1.61117">
+        <g
+           id="g50955"
+           transform="translate(-127.41356)"
+           style="stroke-width:1.61117">
+          <path
+             style="fill:#000000;fill-opacity:0;stroke:#f4c06c;stroke-width:83.1626;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="path45892"
+             d="m -362.91408,-1090.6639 a 216.93028,377.80234 0 0 1 -108.46514,327.18638 216.93028,377.80234 0 0 1 -216.93028,0"
+             transform="scale(-1)" />
+          <path
+             style="fill:#000000;fill-opacity:0;stroke:#f4c06c;stroke-width:83.1626;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="path45892-3"
+             transform="scale(1,-1)"
+             d="m 363.76756,-1090.1091 a 216.93028,377.80234 0 0 1 -108.46514,327.18639 216.93028,377.80234 0 0 1 -216.930281,0" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
