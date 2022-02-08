@@ -10,7 +10,10 @@ import Layout from './Layout';
 import DownloadPage from './pages/download-page/DownloadPage';
 import Nest from './pages/nest/Nest';
 import Offline from './pages/offline/Offline';
-import NotOnMobile from './pages/not-on-mobile/NotOnMobile';
+import ErrorPage from './pages/error-page/ErrorPage';
+
+import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const isOnline = () => (
   typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
@@ -53,15 +56,19 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DownloadPage />} />
-        <Route path="/not-on-mobile" element={<NotOnMobile />} />
+        <Route path="/not-on-mobile" element={<ErrorPage
+          faIcon={faMobileAlt}
+          errorTitle="Stravian is only available for mobile devices."
+          errorCaption="Please visit this site on a smartphone to use Stravian."
+        />} />
         <Route path="/app" element={<Layout />}>
           <Route index element={<Nest />} />
-
-          {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
-          {/* <Route path="*" element={<NoMatch />} /> */}
         </Route>
+        <Route path="*" element={<ErrorPage
+          faIcon={faSearch}
+          errorTitle="Page not found"
+          errorCaption={<p>Please check the URL, or click <a href="/">here</a> to go back to the homepage.</p>}
+        />} />
       </Routes>
     </BrowserRouter>
   );
