@@ -4,13 +4,8 @@ import * as React from 'react';
 import {
   Button,
   View,
-  Text,
-  TouchableOpacity,
-  Image
 } from 'react-native';
-
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import {
@@ -27,69 +22,33 @@ import DownloadPage from './pages/download-page/DownloadPage';
 import Nest from './pages/nest/Nest';
 import Leaderbird from './pages/leaderbird/Leaderbird';
 import UserStats from './pages/userStats/UserStats';
+import Offline from './pages/offline/Offline';
+import NotOnMobile from './pages/not-on-mobile/NotOnMobile';
 
-const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
-
-const NavigationDrawerStructure = (props)=> {
-  //Structure for Navigation Drawer
-  const toggleDrawer = ()=> {
-    //Props to open/close the drawer
-    props.nagivationProps.toggleDrawer();
-  };
-
-  return (
-    <View style={{ flexDirection: 'row' }}>
-      <TouchableOpacity onPress={()=> toggleDrawer()}>
-        {/* Put a button image here? */}
-      </TouchableOpacity>
-    </View>
-  );
-}
 
 function leaderbirdStack({ navigation }) {
 	return (
-		<Stack.Navigator initialRoutName = "Leaderbird">
-			<Stack.Screen
-			  name="Leaderbird"
-			  component={Leaderbird}
-			  options={{
-				  title: 'Leaderbird', //Set header title
-				  headerLeft: ()=>
-				  <NavigationDrawerStructure
-				    navigationProps={navigation}
-					/>,
-					headerStyle: {backgroundColor: '#cbacba',},
-					headerTintColor = '#aaa',
-					headerTitleStyle: {
-						fontWeight: 'bold',
-					},
-			  }}
-			  />
-		</Stack.Navigator>
+		<View style={{ flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'}}>
+			<Button
+			onPress={() => navigation.navigate('Leaderbird')}
+			title="Go to Leaderbird"
+			/>
+		</View>
 	);
 }
 
 function userStatsStack({ navigation }) {
 	return (
-		<Stack.Navigator initialRoutName = "UserStats">
-			<Stack.Screen
-			  name="UserStats"
-			  component={UserStats}
-			  options={{
-				  title: 'User Stats', //Set header title
-				  headerLeft: ()=>
-				  <NavigationDrawerStructure
-				    navigationProps={navigation}
-					/>,
-					headerStyle: {backgroundColor: '#cbacba',},
-					headerTintColor = '#aaa',
-					headerTitleStyle: {
-						fontWeight: 'bold',
-					},
-			  }}
-			  />
-		</Stack.Navigator>
+		<View style={{ flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'}}>
+			<Button
+			onPress={() => navigation.navigate('Leaderbird')}
+			title="Go to Leaderbird"
+			/>
+		</View>
 	);
 }
 
@@ -106,7 +65,7 @@ function nestStack({ navigation }) {
 				    navigationProps={navigation}
 					/>,
 					headerStyle: {backgroundColor: '#cbacba',},
-					headerTintColor = '#aaa',
+					headerTintColor: '#aaa',
 					headerTitleStyle: {
 						fontWeight: 'bold',
 					},
@@ -115,10 +74,6 @@ function nestStack({ navigation }) {
 		</Stack.Navigator>
 	);
 }
-
-
-import Offline from './pages/offline/Offline';
-import NotOnMobile from './pages/not-on-mobile/NotOnMobile';
 
 const isOnline = () => (
   typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
