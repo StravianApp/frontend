@@ -23,7 +23,10 @@ import Nest from './pages/nest/Nest';
 import Leaderbird from './pages/leaderbird/Leaderbird';
 import UserStats from './pages/userStats/UserStats';
 import Offline from './pages/offline/Offline';
-import NotOnMobile from './pages/not-on-mobile/NotOnMobile';
+import ErrorPage from './pages/error-page/ErrorPage';
+
+import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 function leaderbirdStack({ navigation }) {
@@ -150,7 +153,11 @@ function App() {
     /*<BrowserRouter>
       <Routes>
         <Route path="/" element={<DownloadPage />} />
-        <Route path="/not-on-mobile" element={<NotOnMobile />} />
+        <Route path="/not-on-mobile" element={<ErrorPage
+          faIcon={faMobileAlt}
+          errorTitle="Stravian is only available for mobile devices."
+          errorCaption="Please visit this site on a smartphone to use Stravian."
+        />} />
         <Route path="/app" element={<Layout />}>
           <Route index element={<Nest />} />
 
@@ -159,6 +166,12 @@ function App() {
                 routes for. *///}
           //{/* <Route path="*" element={<NoMatch />} /> */}
        /* </Route>
+        </Route>
+        <Route path="*" element={<ErrorPage
+          faIcon={faSearch}
+          errorTitle="Page not found"
+          errorCaption={<p>Please check the URL, or click <a href="/">here</a> to go back to the homepage.</p>}
+        />} />
       </Routes>
     </BrowserRouter>*/
   );
