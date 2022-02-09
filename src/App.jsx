@@ -1,13 +1,3 @@
-import 'react-native-gesture-handler';
-
-import * as React from 'react';
-import {
-  Button,
-  View,
-} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-
 import {
   BrowserRouter,
   Routes,
@@ -27,56 +17,6 @@ import ErrorPage from './pages/error-page/ErrorPage';
 
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
-
-function leaderbirdStack({ navigation }) {
-	return (
-		<View style={{ flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center'}}>
-			<Button
-			onPress={() => navigation.navigate('Leaderbird')}
-			title="Go to Leaderbird"
-			/>
-		</View>
-	);
-}
-
-function userStatsStack({ navigation }) {
-	return (
-		<View style={{ flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center'}}>
-			<Button
-			onPress={() => navigation.navigate('Leaderbird')}
-			title="Go to Leaderbird"
-			/>
-		</View>
-	);
-}
-
-function nestStack({ navigation }) {
-	return (
-		<Stack.Navigator initialRoutName = "Nest">
-			<Stack.Screen
-			  name="Nest"
-			  component={Nest}
-			  options={{
-				  title: 'Nest', //Set header title
-				  headerLeft: ()=>
-				  <NavigationDrawerStructure
-				    navigationProps={navigation}
-					/>,
-					headerStyle: {backgroundColor: '#cbacba',},
-					headerTintColor: '#aaa',
-					headerTitleStyle: {
-						fontWeight: 'bold',
-					},
-			  }}
-			  />
-		</Stack.Navigator>
-	);
-}
 
 const isOnline = () => (
   typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
@@ -116,43 +56,20 @@ function App() {
   if (!onlineStatus) return <Offline />
 
   return (
-    /*<Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Nest />} />
 
-        {/* Using path="*"" means "match anything", so this route
-              acts like a catch-all for URLs that we don't have explicit
-              routes for. *//*}
-        {/* <Route path="*" element={<NoMatch />} /> *//*}
-      /*</Route>
-    </Routes> */
+	/*<>
+	<Layout>
+		<p>Test</p>
+	</Layout>
+	</>*/
 
-    <NavigationContainer>
-      <Drawer.Navigator
-      drawerContentOptions={{
-        activeTintColor: '#abcabc',
-        itemStyle: {marginVertical: 5},
-      }}>
-		<Drawer.Screen
-          name="Nest"
-          options={{ drawerLabel: 'Nest' }}
-          component={nestStack}/>
-		  
-        <Drawer.Screen
-          name="Leaderbird"
-          options={{ drawerLabel: 'Leaderbird' }}
-          component={leaderbirdStack}/>
-	  
-	  <Drawer.Screen
-          name="userStats"
-          options={{ drawerLabel: 'User Stats' }}
-          component={userStatsStack}/>
-      </Drawer.Navigator>
-    </NavigationContainer>
-
-    /*<BrowserRouter>
+	<Layout>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<DownloadPage />} />
+		<Route path="/user-stats" element={<UserStats />} />
+		<Route path="/leaderbird" element={<Leaderbird />} />
+		<Route path="/nest" element={<Nest />} />
         <Route path="/not-on-mobile" element={<ErrorPage
           faIcon={faMobileAlt}
           errorTitle="Stravian is only available for mobile devices."
@@ -163,9 +80,8 @@ function App() {
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
-                routes for. *///}
-          //{/* <Route path="*" element={<NoMatch />} /> */}
-       /* </Route>
+                routes for. */}
+          {/* <Route path="*" element={<NoMatch />} /> */}
         </Route>
         <Route path="*" element={<ErrorPage
           faIcon={faSearch}
@@ -173,7 +89,8 @@ function App() {
           errorCaption={<p>Please check the URL, or click <a href="/">here</a> to go back to the homepage.</p>}
         />} />
       </Routes>
-    </BrowserRouter>*/
+    </BrowserRouter>
+	</Layout>
   );
 }
 
