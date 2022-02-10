@@ -1,7 +1,7 @@
-const stravaApi = {
-    clientId: "77718",
-    scope: "activity:write,read",
-    redirectUri: "http://localhost:3000/app/logged-in"
-};
+import config_file from './config.json';
 
-export {stravaApi}
+const config = config_file[process.env.NODE_ENV];
+
+const { stravaApi } = config;
+
+export {stravaApi};

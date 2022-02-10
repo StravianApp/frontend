@@ -19,6 +19,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Login from './pages/login/Login';
 import LoggedIn from './pages/login/LoggedIn';
 import Logout from './pages/login/Logout';
+import { isPWA } from './utils/pwa';
 
 const isOnline = () => (
   typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
@@ -54,6 +55,11 @@ function App() {
     window.location.href = '/not-on-mobile';
   if (window.location.pathname.replace('/', '') === 'not-on-mobile' && onMobile())
     window.location.href = '/';
+
+  if (process.env.NODE_ENV !== 'development') {
+    if (isPWA() && !window.location.pathname.startsWith('/app')) window.location.href = '/app';
+    else if (!isPWA() && window.location.pathname.startsWith('/app')) window.location.href = '/';
+  }
 
   if (!onlineStatus) return <Offline />;
 
