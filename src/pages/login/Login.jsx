@@ -1,14 +1,21 @@
 import './login.scss';
 import ConnectWithStravaBtn from './assets/connect-with-strava.png';
 import logo from '../../assets/logos/full-text-1.png';
-import { stravaApi } from '../../Config';
 import { useEffect } from 'react';
 import { loggedIn } from '../../utils/login';
+import { submitLoginDetails } from "../../utils/api";
 
-const { clientId, scope, redirectUri } = stravaApi;
 
-const stravaLink = `https://www.strava.com/oauth/authorize?client_id=${clientId}` +
-    `&redirect_uri=${redirectUri}&response_type=code&approval_prompt=auto&scope=${scope}`;
+const openLoginPopup = () => {
+    console.log(1);
+    const popup = window.open('/login-popup');
+    const el = window.addEventListener('message', (e) => {
+        const searchParams = new URLSearchParams(e.data)
+        submitLoginDetails(searchParams.get('code'), searchParams.get('scope'));
+        popup.close();
+        window.removeEventListener('message', el);
+    });
+}
 
 
 const Login = () => {
@@ -22,7 +29,10 @@ const Login = () => {
         <div className="logo-container">
             <img className='logo' src={logo} alt="Stravian Logo" />
         </div>
-        <a className="connect-with-strava-btn" href={stravaLink}><img alt="Connect with Strava" src={ConnectWithStravaBtn} /></a>
+        <div className="connect-with-strava-btn">
+            <button onClick={openLoginPopup}><img alt="Connect with Strava" src={ConnectWithStravaBtn} /></button>
+        </div>
+        
     </div>)
 };
 

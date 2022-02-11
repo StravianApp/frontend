@@ -20,6 +20,7 @@ import Login from './pages/login/Login';
 import LoggedIn from './pages/login/LoggedIn';
 import Logout from './pages/login/Logout';
 import { isPWA } from './utils/pwa';
+import LoginPopup from './pages/login/LoginPopup';
 
 const isOnline = () => (
   typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
@@ -78,6 +79,7 @@ function App() {
           <Route path="logged-in" element={<LoginRequired component={<LoggedIn />} />} />
           <Route path="logout" element={<LoginRequired component={<Logout />} />} />
         </Route>
+        <Route path="/login-popup" element={<LoginPopup />} />
         <Route path="*" element={<ErrorPage
           faIcon={faSearch}
           errorTitle="Page not found"

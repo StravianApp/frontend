@@ -12,9 +12,20 @@
     }
 
     .connect-with-strava-btn {
-        img {
+        button {
             width: 70%;
+            padding: 0;
+            border: 0;
+            background: none;
+
+            img {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
         }
+        
         width: 100%;
         position: absolute;
         top: 50%;
