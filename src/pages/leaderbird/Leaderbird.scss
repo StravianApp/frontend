@@ -1,0 +1,17 @@
+@import '../../theme.scss';
+
+.leaderbird{
+    position: fixed;
+    top: 30%;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    background-color: $secondaryColor;
+}
+
+.trophyImg{
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    background-image: url("../../Icons/trophy.png")
+}
