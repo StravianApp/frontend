@@ -14,6 +14,7 @@ const openLoginPopup = () => {
         submitLoginDetails(searchParams.get('code'), searchParams.get('scope'));
         popup.close();
         window.removeEventListener('message', el);
+        window.location.href = "/app";
     });
 }
 
