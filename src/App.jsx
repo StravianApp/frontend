@@ -6,12 +6,9 @@ import {
 import './App.scss';
 import { useEffect, useState } from 'react';
 
-<<<<<<< HEAD
 import LoginRequired from './LoginRequired';
 
-=======
 import './App.scss';
->>>>>>> navDrawer
 import Layout from './Layout';
 import DownloadPage from './pages/download-page/DownloadPage';
 import Nest from './pages/nest/Nest';
@@ -71,13 +68,6 @@ function App() {
   if (!onlineStatus) return <Offline />;
 
   return (
-
-	/*<>
-	<Layout>
-		<p>Test</p>
-	</Layout>
-	</>*/
-
 	<Layout>
     <BrowserRouter>
       <Routes>
@@ -91,19 +81,16 @@ function App() {
           errorCaption="Please visit this site on a smartphone to use Stravian."
         />} />
         <Route path="/app" element={<Layout />}>
-<<<<<<< HEAD
           <Route index element={<LoginRequired component={<Nest />} />} />
           <Route path="login" element={<Login />} />
           <Route path="logged-in" element={<LoginRequired component={<LoggedIn />} />} />
           <Route path="logout" element={<LoginRequired component={<Logout />} />} />
-=======
           <Route index element={<Nest />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
                 routes for. */}
           {/* <Route path="*" element={<NoMatch />} /> */}
->>>>>>> navDrawer
         </Route>
         <Route path="/login-popup" element={<LoginPopup />} />
         <Route path="*" element={<ErrorPage
