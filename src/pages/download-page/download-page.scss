@@ -1,0 +1,15 @@
+@import '../../theme.scss';
+
+.download-main {
+    height: 100%;
+    background-color: $backgroundColor;
+
+    .logo-container {
+        height: 100px;
+        text-align: center;
+        .logo {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+}
