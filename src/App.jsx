@@ -70,13 +70,6 @@ function App() {
   if (!onlineStatus) return <Offline />;
 
   return (
-
-	/*<>
-	<Layout>
-		<p>Test</p>
-	</Layout>
-	</>*/
-
 	<Layout>
     <BrowserRouter>
       <Routes>
