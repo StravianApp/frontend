@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 import './App.scss';
 import React, { useEffect, useState, Component } from 'react';
-
 import LoginRequired from './LoginRequired';
 
 import './App.scss';

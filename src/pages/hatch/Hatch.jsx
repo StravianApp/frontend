@@ -1,8 +1,10 @@
 import './hatch.scss';
+import bird from './assets/bird.png';
+import notbird from './assets/notbird.png';
 import unhatched from './assets/unhatched.png';
 import parthatched from './assets/parthatched.png';
 import hatched from './assets/hatched.png';
-import React, { useState } from 'react';
+import React, { useState, useHistory } from 'react';
 import { getBirdname } from '../../utils/api';
 const Birdname = getBirdname();
 
@@ -14,6 +16,9 @@ const Hatch = () => {
         <div className="main-section">
             <div className="message-caption">
                 {hatchCount < 3 ? "Tap the egg to hatch your bird" : hatchCount > 10 ? "Meet your bird, " + Birdname : "Keep going!"}
+            </div>
+            <div className="bird">
+                <img src={hatchCount > 10 ? bird : notbird} alt="A truly majestic bird" />
             </div>
             <div className="egg" onClick={() => setHatchCount(hatchCount + 1)}>
                 <img src={hatchCount < 5 ? unhatched : hatchCount > 10 ? hatched : parthatched} alt="Egg" />

@@ -16,12 +16,21 @@
         font-size: 2em;
         font-weight: 500;
         text-align: center;
-        padding: 100px 20px 10px 20px;
+        padding: 100px 20px 0px 20px;
     }
     
     .egg {
         max-width: 100%;
-        padding: 100px 20px 100px 20px;
+        padding: 10px 20px 100px 20px;
+        text-align: center;
+        img {
+            max-width: 70%;
+        }
+    }
+
+    .bird {
+        max-width: 100%;
+        padding: 0px;
         text-align: center;
         img {
             max-width: 70%;
