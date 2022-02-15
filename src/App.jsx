@@ -68,29 +68,22 @@ function App() {
   if (!onlineStatus) return <Offline />;
 
   return (
-	<Layout>
+	// <Layout>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DownloadPage />} />
-		<Route path="/user-stats" element={<UserStats />} />
-		<Route path="/leaderbird" element={<Leaderbird />} />
-		<Route path="/nest" element={<Nest />} />
         <Route path="/not-on-mobile" element={<ErrorPage
           faIcon={faMobileAlt}
           errorTitle="Stravian is only available for mobile devices."
           errorCaption="Please visit this site on a smartphone to use Stravian."
         />} />
+        <Route path="/app/login" element={<Login />} />
         <Route path="/app" element={<Layout />}>
           <Route index element={<LoginRequired component={<Nest />} />} />
-          <Route path="login" element={<Login />} />
           <Route path="logged-in" element={<LoginRequired component={<LoggedIn />} />} />
           <Route path="logout" element={<LoginRequired component={<Logout />} />} />
-          <Route index element={<Nest />} />
-
-          {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
-          {/* <Route path="*" element={<NoMatch />} /> */}
+          <Route path="user-stats" element={<UserStats />} />
+          <Route path="leaderbird" element={<Leaderbird />} />
         </Route>
         <Route path="/login-popup" element={<LoginPopup />} />
         <Route path="*" element={<ErrorPage
@@ -100,7 +93,7 @@ function App() {
         />} />
       </Routes>
     </BrowserRouter>
-	</Layout>
+	// </Layout>
   );
 }
 
