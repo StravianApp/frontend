@@ -4,4 +4,8 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
-export { getUsername, submitLoginDetails };
+const getBirdname = () => {
+    const names = Array("Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird")
+    return names[Math.floor(Math.random()*names.length)];
+}
+export { getUsername, submitLoginDetails, getBirdname };

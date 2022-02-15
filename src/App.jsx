@@ -4,15 +4,19 @@ import {
   Route,
 } from 'react-router-dom';
 import './App.scss';
-import { useEffect, useState } from 'react';
-
+import React, { useEffect, useState, Component } from 'react';
 import LoginRequired from './LoginRequired';
 
+import './App.scss';
 import Layout from './Layout';
 import DownloadPage from './pages/download-page/DownloadPage';
 import Nest from './pages/nest/Nest';
+import Leaderbird from './pages/leaderbird/Leaderbird';
+import UserStats from './pages/userStats/UserStats';
 import Offline from './pages/offline/Offline';
 import ErrorPage from './pages/error-page/ErrorPage';
+import Hatch from './pages/hatch/Hatch';
+
 
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -65,6 +69,7 @@ function App() {
   if (!onlineStatus) return <Offline />;
 
   return (
+	// <Layout>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DownloadPage />} />
@@ -73,11 +78,14 @@ function App() {
           errorTitle="Stravian is only available for mobile devices."
           errorCaption="Please visit this site on a smartphone to use Stravian."
         />} />
+        <Route path="/app/hatch" element={<Hatch />} />
+        <Route path="/app/login" element={<Login />} />
         <Route path="/app" element={<Layout />}>
           <Route index element={<LoginRequired component={<Nest />} />} />
-          <Route path="login" element={<Login />} />
           <Route path="logged-in" element={<LoginRequired component={<LoggedIn />} />} />
           <Route path="logout" element={<LoginRequired component={<Logout />} />} />
+          <Route path="user-stats" element={<UserStats />} />
+          <Route path="leaderbird" element={<Leaderbird />} />
         </Route>
         <Route path="/login-popup" element={<LoginPopup />} />
         <Route path="*" element={<ErrorPage
@@ -87,6 +95,7 @@ function App() {
         />} />
       </Routes>
     </BrowserRouter>
+	// </Layout>
   );
 }
 
