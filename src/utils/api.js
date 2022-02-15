@@ -6,8 +6,10 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
+
+/* Store? This changes every time so need to store on code*/
 const getBirdname = () => {
-    const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird"];
+    const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird", "Vikolas", "Vik", "Vik III"];
     return names[Math.floor(Math.random()*names.length)];
 };
 

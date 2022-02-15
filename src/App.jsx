@@ -10,6 +10,7 @@ import './App.scss';
 import Layout from './Layout';
 import DownloadPage from './pages/download-page/DownloadPage';
 import Nest from './pages/nest/Nest';
+import About from './pages/about/About';
 import Leaderbird from './pages/leaderbird/Leaderbird';
 import UserStats from './pages/userStats/UserStats';
 import Offline from './pages/offline/Offline';
@@ -76,6 +77,7 @@ function App() {
           errorCaption="Please visit this site on a smartphone to use Stravian."
         />} />
         <Route path="/app/hatch" element={<Hatch />} />
+        <Route path="/app/about" element={<About />} />
         <Route path="/app/login" element={<Login />} />
         <Route path="/app" element={<Layout />}>
           <Route index element={<LoginRequired component={<Nest />} />} />
