@@ -4,7 +4,12 @@ import {
   Route,
 } from 'react-router-dom';
 import './App.scss';
+<<<<<<< Updated upstream
 import React, { useEffect, useState, Component } from 'react';
+=======
+import { useEffect, useState } from 'react';
+
+>>>>>>> Stashed changes
 import LoginRequired from './LoginRequired';
 
 import './App.scss';
@@ -84,8 +89,17 @@ function App() {
           <Route index element={<LoginRequired component={<Nest />} />} />
           <Route path="logged-in" element={<LoginRequired component={<LoggedIn />} />} />
           <Route path="logout" element={<LoginRequired component={<Logout />} />} />
+<<<<<<< Updated upstream
           <Route path="user-stats" element={<UserStats />} />
           <Route path="leaderbird" element={<Leaderbird />} />
+=======
+          <Route index element={<Nest />} />
+
+          {/* Using path="*"" means "match anything", so this route
+                acts like a catch-all for URLs that we don't have explicit
+                routes for. */}
+          {/* <Route path="*" element={<NoMatch />} /> */}
+>>>>>>> Stashed changes
         </Route>
         <Route path="/login-popup" element={<LoginPopup />} />
         <Route path="*" element={<ErrorPage
