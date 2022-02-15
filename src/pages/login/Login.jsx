@@ -14,7 +14,7 @@ const openLoginPopup = (setCode) => {
         setCode(searchParams.get('code'));
         popup.close();
         window.removeEventListener('message', el);
-        // window.location.href = "/app";
+        window.location.href = "/app";
     });
 }
 
