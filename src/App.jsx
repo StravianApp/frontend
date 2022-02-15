@@ -6,7 +6,6 @@ import {
 import './App.scss';
 import React, { useEffect, useState, Component } from 'react';
 import LoginRequired from './LoginRequired';
-
 import './App.scss';
 import Layout from './Layout';
 import DownloadPage from './pages/download-page/DownloadPage';
@@ -16,8 +15,6 @@ import UserStats from './pages/userStats/UserStats';
 import Offline from './pages/offline/Offline';
 import ErrorPage from './pages/error-page/ErrorPage';
 import Hatch from './pages/hatch/Hatch';
-
-
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Login from './pages/login/Login';
@@ -25,6 +22,7 @@ import LoggedIn from './pages/login/LoggedIn';
 import Logout from './pages/login/Logout';
 import { isPWA } from './utils/pwa';
 import LoginPopup from './pages/login/LoginPopup';
+
 
 const isOnline = () => (
   typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
@@ -42,7 +40,6 @@ const onMobile = () => {
 function App() {
 
   const [onlineStatus, setOnlineStatus] = useState(isOnline());
-
   const setOnline = () => setOnlineStatus(true);
   const setOffline = () => setOnlineStatus(false);
 
@@ -86,6 +83,12 @@ function App() {
           <Route path="logout" element={<LoginRequired component={<Logout />} />} />
           <Route path="user-stats" element={<UserStats />} />
           <Route path="leaderbird" element={<Leaderbird />} />
+          <Route index element={<Nest />} />
+
+          {/* Using path="*"" means "match anything", so this route
+                acts like a catch-all for URLs that we don't have explicit
+                routes for. */}
+          {/* <Route path="*" element={<NoMatch />} /> */}
         </Route>
         <Route path="/login-popup" element={<LoginPopup />} />
         <Route path="*" element={<ErrorPage
