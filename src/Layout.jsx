@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import React from 'react';
 import './Layout.scss';
 
 function openNav() {
@@ -25,28 +24,26 @@ function toggleNav() {
 
 
 
-const Layout = () => {
-    return (
-        <div id="layout-root">
-            <div id="navDrawer" className="navDrawer">
-                <a href="/app">Nest</a>
-                <a href="/app/leaderbird">Leaderbird</a>
-                <a href="/app/user-stats">User Stats</a>
-                <a href="/app/bird-page">Bird Page</a>
-                <a href="/app/your-flock">Your Flock</a>
-                <a href="/app/settwings">Settwings</a>
-            </div>
-
-            <div id="shader" className="shader" onClick={toggleNav}></div>
-
-            <div onClick={toggleNav}
-                id="navDrawerButton"
-                className="navDrawerButton">
-                &nbsp;
-            </div>
-            <Outlet />
+const Layout = () => (
+    <div id="layout-root">
+        <div id="navDrawer" className="navDrawer">
+            <a href="/app">Nest</a>
+            <a href="/app/leaderbird">Leaderbird</a>
+            <a href="/app/user-stats">User Stats</a>
+            <a href="/app/bird-page">Bird Page</a>
+            <a href="/app/your-flock">Your Flock</a>
+            <a href="/app/settwings">Settwings</a>
         </div>
-    )
-}
+
+        <div id="shader" className="shader" onClick={toggleNav}></div>
+
+        <div onClick={toggleNav}
+            id="navDrawerButton"
+            className="navDrawerButton">
+            &nbsp;
+        </div>
+        <Outlet />
+    </div>
+);
 
 export default Layout;
