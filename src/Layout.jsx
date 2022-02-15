@@ -15,7 +15,7 @@ function closeNav() {
 }
 
 function toggleNav() {
-    if (document.getElementById("navDrawer").style.width == "0%") {
+    if (document.getElementById("navDrawer").style.width === "0%") {
         openNav();
     }
     else {
