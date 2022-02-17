@@ -1,4 +1,3 @@
-const getUsername = () => localStorage.getItem('username');
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
     localStorage.setItem('code', code);
@@ -11,4 +10,10 @@ const getBirdname = () => {
     return names[Math.floor(Math.random()*names.length)];
 };
 
-export { getUsername, submitLoginDetails, getBirdname };
+const exchangeStravaCodeForLoginCode = (code) => code.substr(0, 8);
+
+const getUserDetails = (loginCode) => (loginCode.length == 10 ? {
+    username: 'Test Username'
+} : null);
+
+export { submitLoginDetails, getBirdname, exchangeStravaCodeForLoginCode, getUserDetails };

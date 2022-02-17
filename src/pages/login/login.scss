@@ -24,6 +24,28 @@
                 padding: 0;
                 border: 0;
             }
+
+            
+        }
+
+        .got-a-login-code-caption {
+            // display: inline-block;
+            width: auto;
+            background-color: $primaryColor;
+            padding: 8px;
+            margin: 8px;
+        }
+
+        .submitBtn {
+            display: block;
+            background-color: $textColor;
+            width: auto;   
+            font-size: 1.2em;
+            color: white;
+            padding: 10px;
+            border-radius: 14px;
+            margin: auto;
+            // margin-top: 10px;
         }
         
         width: 100%;

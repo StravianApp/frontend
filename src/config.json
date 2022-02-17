@@ -2,14 +2,14 @@
     "development": {
         "stravaApi": {
             "clientId": "77718",
-            "scope": "activity:write,read",
+            "scope": "activity:read",
             "redirectUri": "http://localhost:3000/app/logged-in"
         }
     },
     "production": {
         "stravaApi": {
             "clientId": "77808",
-            "scope": "activity:write,read",
+            "scope": "activity:read",
             "redirectUri": "http://stravian-frontend.herokuapp.com/app/logged-in"
         }
     }
