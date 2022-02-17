@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import React from 'react';
 import './Layout.scss';
 
@@ -35,6 +34,7 @@ const Layout = ({children}) => {
         <a href="/user-stats">User Stats</a>
         <a href="/bird-page">Bird's Page</a>
         <a href="/your-flock">Your Flock</a>
+        <a class="l" href="/about">Abou</a> <a class="s" target="_blank" href={getLink()}>t</a>
         <a href="/settwings">Settwings</a>
       </div>
 
@@ -53,7 +53,13 @@ const Layout = ({children}) => {
     )
 }
 
-
+const arr = ["https://twitter.com/birdsarentreal?s=21",
+"https://flappybird.io/",
+"https://en.wikipedia.org/wiki/Crime_in_Antarctica",
+"https://mcphee.com/products/inflatable-toast-mattress"];
+function getLink(){
+  return arr[Math.floor((Math.random() * arr.length))];
+}
 
 
 

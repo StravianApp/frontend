@@ -46,10 +46,20 @@
     display: block;
     transition: 0.3s;
   }
+
+  .navDrawer .l {
+    padding: 8px 0px 8px 32px;
+    display: inline-block;
+  }
+
+  .navDrawer .s {
+    padding: 8px 8px 8px 0px;
+    display: inline-block;
+  }
   
   /* When you mouse over the navigation links, change their color */
   .navDrawer a:hover {
-    color: $primaryColor;
+    color: $backgroundColor;
   }
   
   /* Position and style the close button (top right corner) */
