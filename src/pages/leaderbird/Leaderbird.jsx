@@ -163,35 +163,12 @@ function eventLb(obj){
 function getLeaderbird(type){
     if(type === 5/*Leaderbirds.Global*/){
         //getGlobalLeaderbird();
-        return [{name: "Fred", bird: "Kal", dist: 2.3},
-        {name: "Robert", bird: "Lucky", dist: 2.0},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4},
-        {name: "Lucy", bird: "Lucky", dist: 1.4}];
+        return getGlobalLeaderbird();
     }
     if(type === 6/*Leaderbirds.Flock*/){
         //stub for backend.get flock leadbird
         //getFlockLeaderbird();
-        return [{name: "Fred", bird: "Kal", dist: 2.3},
-        {name: "Robert", bird: "Lucky", dist: 2.0}];
+        return getFlockLeaderbird();
     }
     else{
         return [];
@@ -200,13 +177,11 @@ function getLeaderbird(type){
 
 function getRank(type){
     if(type === 5/*Leaderbirds.Global*/){
-        //getGlobalRank();
-        return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0},];
+        return getGlobalRank();
     }
     if(type === 6/*Leaderbirds.Flock*/){
         //stub for backend.get flock leadbird
-        //getFlockRank();
-        return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}];
+        return getFlockRank();
     }
     else{
         return [];

@@ -24,27 +24,53 @@ function toggleNav() {
 }
 
 
+const Layout = () => {
+    return (
+      <>
 
-const Layout = () => (
-    <div id="layout-root">
-        <div id="navDrawer" className="navDrawer">
-            <a href="/app">Nest</a>
-            <a href="/app/leaderbird">Leaderbird</a>
-            <a href="/app/user-stats">User Stats</a>
-            <a href="/app/bird-page">Bird Page</a>
-            <a href="/app/your-flock">Your Flock</a>
-            <a href="/app/settwings">Settwings</a>
-        </div>
+      <div id="navDrawer" class="navDrawer">
+        <a href="/app/nest">Nest</a>
+        <a href="/app/leaderbird">Leaderbird</a>
+        <a href="/app/user-stats">User Stats</a>
+        <a href="/app/bird-page">Bird's Page</a>
+        <a href="/app/your-flock">Your Flock</a>
+        <a class="l" href="/app/about">Abou</a> <a class="s" target="_blank" href={getLink()}>t</a>
+        <a href="/app/settwings">Settwings</a>
+      </div>
 
-        <div id="shader" className="shader" onClick={toggleNav}></div>
+      <div id="shader" class="shader" onClick={toggleNav}></div>
 
-        <div onClick={toggleNav}
-            id="navDrawerButton"
-            className="navDrawerButton">
-            &nbsp;
-        </div>
-        <Outlet />
-    </div>
-);
+      <div onClick={toggleNav}
+      id = "navDrawerButton"
+      class="navDrawerButton">
+        &nbsp;
+      </div>
 
+      <Outlet />
+      </>
+    )
+}
 export default Layout;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const arr = ["https://twitter.com/birdsarentreal?s=21",
+"https://flappybird.io/",
+"https://en.wikipedia.org/wiki/Crime_in_Antarctica",
+"https://mcphee.com/products/inflatable-toast-mattress"];
+function getLink(){
+  return arr[Math.floor((Math.random() * arr.length))];
+}

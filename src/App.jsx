@@ -67,7 +67,6 @@ function App() {
   if (!onlineStatus) return <Offline />;
 
   return (
-	// <Layout>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DownloadPage />} />
@@ -77,7 +76,6 @@ function App() {
           errorCaption="Please visit this site on a smartphone to use Stravian."
         />} />
         <Route path="/app/hatch" element={<Hatch />} />
-        <Route path="/app/about" element={<About />} />
         <Route path="/app/login" element={<Login />} />
         <Route path="/app" element={<Layout />}>
           <Route index element={<LoginRequired component={<Nest />} />} />
@@ -86,6 +84,11 @@ function App() {
           <Route path="user-stats" element={<UserStats />} />
           <Route path="leaderbird" element={<Leaderbird />} />
           <Route index element={<Nest />} />
+          <Route path="leaderbird" element={<Leaderbird />} />
+          <Route path="user-stats" element={<UserStats />} />
+		      <Route path="nest" element={<Nest />} />
+          <Route path="about" element={<About />} />
+
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
@@ -100,7 +103,6 @@ function App() {
         />} />
       </Routes>
     </BrowserRouter>
-	// </Layout>
   );
 }
 
