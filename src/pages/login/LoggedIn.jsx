@@ -10,7 +10,7 @@ const LoggedIn = () => {
                 searchParams.toString(),
                 window.location.protocol + '//' + window.location.host
             )
-            window.close();
+            // window.close();
         }
     }, [searchParams]);
 
