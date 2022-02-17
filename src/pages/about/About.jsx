@@ -1,5 +1,6 @@
 import './about.scss';
 import logo from '../../assets/logos/full-text-1.png';
+import poweredBy from './assets/poweredbystrava.png';
 
 
 const About = () => (
@@ -35,6 +36,11 @@ const About = () => (
         </div>
         <div className='text'>
             Programming by Nicole Choong, Fiona Gibbs, Neelu Saraswatibhatla, Balázs Tóth, Zalan Martinak and Alex Riddell-Webster. Consulting and eagle-eyed expertise from Adham Ashton-Butt. Data from the British Trust for Ornithology and Movebank. Many thanks to Strava for the use of their API.
+        </div>
+        <div className ="strava-container">
+            <a href="https://www.strava.com/">
+            <img className="strava" src={poweredBy} alt="Powered by Strava" />
+            </a>
         </div>
     </div>
 );

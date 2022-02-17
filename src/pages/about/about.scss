@@ -5,12 +5,13 @@
     height: 100%;
     padding: 10px 30px 10px 30px;
     background-color: $backgroundColor;
+    overflow-y: scroll;
 
     .first-header {
         font-size: 15px;
         color: $textColor;
         text-align: left;
-        padding-top: 50px;
+        padding-top: 0px;
         font-weight: bold;
     }
 
@@ -31,14 +32,27 @@
     }
 
     .logo-container {
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
-        padding-top: 10px;
+        //padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 0px;
+        .logo {
+            max-width: 100%;
+        }
+    }
+
+    .strava-container {
+        // position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
         padding-left: 60px;
         padding-right: 60px;
-        .logo {
+        .strava {
             max-width: 100%;
         }
     }
