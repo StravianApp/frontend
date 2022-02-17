@@ -1,4 +1,5 @@
 const getUsername = () => localStorage.getItem('username');
+
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
     localStorage.setItem('code', code);
@@ -40,10 +41,20 @@ const getBirdname = () => {
     return names[Math.floor(Math.random()*names.length)];
 };
 
+const getFriendUpdates = () => {
+    return ["Neelu cycled the 400700 kilometres, to Canada this week!", "Fiona cycled 50 kilometres this week!", "Alex had a nap."]
+}
+
+const getFriends = () => {
+    return ["DangerBirdStrikesAgain", "sbneelu", "mazalan01", "nicolechoong", "bazsi700", "fg406"]
+}
+
 export { getUsername,
     submitLoginDetails,
     getGlobalLeaderbird,
     getFlockLeaderbird,
     getFlockRank,
-    getGlobalRank, 
+    getGlobalRank,
+    getFriends,
+    getFriendUpdates, 
     getBirdname };
