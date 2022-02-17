@@ -1,4 +1,7 @@
+import './flock.scss';
 import {Row, Col} from 'reactstrap';
+import logo from '../../assets/logos/full-text-1.png';
+
 
 const Flock = () => (
     <div className='flock-main'>
