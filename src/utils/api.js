@@ -49,7 +49,18 @@ const getFriends = () => {
     return ["DangerBirdStrikesAgain", "sbneelu", "mazalan01", "nicolechoong", "bazsi700", "fg406"]
 }
 
-export { getUsername,
+const newFriend = (friend) => {
+    console.log(friend);
+    if (friend in ["Alice", "Bob", "Carl", "Diane", "Egg", "Fill"]) {
+        //add friend as a new friend here please!!!!!!!!! but only if they exist
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+export {getUsername,
     submitLoginDetails,
     getGlobalLeaderbird,
     getFlockLeaderbird,
@@ -57,4 +68,5 @@ export { getUsername,
     getGlobalRank,
     getFriends,
     getFriendUpdates, 
-    getBirdname };
+    getBirdname, 
+    newFriend};
