@@ -1,5 +1,3 @@
-const getUsername = () => localStorage.getItem('username');
-
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
     localStorage.setItem('code', code);
@@ -7,38 +5,42 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
-const getGlobalLeaderbird = () => { return [{name: "Fred", bird: "Kal", dist: 2.3},
-{name: "Robert", bird: "Lucky", dist: 2.0},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4}]};
-const getFlockLeaderbird = () => {return [{name: "Fred", bird: "Kal", dist: 2.3},
-{name: "Robert", bird: "Lucky", dist: 2.0}]};
-const getGlobalRank = () => {return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}]};
-const getFlockRank = () => {return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}]};
+const getGlobalLeaderbird = () => {
+    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
+    { name: "Robert", bird: "Lucky", dist: 2.0 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 }]
+};
+const getFlockLeaderbird = () => {
+    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
+    { name: "Robert", bird: "Lucky", dist: 2.0 }]
+};
+const getGlobalRank = () => { return [{ rank: 2, name: "Robert", bird: "Lucky", dist: 2.0 }] };
+const getFlockRank = () => { return [{ rank: 2, name: "Robert", bird: "Lucky", dist: 2.0 }] };
 
 /* Store? This changes every time so need to store on code*/
 const getBirdname = () => {
     const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird", "Vikolas", "Vik", "Vik III"];
-    return names[Math.floor(Math.random()*names.length)];
+    return names[Math.floor(Math.random() * names.length)];
 };
 
 const getFriendUpdates = () => {
@@ -49,12 +51,23 @@ const getFriends = () => {
     return ["DangerBirdStrikesAgain", "sbneelu", "mazalan01", "nicolechoong", "bazsi700", "fg406"]
 }
 
-export { getUsername,
+
+const exchangeStravaCodeForLoginCode = (code) => code.substr(0, 8);
+
+const getUserDetails = (loginCode) => (loginCode.length == 10 ? {
+    username: 'Test Username'
+} : null);
+
+
+export {
     submitLoginDetails,
     getGlobalLeaderbird,
     getFlockLeaderbird,
     getFlockRank,
     getGlobalRank,
     getFriends,
-    getFriendUpdates, 
-    getBirdname };
+    getFriendUpdates,
+    getBirdname,
+    exchangeStravaCodeForLoginCode,
+    getUserDetails
+};
