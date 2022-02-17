@@ -27,6 +27,7 @@
     "react-native-screens": "^3.10.2",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "react-share": "^4.4.0",
     "react-spring": "^9.4.3",
     "react-use-gesture": "^9.1.3",
     "reactstrap": "^9.0.1",
