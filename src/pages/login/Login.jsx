@@ -13,7 +13,7 @@ const stravaLink = `https://www.strava.com/oauth/mobile/authorize?client_id=${cl
 
 const Login = () => {
     const codeEl = useRef(null);
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
     useEffect(() => {
         if (loggedIn()) window.location.href = "/app";
     }, []);
@@ -36,7 +36,6 @@ const Login = () => {
                 }}>Submit</button>
                 { error && <div style={{color: 'red', fontSize: '3em', fontWeight: 700}}>{error}</div>}
             </div>
-            
         </div>
     );
 };

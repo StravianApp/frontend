@@ -23,7 +23,6 @@ import Login from './pages/login/Login';
 import LoggedIn from './pages/login/LoggedIn';
 import Logout from './pages/login/Logout';
 import { isPWA } from './utils/pwa';
-import LoginPopup from './pages/login/LoginPopup';
 
 
 const isOnline = () => (
@@ -77,18 +76,17 @@ function App() {
                     errorTitle="Stravian is only available for mobile devices."
                     errorCaption="Please visit this site on a smartphone to use Stravian."
                 />} />
-                <Route path="/app/hatch" element={<Hatch />} />
-                <Route path="/app/login" element={<Login />} />
-                <Route path="/app/flock" element={<Flock />} />
                 <Route path="/app" element={<Layout />}>
-                    <Route index element={<LoginRequired component={<Nest />} />} />
-                    <Route path="logged-in" element={<LoginRequired component={<LoggedIn />} />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="logged-in" element={<LoggedIn />} />
                     <Route path="logout" element={<LoginRequired component={<Logout />} />} />
+                    <Route index element={<LoginRequired component={<Nest />} />} />
+                    <Route path="hatch" element={<LoginRequired component={<Hatch />} />} />
+                    <Route path="flock" element={<LoginRequired component={<Flock />} />} />
                     <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
                     <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
                     <Route path="about" element={<LoginRequired component={<About />} />} />
                 </Route>
-                <Route path="/login-popup" element={<LoginPopup />} />
                 <Route path="*" element={<ErrorPage
                     faIcon={faSearch}
                     errorTitle="Page not found"
