@@ -7,8 +7,15 @@ const friends = getFriends();
 
 
 const Flock = () => {
-    const friendNameEl = useRef(null);
-    const [friendExists, setFriendExists] = useState(null);
+    const friendName = useRef(null);
+
+    function whenClick(friendName) {
+        if (newFriend(friendName)==true) { 
+            return(<div className='text-flockmates'>Success! Another friend flies with you!</div>) 
+        } else {
+            return(<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>) 
+        }
+    }
 
     return <div className='flock-main'>
         <div className='title'>
@@ -19,8 +26,8 @@ const Flock = () => {
             Find a new Flockmate
         </div>
         <div className='in'>
-            <input type="text" name="input" ref={friendNameEl} onKeyDown={(e) => (e.key == 'enter') ? setFriendExists(newFriend(friendNameEl.current.value)) : null} />
-            {friendExists ? <div className='text-flockmates'>Success! Another friend flies with you!</div> : <div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>}
+            <input type="text" name="input" ref={friendName}/>
+            <button onClick={() => (newFriend(friendName)==true ? (<div className='text-flockmates'>Success! Another friend flies with you!</div>) : (<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>))}>SEARCH</button>
         </div>
         <div className='break'> </div>
         <div className='header-updates'>
@@ -30,6 +37,7 @@ const Flock = () => {
         <div className='break'> </div>
         <div className='header-flockmates'>
             Your Flockmates:
+            {/*Add ability to remove friends here?*/}
         </div>
         {friends.map((e) => <div className='text-flockmates'>{e}</div>)}
     </div>
