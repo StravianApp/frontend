@@ -14,6 +14,7 @@ import About from './pages/about/About';
 import Flock from './pages/flock/Flock';
 import Leaderbird from './pages/leaderbird/Leaderbird';
 import UserStats from './pages/userStats/UserStats';
+import Settwings from './pages/settwings/Settwings';
 import Offline from './pages/offline/Offline';
 import ErrorPage from './pages/error-page/ErrorPage';
 import Hatch from './pages/hatch/Hatch';
@@ -83,6 +84,7 @@ function App() {
                     <Route index element={<LoginRequired component={<Nest />} />} />
                     <Route path="hatch" element={<LoginRequired component={<Hatch />} />} />
                     <Route path="flock" element={<LoginRequired component={<Flock />} />} />
+                    <Route path="settwings" element={<LoginRequired component={<Settwings />} />} />
                     <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
                     <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
                     <Route path="about" element={<LoginRequired component={<About />} />} />
