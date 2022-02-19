@@ -60,6 +60,11 @@ const newFriend = (friend) => {
     }
 }
 
+const noFriend = (friend) => {
+    console.log(friend);
+    //Remove friend here please :(
+}
+
 export {getUsername,
     submitLoginDetails,
     getGlobalLeaderbird,
@@ -69,4 +74,5 @@ export {getUsername,
     getFriends,
     getFriendUpdates, 
     getBirdname, 
-    newFriend};
+    newFriend,
+    noFriend};

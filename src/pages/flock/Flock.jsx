@@ -1,21 +1,13 @@
 import './flock.scss';
 import glass from './assets/magglass.png'
-import { useRef, useState } from 'react';
-import { getFriendUpdates, getFriends, newFriend } from '../../utils/api';
+import { useRef, useState, Button } from 'react';
+import { getFriendUpdates, getFriends, newFriend, noFriend } from '../../utils/api';
 const friendUpdates = getFriendUpdates();
 const friends = getFriends();
 
 
 const Flock = () => {
     const friendName = useRef(null);
-
-    function whenClick(friendName) {
-        if (newFriend(friendName)==true) { 
-            return(<div className='text-flockmates'>Success! Another friend flies with you!</div>) 
-        } else {
-            return(<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>) 
-        }
-    }
 
     return <div className='flock-main'>
         <div className='title'>
@@ -26,8 +18,10 @@ const Flock = () => {
             Find a new Flockmate
         </div>
         <div className='in'>
-            <input type="text" name="input" ref={friendName}/>
-            <button onClick={() => (newFriend(friendName)==true ? (<div className='text-flockmates'>Success! Another friend flies with you!</div>) : (<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>))}>SEARCH</button>
+            <form onSubmit={() => (newFriend(friendName) ? (<div className='text-flockmates'>Success! Another friend flies with you!</div>) : (<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>))}>
+                <input type="text" name="input" className="search-box" id={friendName} ref={friendName}/>
+                <input type="submit" className="search-button" value="Search"></input>
+            </form>
         </div>
         <div className='break'> </div>
         <div className='header-updates'>
@@ -37,9 +31,8 @@ const Flock = () => {
         <div className='break'> </div>
         <div className='header-flockmates'>
             Your Flockmates:
-            {/*Add ability to remove friends here?*/}
         </div>
-        {friends.map((e) => <div className='text-flockmates'>{e}</div>)}
+        {friends.map((e) => <div className='text-flockmates'>{e}<button className="remove" onClick={() => noFriend(e)}>Remove</button></div>)}
     </div>
 }
 
