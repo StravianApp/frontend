@@ -33,7 +33,7 @@ const Layout = () => {
         <a href="/app/leaderbird">Leaderbird</a>
         <a href="/app/user-stats">User Stats</a>
         <a href="/app/bird-page">Bird's Page</a>
-        <a href="/app/your-flock">Your Flock</a>
+        <a href="/app/flock">Your Flock</a>
         <a class="l" href="/app/about">Abou</a> <a class="s" target="_blank" href={getLink()}>t</a>
         <a href="/app/settwings">Settwings</a>
       </div>
