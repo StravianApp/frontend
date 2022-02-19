@@ -24,13 +24,44 @@
         color: $textColor;
         text-align: left;
         padding-top: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
         font-weight: bold;
         padding-left: 5px;
         background-color: $secondaryColor;
         .magglass {
             max-width: 15%;
             align-items: left;
+        }
+    }
+
+    .in {
+        align-items: center;
+        text-align: center;
+        padding-bottom: 30px;
+        background-color: $secondaryColor;
+        .search-box {
+            align-items: left;
+            align-self: left;
+            align-content: left;
+            text-align: left;
+            font-size: 11px;  
+            float: left;
+            margin-left: 10px;
+            border: 1px solid;
+            background-color: $backgroundColor;
+            width: 70%;
+        }
+        .search-button {
+            align-items: right;
+            align-self: right;
+            align-content: right;
+            text-align: right;
+            font-size: 11px;  
+            float: right;
+            margin-left: auto;
+            margin-right: 10px;
+            border: 1px solid;
+            background-color: $backgroundColor;
         }
     }
 
@@ -79,6 +110,37 @@
         color: $textColor;
         background-color: $secondaryColor;
         text-align: left;
+        //position: absolute;
+        align-items: right;
+        align-self: right;
+        align-content: right;
+        //text-align: right;
+        //padding-right: 0px;
+        //font-size: 10px;  
+        //display: inline-flex;
+        //float: right;
+        //margin-right: 0px;
+        //border: 2px red solid;
+        //display: flex;
     }    
+
+    .remove {
+        align-items: right;
+        align-self: right;
+        align-content: right;
+        text-align: right;
+        padding-left: 3px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-right: 3px;
+        font-size: 11px;  
+        float: right;
+        margin-right: 5px;
+        margin-left: auto;
+        border: 1px solid;
+        background-color: $primaryColor;
+    }
+
+   
 
 }

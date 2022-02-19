@@ -30,10 +30,12 @@ const getGlobalLeaderbird = () => {
     { name: "Lucy", bird: "Lucky", dist: 1.4 },
     { name: "Lucy", bird: "Lucky", dist: 1.4 }]
 };
+
 const getFlockLeaderbird = () => {
     return [{ name: "Fred", bird: "Kal", dist: 2.3 },
     { name: "Robert", bird: "Lucky", dist: 2.0 }]
 };
+
 const getGlobalRank = () => { return [{ rank: 2, name: "Robert", bird: "Lucky", dist: 2.0 }] };
 const getFlockRank = () => { return [{ rank: 2, name: "Robert", bird: "Lucky", dist: 2.0 }] };
 
@@ -45,11 +47,11 @@ const getBirdname = () => {
 
 const getFriendUpdates = () => {
     return ["Neelu cycled the 400700 kilometres, to Canada this week!", "Fiona cycled 50 kilometres this week!", "Alex had a nap."]
-}
+};
 
 const getFriends = () => {
     return ["DangerBirdStrikesAgain", "sbneelu", "mazalan01", "nicolechoong", "bazsi700", "fg406"]
-}
+};
 
 
 const exchangeStravaCodeForLoginCode = (code) => code.substr(0, 8);
@@ -59,6 +61,22 @@ const getUserDetails = (loginCode) => (loginCode.length == 10 ? {
 } : null);
 
 
+const newFriend = (friend) => {
+    console.log(friend);
+    if (friend in ["Alice", "Bob", "Carl", "Diane", "Egg", "Fill"]) {
+        //add friend as a new friend here please!!!!!!!!! but only if they exist
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+const noFriend = (friend) => {
+    console.log(friend);
+    //Remove friend here please :(
+};
+
 export {
     submitLoginDetails,
     getGlobalLeaderbird,
@@ -66,8 +84,9 @@ export {
     getFlockRank,
     getGlobalRank,
     getFriends,
-    getFriendUpdates,
     getBirdname,
     exchangeStravaCodeForLoginCode,
-    getUserDetails
-};
+    getUserDetails,
+    getFriendUpdates, 
+    newFriend,
+    noFriend};
