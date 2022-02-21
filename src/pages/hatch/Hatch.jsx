@@ -25,6 +25,7 @@ const Hatch = () => {
             </div>
         </div>
     </div>
+    //redirect to bird page
 };
 
 export default Hatch;

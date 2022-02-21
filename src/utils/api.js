@@ -80,6 +80,7 @@ const noFriend = (friend) => {
 const Logout = () => {
     console.log("logged out");
     //Logout instructions - ask neelu!! 
+    //then redirect to login page? 
 }
 
 export {

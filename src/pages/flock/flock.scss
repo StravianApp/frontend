@@ -110,22 +110,14 @@
         color: $textColor;
         background-color: $secondaryColor;
         text-align: left;
-        //position: absolute;
         align-items: right;
         align-self: right;
         align-content: right;
-        //text-align: right;
-        //padding-right: 0px;
-        //font-size: 10px;  
-        //display: inline-flex;
-        //float: right;
-        //margin-right: 0px;
-        //border: 2px red solid;
-        //display: flex;
     }    
 
     .remove {
         align-items: right;
+        border-radius: 5px;
         align-self: right;
         align-content: right;
         text-align: right;

@@ -7,9 +7,7 @@ const Settwings = () => {
         <div className='title'>
             Settwings
         </div>
-        <div className='text'>
-            <button className="press" onClick={() => Logout()}>Logout</button>
-        </div>
+        <button className="press" onClick={() => Logout()}>Logout</button>
         {/*
         Button to move to sliding draw for provacy settings - what privacy settings? 
         Button to moce to units?
