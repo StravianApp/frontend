@@ -1,10 +1,9 @@
 import './flock.scss';
 import glass from './assets/magglass.png'
 import { useRef, useState, Button } from 'react';
-import { getFriendUpdates, getFriends, newFriend, noFriend } from '../../utils/api';
-const friendUpdates = getFriendUpdates();
-const friends = getFriends();
-
+import { noFriend, newFriend, getFriendUpdates, getFriends } from '../../utils/api';
+const friendUpdates=getFriendUpdates();
+const friends=getFriends();
 
 const Flock = () => {
     const friendName = useRef(null);

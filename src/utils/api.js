@@ -77,6 +77,11 @@ const noFriend = (friend) => {
     //Remove friend here please :(
 };
 
+const Logout = () => {
+    console.log("logged out");
+    //Logout instructions - ask neelu!! 
+}
+
 export {
     submitLoginDetails,
     getGlobalLeaderbird,
@@ -89,4 +94,5 @@ export {
     getUserDetails,
     getFriendUpdates, 
     newFriend,
-    noFriend};
+    noFriend, 
+    Logout};
