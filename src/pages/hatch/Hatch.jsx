@@ -1,6 +1,5 @@
 import './hatch.scss';
 import bird from './assets/bird.png';
-import notbird from './assets/notbird.png';
 import unhatched from './assets/unhatched.png';
 import parthatched from './assets/parthatched.png';
 import hatched from './assets/hatched.png';
