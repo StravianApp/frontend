@@ -14,6 +14,7 @@ const Settwings = () => {
         <div className='title'>
             Settwings
         </div>
+
         <button className="press" onClick={() => Logout()}>Logout</button>
 
         <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
@@ -41,4 +42,5 @@ const Settwings = () => {
         </SlidingPane>
     </div>
 }
+
 export default Settwings;
