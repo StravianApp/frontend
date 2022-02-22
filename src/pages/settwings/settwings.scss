@@ -12,7 +12,7 @@
         font-size: 30px;
         color: $primaryColor;
         text-align: center;
-        padding-bottom: 10px;
+        padding-bottom: 30px;
         padding-top: 10px;
         top: 0;
         font-weight: bold;
@@ -33,23 +33,14 @@
     }
 
     .press {
-        //padding-left: 30%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        //padding-right: 30%;
-        width: 80%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100%;
         font-size: 20px;  
         border: 2px solid;
-        margin-top: 30px;
+        margin-top: 40px;
         background-color: $secondaryColor;
-        text-align: center;
-        align-items: center;
-        align-self: center;
         align-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        float: center;
-        display: flex;
         border-radius: 20px;
     }
 }

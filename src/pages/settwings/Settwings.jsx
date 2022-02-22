@@ -8,6 +8,7 @@ import { Logout } from '../../utils/api';
 const Settwings = () => {
     const [state, setState] = useState({
         isPaneOpen: false,
+        paneOpen: false,
     });
     
     return <div className='settwings-main'>
@@ -16,9 +17,14 @@ const Settwings = () => {
         </div>
         <button className="press" onClick={() => Logout()}>Logout</button>
         
-        <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change units</button>
+        <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
         <SlidingPane isOpen={state.isPaneOpen} title="Units"
         onRequestClose={() => {setState({ isPaneOpen: false })}}>
+            <div>{/*Buttons for change units here*/}</div> 
+        </SlidingPane>
+        <button className="press" onClick={()=> setState({paneOpen: true})}>Privacy</button>
+        <SlidingPane isOpen={state.paneOpen} title="Privacy"
+        onRequestClose={() => {setState({ paneOpen: false })}}>
             <div>{/*Buttons for change units here*/}</div> 
         </SlidingPane>
     </div>
