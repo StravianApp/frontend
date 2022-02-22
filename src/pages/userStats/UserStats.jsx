@@ -1,4 +1,4 @@
-import {Card, Row, Col} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
 
 const UserStats = () => (
     <Row>
