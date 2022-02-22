@@ -1,8 +1,7 @@
 import './settwings.scss';
-import { render } from "react-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
-import { useState, Component } from 'react';
+import { useState } from 'react';
 import { changeUnitsTemp, changeUnitsDis, Logout, leaderbirdVisible, deleteAccount } from '../../utils/api';
 
 const Settwings = () => {
@@ -19,10 +18,10 @@ const Settwings = () => {
 
         <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
         <SlidingPane className="slide-pane" overlayClassName="slide-pane-overlay" isOpen={state.isPaneOpen} title="Units" onRequestClose={() => {setState({ isPaneOpen: false })}}>
-            <div> Units for Temperatture
-            <button className="press" onClick={()=> changeUnitsTemp("celsius")}>Celsius</button>
-            <button className="press" onClick={()=> changeUnitsTemp("fahrenheit")}>Fahrenheit</button>
-            <button className="press" onClick={()=> changeUnitsTemp("kelvin")}>Kelvin</button>
+            <div className="units"> Units for Temperatture
+            <button className="units" onClick={()=> changeUnitsTemp("celsius")}>Celsius</button>
+            <button className="units" onClick={()=> changeUnitsTemp("fahrenheit")}>Fahrenheit</button>
+            <button className="units" onClick={()=> changeUnitsTemp("kelvin")}>Kelvin</button>
             </div>
             <div> Units for Distance
             <button className="press" onClick={()=> changeUnitsDis("kilometre")}>Kilometres</button>
