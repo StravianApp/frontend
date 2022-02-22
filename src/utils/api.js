@@ -65,7 +65,7 @@ const birdAssigned = () => false;
 
 const newFriend = (friend) => {
     console.log(friend);
-    if (friend in ["Alice", "Bob", "Carl", "Diane", "Egg", "Fill"]) {
+    if (["Alice", "Bob", "Carl", "Diane", "Egg", "Fill"].indexOf(friend) > -1) {
         //add friend as a new friend here please!!!!!!!!! but only if they exist
         return true;
     }

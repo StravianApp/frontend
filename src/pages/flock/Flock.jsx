@@ -1,12 +1,13 @@
 import './flock.scss';
 import glass from './assets/magglass.png'
-import { useRef, useState, Button } from 'react';
+import { useRef, useState } from 'react';
 import { noFriend, newFriend, getFriendUpdates, getFriends } from '../../utils/api';
 const friendUpdates=getFriendUpdates();
 const friends=getFriends();
 
 const Flock = () => {
     const friendName = useRef(null);
+    const [friendMessage, setFriendMessage] = useState('');
 
     return <div className='flock-main'>
         <div className='title'>
@@ -17,10 +18,13 @@ const Flock = () => {
             Find a new Flockmate
         </div>
         <div className='in'>
-            <form onSubmit={() => (newFriend(friendName) ? (<div className='text-flockmates'>Success! Another friend flies with you!</div>) : (<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>))}>
-                <input type="text" name="input" className="search-box" id={friendName} ref={friendName}/>
-                <input type="submit" className="search-button" value="Search"></input>
-            </form>
+            <input type="text" name="input" className="search-box" ref={friendName}/>
+            <input type="button" className="search-button" value="Search" onClick={() => {
+                if (newFriend(friendName.current.value)) setFriendMessage('Success! Another friend flies with you!');
+                else setFriendMessage('What the flock!? That friend isn\'t flying at the moment.');
+            }} />
+            <br />
+            <div className="text-flockmates">{ friendMessage }</div>
         </div>
         <div className='break'> </div>
         <div className='header-updates'>
