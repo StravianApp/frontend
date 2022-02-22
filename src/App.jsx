@@ -4,7 +4,7 @@ import {
     Route,
 } from 'react-router-dom';
 import './App.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import LoginRequired from './LoginRequired';
 import './App.scss';
 import Layout from './Layout';
@@ -24,6 +24,9 @@ import Login from './pages/login/Login';
 import LoggedIn from './pages/login/LoggedIn';
 import Logout from './pages/login/Logout';
 import { isPWA } from './utils/pwa';
+import { render } from "react-dom";
+import SlidingPane from "react-sliding-pane";
+import "react-sliding-pane/dist/react-sliding-pane.css";
 
 
 const isOnline = () => (
