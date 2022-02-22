@@ -19,6 +19,14 @@
         background-color: $backgroundColor;
     }
 
+    .text-return {
+        font-size: 12px;
+        color: $secondaryColor;
+        text-align: left;
+        padding-left: 10px;
+        background-color: $backgroundColor;
+    }
+
     .find-new {
         font-size: 19px;
         color: $textColor;
@@ -38,7 +46,7 @@
         align-items: center;
         text-align: center;
         padding-bottom: 20px;
-        background-color: $backgroundColor ;
+        background-color: $backgroundColor;
         .search-box {
             align-items: left;
             align-self: left;
