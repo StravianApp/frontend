@@ -28,21 +28,21 @@ const Layout = () => {
     return (
       <>
 
-      <div id="navDrawer" class="navDrawer">
-        <a href="/app/nest">Nest</a>
+      <div id="navDrawer" className="navDrawer">
+        <a href="/app">Nest</a>
         <a href="/app/leaderbird">Leaderbird</a>
         <a href="/app/user-stats">User Stats</a>
-        <a href="/app/bird-page">Bird's Page</a>
-        <a href="/app/your-flock">Your Flock</a>
-        <a class="l" href="/app/about">Abou</a> <a class="s" target="_blank" href={getLink()}>t</a>
+        <a href="/app/bird">Your Bird</a>
+        <a href="/app/flock">Your Flock</a>
+        <a className="l" href="/app/about">Abou</a><a className="s" target="_blank" href={getLink()} rel="noreferrer">t</a>
         <a href="/app/settwings">Settwings</a>
       </div>
 
-      <div id="shader" class="shader" onClick={toggleNav}></div>
+      <div id="shader" className="shader" onClick={toggleNav}></div>
 
       <div onClick={toggleNav}
       id = "navDrawerButton"
-      class="navDrawerButton">
+      className="navDrawerButton">
         &nbsp;
       </div>
 

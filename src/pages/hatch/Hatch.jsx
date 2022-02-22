@@ -4,7 +4,7 @@ import notbird from './assets/notbird.png';
 import unhatched from './assets/unhatched.png';
 import parthatched from './assets/parthatched.png';
 import hatched from './assets/hatched.png';
-import React, { useState, useHistory } from 'react';
+import React, { useState } from 'react';
 import { getBirdname } from '../../utils/api';
 const Birdname = getBirdname();
 
