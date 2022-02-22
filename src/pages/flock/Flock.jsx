@@ -17,8 +17,8 @@ const Flock = () => {
             Find a new Flockmate
         </div>
         <div className='in'>
-            <form onSubmit={() => (newFriend(friendName) ? (<div className='text-flockmates'>Success! Another friend flies with you!</div>) : (<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>))}>
-                <input type="text" name="input" className="search-box" id={friendName} ref={friendName}/>
+            <form onClick={() => (newFriend(friendName) ? (<div className='text-flockmates'>Success! Another friend flies with you!</div>) : (<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>))}>
+                <input type="text" name="input" className="search-box" ref={friendName}/>
                 <input type="submit" className="search-button" value="Search"></input>
             </form>
         </div>
