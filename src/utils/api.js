@@ -87,6 +87,14 @@ const changeUnits = (newUnit) => {
     console.log(newUnit);
 }
 
+const leaderbirdVisible = (choice) => {
+    console.log(choice);
+}
+
+const deleteAccount = () => {
+    console.log("FUCK");
+}
+
 export {
     submitLoginDetails,
     getGlobalLeaderbird,
@@ -101,4 +109,6 @@ export {
     newFriend,
     noFriend, 
     Logout,
-    changeUnits};
+    changeUnits,
+    leaderbirdVisible,
+    deleteAccount};

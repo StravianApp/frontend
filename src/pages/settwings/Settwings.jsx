@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { useState, Component } from 'react';
-import { changeUnits, Logout } from '../../utils/api';
+import { changeUnits, Logout, leaderbirdVisible, deleteAccount } from '../../utils/api';
 
 const Settwings = () => {
     const [state, setState] = useState({
