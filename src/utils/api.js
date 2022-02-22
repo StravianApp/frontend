@@ -85,7 +85,11 @@ const Logout = () => {
     //then redirect to login page? 
 }
 
-const changeUnits = (newUnit) => {
+const changeUnitsTemp = (newUnit) => {
+    console.log(newUnit);
+}
+
+const changeUnitsDis = (newUnit) => {
     console.log(newUnit);
 }
 
@@ -112,6 +116,7 @@ export {
     newFriend,
     noFriend, 
     Logout,
-    changeUnits,
+    changeUnitsTemp,
+    changeUnitsDis,
     leaderbirdVisible,
     deleteAccount};

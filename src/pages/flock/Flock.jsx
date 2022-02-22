@@ -26,7 +26,6 @@ const Flock = () => {
             <br />
             <div className="text-return">{ friendMessage }</div>
         </div>
-        <div className='break'> </div>
         <div className='header-updates'>
             Updates from Your Flock:
         </div>

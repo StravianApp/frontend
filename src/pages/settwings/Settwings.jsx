@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { useState, Component } from 'react';
-import { changeUnits, Logout, leaderbirdVisible, deleteAccount } from '../../utils/api';
+import { changeUnitsTemp, changeUnitsDis, Logout, leaderbirdVisible, deleteAccount } from '../../utils/api';
 
 const Settwings = () => {
     const [state, setState] = useState({
@@ -19,12 +19,26 @@ const Settwings = () => {
 
         <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
         <SlidingPane className="slide-pane" overlayClassName="slide-pane-overlay" isOpen={state.isPaneOpen} title="Units" onRequestClose={() => {setState({ isPaneOpen: false })}}>
-            <div></div> 
+            <div> Units for Temperatture
+            <button className="press" onClick={()=> changeUnitsTemp("celsius")}>Celsius</button>
+            <button className="press" onClick={()=> changeUnitsTemp("fahrenheit")}>Fahrenheit</button>
+            <button className="press" onClick={()=> changeUnitsTemp("kelvin")}>Kelvin</button>
+            </div>
+            <div> Units for Distance
+            <button className="press" onClick={()=> changeUnitsDis("kilometre")}>Kilometres</button>
+            <button className="press" onClick={()=> changeUnitsDis("mile")}>Miles</button>
+            <button className="press" onClick={()=> changeUnitsDis("neelu")}>Watts per Newton Hertz</button>
+            </div>
         </SlidingPane>
 
         <button className="press" onClick={()=> setState({paneOpen: true})}>Privacy</button>
         <SlidingPane className="slide-pane" overlayClassName="slide-pane-overlay" isOpen={state.paneOpen} title="Privacy" onRequestClose={() => {setState({ paneOpen: false })}}>
-        <button className="press" onClick={()=> changeUnits("kelvin")}>Kelvin</button>
+            <button className="press" onClick={()=> deleteAccount()}>Delete Account</button>
+            <div> Leaderbird Visibility
+            <button className="press" onClick={()=> leaderbirdVisible("invisible")}>Invisible</button>
+            <button className="press" onClick={()=> leaderbirdVisible("friends")}>Friends</button>
+            <button className="press" onClick={()=> leaderbirdVisible("global")}>Everyone</button>
+            </div>
         </SlidingPane>
     </div>
 }
