@@ -54,7 +54,18 @@ const getFriends = () => {
 };
 
 
-const exchangeStravaCodeForLoginCode = (code) => code.substr(0, 8);
+async function exchangeStravaCodeForLoginCode(code) {
+    const fetchResponse = await fetch('https://server.stravian.app/exchange-strava-code', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({code})
+    });
+    const data = await fetchResponse.json();
+    console.log(data);
+    return data['linking_code'];
+};
 
 const getUserDetails = (loginCode) => (loginCode.length === 10 ? {
     username: 'Test Username'

@@ -9,9 +9,10 @@ const LoggedIn = () => {
 
     useEffect(() => {
         if (!searchParams.entries().next().done) {
-            const loginCode = exchangeStravaCodeForLoginCode(searchParams.get('code'));
-            if (loginCode) setCode(loginCode);
-            else setError('An error occurred. Please close this window and try again.');
+            exchangeStravaCodeForLoginCode(searchParams.get('code')).then((loginCode) => {
+                if (loginCode) setCode(loginCode);
+                else setError('An error occurred. Please close this window and try again.');
+            }).catch((err) => setError('An error occurred. Please close this window and try again.'));
         }
     }, [searchParams]);
 
