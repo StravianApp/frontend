@@ -11,6 +11,15 @@
         object-fit: cover;
     }
 
+    .photo-credit {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        font-size: 12px;
+        text-align: end;
+        padding-right: 12px;
+    }
+
     .login-steps {
         .step {
             display: inline-block;
@@ -69,6 +78,7 @@
                 width: 100%;
                 border: none;
                 padding: 6px;
+                box-shadow: none;
 
                 &.invalid-code {
                     box-shadow: 0 0 8px red;

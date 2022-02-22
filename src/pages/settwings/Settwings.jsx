@@ -1,9 +1,8 @@
 import './settwings.scss';
-import { render } from "react-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
-import { useState, Component } from 'react';
-import { changeUnitsTemp, changeUnitsDis, Logout, leaderbirdVisible, deleteAccount } from '../../utils/api';
+import { useState } from 'react';
+import { changeUnitsTemp, changeUnitsDis, leaderbirdVisible, deleteAccount } from '../../utils/api';
 
 const Settwings = () => {
     const [state, setState] = useState({
@@ -15,7 +14,7 @@ const Settwings = () => {
         <div className='title'>
             Settwings
         </div>
-        <button className="press" onClick={() => Logout()}>Logout</button>
+        <button className="press" onClick={() => window.location.href = '/app/logout'}>Logout</button>
 
         <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
         <SlidingPane className="slide-pane" overlayClassName="slide-pane-overlay" isOpen={state.isPaneOpen} title="Units" onRequestClose={() => {setState({ isPaneOpen: false })}}>

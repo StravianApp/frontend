@@ -6,6 +6,7 @@ import { loggedIn, login } from '../../utils/login';
 import { stravaApi } from '../../Config';
 import { birdAssigned } from '../../utils/api';
 
+import eagle from './assets/eagle.jpg';
 const { clientId, scope, redirectUri } = stravaApi;
 
 const stravaLink = `https://www.strava.com/oauth/mobile/authorize?client_id=${clientId}` +
@@ -20,7 +21,8 @@ const Login = () => {
     }, []);
     return (
         <div className="login-main">
-            <img className="picture" alt="Eagle" src="https://picsum.photos/500/500" />
+            <img className="picture" alt="Eagle" src={eagle} />
+            <small className="photo-credit">"Greater Spotted Eagle (Clanga clanga)" by Sergey Pisarevskiy is licensed under CC BY-NC-SA 2.0</small>
             <div className="logo-container">
                 <img className='logo' src={logo} alt="Stravian Logo" />
             </div>

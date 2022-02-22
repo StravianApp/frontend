@@ -54,13 +54,13 @@ const getFriends = () => {
 };
 
 
-async function exchangeStravaCodeForLoginCode(code) {
+const exchangeStravaCodeForLoginCode = async (code) => {
     const fetchResponse = await fetch('https://server.stravian.app/exchange-strava-code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({code})
+        body: JSON.stringify({ code })
     });
     const data = await fetchResponse.json();
     console.log(data);
@@ -73,6 +73,7 @@ const getUserDetails = (loginCode) => (loginCode.length === 10 ? {
 
 const birdAssigned = () => false;
 
+const assignBird = (bird) => true;
 
 const newFriend = (friend) => {
     console.log(friend);
@@ -89,12 +90,6 @@ const noFriend = (friend) => {
     console.log(friend);
     //Remove friend here please :(
 };
-
-const Logout = () => {
-    console.log("logged out");
-    //Logout instructions - ask neelu!! 
-    //then redirect to login page? 
-}
 
 const changeUnitsTemp = (newUnit) => {
     console.log(newUnit);
@@ -123,11 +118,12 @@ export {
     getBirdname,
     exchangeStravaCodeForLoginCode,
     getUserDetails,
-    getFriendUpdates, 
+    getFriendUpdates,
     newFriend,
-    noFriend, 
-    Logout,
+    noFriend,
     changeUnitsTemp,
     changeUnitsDis,
     leaderbirdVisible,
-    deleteAccount};
+    deleteAccount,
+    assignBird,
+};
