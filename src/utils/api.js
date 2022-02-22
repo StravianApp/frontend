@@ -56,9 +56,11 @@ const getFriends = () => {
 
 const exchangeStravaCodeForLoginCode = (code) => code.substr(0, 8);
 
-const getUserDetails = (loginCode) => (loginCode.length == 10 ? {
+const getUserDetails = (loginCode) => (loginCode.length === 10 ? {
     username: 'Test Username'
 } : null);
+
+const birdAssigned = () => false;
 
 
 const newFriend = (friend) => {
@@ -88,6 +90,7 @@ const changeUnits = (newUnit) => {
 }
 
 export {
+    birdAssigned,
     submitLoginDetails,
     getGlobalLeaderbird,
     getFlockLeaderbird,

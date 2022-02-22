@@ -4,6 +4,7 @@ import logo from '../../assets/logos/full-text-1.png';
 import { useEffect, useRef, useState } from 'react';
 import { loggedIn, login } from '../../utils/login';
 import { stravaApi } from '../../Config';
+import { birdAssigned } from '../../utils/api';
 
 const { clientId, scope, redirectUri } = stravaApi;
 
@@ -13,7 +14,7 @@ const stravaLink = `https://www.strava.com/oauth/mobile/authorize?client_id=${cl
 
 const Login = () => {
     const codeEl = useRef(null);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(false);
     useEffect(() => {
         if (loggedIn()) window.location.href = "/app";
     }, []);
@@ -23,18 +24,19 @@ const Login = () => {
             <div className="logo-container">
                 <img className='logo' src={logo} alt="Stravian Logo" />
             </div>
-            <div className="connect-with-strava-btn">
-                <button onClick={() => window.open(stravaLink)}><img alt="Connect with Strava" src={ConnectWithStravaBtn} /></button>
-                <div className="got-a-login-code-caption">
-                    Got a login code? Enter it here:
+            <div className="login-steps">
+                <div className="step step1">
+                    <button onClick={() => window.open(stravaLink)}><img alt="Connect with Strava" src={ConnectWithStravaBtn} /></button>
                 </div>
-                <br />
-                <input ref={codeEl} type="text" />
-                <button className="submitBtn" onClick={() => {
-                    if (login(codeEl.current.value)) window.location.href = '/app';
-                    else setError('NO!');
-                }}>Submit</button>
-                { error && <div style={{color: 'red', fontSize: '3em', fontWeight: 700}}>{error}</div>}
+                <div className="step step2">
+                    <input className={error ? 'invalid-code' : ''} ref={codeEl} type="text" placeholder="Enter login code..." onChange={() => {
+                        if (login(codeEl.current.value)) {
+                            if (birdAssigned()) window.location.href = '/app';
+                            else window.location.href = '/app/hatch';
+                        }
+                        else setError(true);
+                    }} />
+                </div>
             </div>
         </div>
     );

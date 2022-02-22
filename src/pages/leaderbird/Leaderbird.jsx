@@ -1,4 +1,4 @@
-import {Card, Row, Col} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
 import "./Leaderbird.scss";
 import { Component } from 'react';
 import {
@@ -26,20 +26,20 @@ class Board extends Component{
     render(){
     return (
         <div>
-            <div id="leaderbirdFrame" class="leaderbird">
-                <table id="theLeaderbird">
+            <div id="leaderbirdFrame" className="leaderbird">
+                <table id="theLeaderbird"><tbody>
                     <tr>
-                        <th class="rank">Rank</th>
+                        <th className="rank">Rank</th>
                         <th>Name</th>
                         <th>Bird</th>
                         <th>Distance</th>
                     </tr>
                     {this.state.theLbDat.map((val, key) => {
                         if(key.valueOf() < 50){
-                            if(key.valueOf() + 1 == this.state["yourRank"][0].rank){
+                            if(key.valueOf() + 1 === this.state["yourRank"][0].rank){
                                 return (    
                                     <tr key={key}>
-                                        <td class="rank"
+                                        <td className="rank"
                                         style={{color: "red"}}>{key.valueOf() +1}</td>
                                         <td>{val.name}</td>
                                         <td>{val.bird}</td>
@@ -49,7 +49,7 @@ class Board extends Component{
                             }
                             return (
                                 <tr key={key}>
-                                    <td class="rank">{key.valueOf() +1}</td>
+                                    <td className="rank">{key.valueOf() +1}</td>
                                     <td>{val.name}</td>
                                     <td>{val.bird}</td>
                                     <td>{val.dist}</td>
@@ -57,11 +57,11 @@ class Board extends Component{
                             )
                         }
                     })}
-                </table>
+                </tbody></table>
             </div>
 
-            <div id="yourRank" class="yourRank">
-                <table>
+            <div id="yourRank" className="yourRank">
+                <table><tbody>
                     {this.state.yourRank.map((val,key) => {
                         return(
                             <tr key={key}>
@@ -72,10 +72,10 @@ class Board extends Component{
                             </tr>
                         )
                     })}
-                </table>
+                </tbody></table>
             </div>
 
-            <div id="buttons" class="buttons">
+            <div id="buttons" className="buttons">
                 <Row>
                     <Col><FacebookShareButton
                     url="www.google.com"
@@ -100,12 +100,12 @@ class Board extends Component{
 }
 
 const Leaderbird = () => (
-    <div class="page">
-        <div id="title" class="title">
+    <div className="page">
+        <div id="title" className="title">
             <div>Leaderbird</div>
         </div>
         
-        <div id="subTitle" class="subTitle">
+        <div id="subTitle" className="subTitle">
             <div>Global</div>
         </div>
             

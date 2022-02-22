@@ -11,42 +11,71 @@
         object-fit: cover;
     }
 
-    .connect-with-strava-btn {
-        button {
+    .login-steps {
+        .step {
+            display: inline-block;
+            border: 5px solid $primaryColor;
             width: 70%;
-            padding: 0;
-            border: 0;
-            background: none;
+            padding: 0 8px 0 8px;
+            border-radius: 12px;
+            margin: 10px;
 
-            img {
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                border: 0;
+            &::before {
+                display: inline-block;
+                position: relative;
+                top: -17px;
+                left: -95px;
+                font-weight: bold;
+                color: white;
+                border-radius: 100%;
+                width: 25px;
+                height: 25px;
+                font-size: 17px;
+                background-color: $primaryColor;
+            }
+        }
+        .step1 {
+
+            &::before {
+                content: '1';
             }
 
+            button {
+                position: relative;
+                top: -12px;
+                width: 100%;
+                padding: 0;
+                border: 0;
+                background: none;
+    
+                img {
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                }
+            }
+        }
+
+        .step2 {
+
+            &::before {
+                content: '2';
+            }
             
-        }
+            input {
+                position: relative;
+                top: -10px;
+                width: 100%;
+                border: none;
+                padding: 6px;
 
-        .got-a-login-code-caption {
-            // display: inline-block;
-            width: auto;
-            background-color: $primaryColor;
-            padding: 8px;
-            margin: 8px;
+                &.invalid-code {
+                    box-shadow: 0 0 8px red;
+                }
+            }
         }
-
-        .submitBtn {
-            display: block;
-            background-color: $textColor;
-            width: auto;   
-            font-size: 1.2em;
-            color: white;
-            padding: 10px;
-            border-radius: 14px;
-            margin: auto;
-            // margin-top: 10px;
-        }
+        
         
         width: 100%;
         position: absolute;
