@@ -18,6 +18,7 @@ const Flock = () => {
             Find a new Flockmate
         </div>
         <div className='in'>
+<<<<<<< HEAD
             <input type="text" name="input" className="search-box" ref={friendName}/>
             <input type="button" className="search-button" value="Search" onClick={() => {
                 if (newFriend(friendName.current.value)) setFriendMessage('Success! Another friend flies with you!');
@@ -25,6 +26,12 @@ const Flock = () => {
             }} />
             <br />
             <div className="text-flockmates">{ friendMessage }</div>
+=======
+            <form onClick={() => (newFriend(friendName) ? (<div className='text-flockmates'>Success! Another friend flies with you!</div>) : (<div className='text-flockmates'>What the flock!? That friend isn't flying at the moment.</div>))}>
+                <input type="text" name="input" className="search-box" ref={friendName}/>
+                <input type="submit" className="search-button" value="Search"></input>
+            </form>
+>>>>>>> 26a07e60794a976b75648d7ca2cd8d6e5fc9101b
         </div>
         <div className='break'> </div>
         <div className='header-updates'>

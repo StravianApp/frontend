@@ -27,7 +27,7 @@
         padding-bottom: 5px;
         font-weight: bold;
         padding-left: 5px;
-        background-color: $secondaryColor;
+        background-color: $backgroundColor;
         .magglass {
             max-width: 15%;
             align-items: left;
@@ -37,8 +37,8 @@
     .in {
         align-items: center;
         text-align: center;
-        padding-bottom: 30px;
-        background-color: $secondaryColor;
+        padding-bottom: 20px;
+        background-color: $backgroundColor ;
         .search-box {
             align-items: left;
             align-self: left;
