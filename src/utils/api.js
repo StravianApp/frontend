@@ -83,6 +83,10 @@ const Logout = () => {
     //then redirect to login page? 
 }
 
+const changeUnits = (newUnit) => {
+    console.log(newUnit);
+}
+
 export {
     submitLoginDetails,
     getGlobalLeaderbird,
@@ -96,4 +100,5 @@ export {
     getFriendUpdates, 
     newFriend,
     noFriend, 
-    Logout};
+    Logout,
+    changeUnits};
