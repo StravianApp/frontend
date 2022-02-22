@@ -89,6 +89,14 @@ const changeUnits = (newUnit) => {
     console.log(newUnit);
 }
 
+const leaderbirdVisible = (choice) => {
+    console.log(choice);
+}
+
+const deleteAccount = () => {
+    console.log("FUCK");
+}
+
 export {
     birdAssigned,
     submitLoginDetails,
@@ -104,4 +112,6 @@ export {
     newFriend,
     noFriend, 
     Logout,
-    changeUnits};
+    changeUnits,
+    leaderbirdVisible,
+    deleteAccount};
