@@ -39,34 +39,10 @@
         font-size: 20px;  
         border: 2px solid;
         margin-top: 40px;
-        background-color: $secondaryColor;
+        background-color: $primaryColor;
         align-content: center;
         border-radius: 20px;
     }
-
-    .slide-pane {
-        display: flex;
-        flex-direction: column;
-        background: $secondaryColor;
-        background-color: $secondaryColor;
-        color: $secondaryColor;
-        min-width: 100px;
-        height: 100%;
-        box-shadow: $secondaryColor;
-        transition: transform 0.5s;
-        will-change: transform;
-      }
-      
-      .slide-pane-overlay {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        color: $secondaryColor;
-        background: $secondaryColor;
-        background-color: $secondaryColor;
-      }
 
       .units {
         background: $secondaryColor;

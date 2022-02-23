@@ -3,6 +3,7 @@ import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { useState } from 'react';
 import { changeUnitsTemp, changeUnitsDis, leaderbirdVisible, deleteAccount } from '../../utils/api';
+import theme from './theme.scss';
 
 const Settwings = () => {
     const [state, setState] = useState({
@@ -17,13 +18,13 @@ const Settwings = () => {
         <button className="press" onClick={() => window.location.href = '/app/logout'}>Logout</button>
 
         <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
-        <SlidingPane className="slide-pane" overlayClassName="slide-pane-overlay" isOpen={state.isPaneOpen} title="Units" onRequestClose={() => {setState({ isPaneOpen: false })}}>
-            <div className="units"> Units for Temperatture
-            <button className="units" onClick={()=> changeUnitsTemp("celsius")}>Celsius</button>
-            <button className="units" onClick={()=> changeUnitsTemp("fahrenheit")}>Fahrenheit</button>
-            <button className="units" onClick={()=> changeUnitsTemp("kelvin")}>Kelvin</button>
+        <SlidingPane theme={theme} isOpen={state.isPaneOpen} title="Units" onRequestClose={() => {setState({ isPaneOpen: false })}}>
+            <div className="text"> Units for Temperature
+            <button className="press" onClick={()=> changeUnitsTemp("celsius")}>Celsius</button>
+            <button className="press" onClick={()=> changeUnitsTemp("fahrenheit")}>Fahrenheit</button>
+            <button className="press" onClick={()=> changeUnitsTemp("kelvin")}>Kelvin</button>
             </div>
-            <div> Units for Distance
+            <div className="text2"> Units for Distance
             <button className="press" onClick={()=> changeUnitsDis("kilometre")}>Kilometres</button>
             <button className="press" onClick={()=> changeUnitsDis("mile")}>Miles</button>
             <button className="press" onClick={()=> changeUnitsDis("neelu")}>Watts per Newton Hertz</button>
@@ -31,12 +32,14 @@ const Settwings = () => {
         </SlidingPane>
 
         <button className="press" onClick={()=> setState({paneOpen: true})}>Privacy</button>
-        <div> <SlidingPane overlayClassName="slide-pane-overlay" isOpen={state.paneOpen} title="Privacy" onRequestClose={() => {setState({ paneOpen: false })}}>
-            <button className="press" onClick={()=> deleteAccount()}>Delete Account</button>
-            <div> Leaderbird Visibility
+        <div> <SlidingPane isOpen={state.paneOpen} title="Privacy" onRequestClose={() => {setState({ paneOpen: false })}}>
+            <div className="text"> Leaderbird Visibility
             <button className="press" onClick={()=> leaderbirdVisible("invisible")}>Invisible</button>
             <button className="press" onClick={()=> leaderbirdVisible("friends")}>Friends</button>
             <button className="press" onClick={()=> leaderbirdVisible("global")}>Everyone</button>
+            </div>
+            <div className="text2"> Account deletion - beware!
+            <button className="press" onClick={()=> deleteAccount()}>Delete Account</button>
             </div>
         </SlidingPane> </div>
     </div>

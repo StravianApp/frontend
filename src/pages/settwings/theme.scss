@@ -1,0 +1,83 @@
+@import '../../theme.scss';
+
+.slide-pane {
+  display: flex;
+  flex-direction: column;
+  background: $backgroundColor;
+  color: $textColor;
+  min-width: 100px;
+  height: 100%;
+  box-shadow: $secondaryColor;
+  transition: transform 0.5s;
+  will-change: transform;
+}
+
+.slide-pane__overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: $backgroundColor;
+}
+
+.slide-pane__header {
+  align-items: left;
+  background: $primaryColor;
+  padding-left: 0px;
+}
+.slide-pane__title-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-left: 32px;
+  min-width: 0;
+}
+
+.slide-pane .slide-pane__title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+.slide-pane__close {
+  margin-left: 24px;
+  padding: 16px;
+  opacity: 0.7;
+}
+.slide-pane__close svg {
+  width: 12px;
+  padding: 0;
+}
+.slide-pane__content {
+  padding: 24px 32px;
+}
+
+.press {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 12px;  
+  border: 2px solid;
+  margin-top: 5px;
+  width: 100%;
+  background-color: $primaryColor;
+  align-content: center;
+  border-radius: 10px;
+}
+
+.text {
+  font-size: 15px;
+  color: $textColor;
+  background-color: $backgroundColor;
+  text-align: left;
+}
+
+.text2 {
+  font-size: 15px;
+  color: $textColor;
+  background-color: $backgroundColor;
+  text-align: left;
+  margin-top: 20px;
+}
