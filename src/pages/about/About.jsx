@@ -18,7 +18,7 @@ const About = () => (
             Why this app?
         </div>
         <div className="text">
-            The greater spotted eagle is nearly extinct in Western Europe. Stravian aims to increase awareness and knowledge of this endangered species in a fun, active and de-flightful way – the medium of sport!    
+            The greater spotted eagle is nearly extinct in Western Europe. Stravian aims to increase awareness and knowledge of this endangered species in a fun, active and de-flightful way; the medium of sport!    
         </div>
         <div className="header">
             Who are these magnificent birds?
