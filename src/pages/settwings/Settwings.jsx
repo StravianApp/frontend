@@ -31,14 +31,14 @@ const Settwings = () => {
         </SlidingPane>
 
         <button className="press" onClick={()=> setState({paneOpen: true})}>Privacy</button>
-        <SlidingPane className="slide-pane" overlayClassName="slide-pane-overlay" isOpen={state.paneOpen} title="Privacy" onRequestClose={() => {setState({ paneOpen: false })}}>
+        <div> <SlidingPane overlayClassName="slide-pane-overlay" isOpen={state.paneOpen} title="Privacy" onRequestClose={() => {setState({ paneOpen: false })}}>
             <button className="press" onClick={()=> deleteAccount()}>Delete Account</button>
             <div> Leaderbird Visibility
             <button className="press" onClick={()=> leaderbirdVisible("invisible")}>Invisible</button>
             <button className="press" onClick={()=> leaderbirdVisible("friends")}>Friends</button>
             <button className="press" onClick={()=> leaderbirdVisible("global")}>Everyone</button>
             </div>
-        </SlidingPane>
+        </SlidingPane> </div>
     </div>
 }
 
