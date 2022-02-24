@@ -1,31 +1,13 @@
 @import '../../theme.scss';
 
-.download-main-container {
-    height: 100%;
-    position: relative;
-    z-index: 1;
-
-    .powered-by-strava {
-        width: 100%;
-        height: 20%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        img {
-            width: 50%;
-            padding-bottom: 20px;
-        }
-    }
-}
-
 .download-main {
     padding: 30px;
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    position: relative;
+    z-index: 1;
 
     .welcome-to-stravian {
         
@@ -36,21 +18,23 @@
         }
     
         .logo-container {
-            
-            height: 100px;
             text-align: center;
             .logo {
-                max-height: 100%;
                 max-width: 80%;
             }
         }
     }
 
     .instructions {
-        text-align: center;
-        font-size: 1.3em;
         .logo {
             height: 1.5em;
+        }
+    }
+
+    .powered-by-strava {
+        text-align: center;
+        img {
+            max-width: 60%;
         }
     }
 }
