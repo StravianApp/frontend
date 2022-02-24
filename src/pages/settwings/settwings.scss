@@ -6,28 +6,25 @@
     padding: 15px 15px 15px 15px;
     overflow-y: scroll;
 
-    .press {
+    .press1 {
         padding-top: 20px;
         padding-bottom: 20px;
         width: 100%;
+        background-color: $primaryColor ;
         font-size: 20px;  
         border: 2px solid;
         margin-top: 40px;
-        background-color: $primaryColor;
         align-content: center;
         border-radius: 20px;
     }
 
       .units {
-        background: $secondaryColor;
-        background-color: $secondaryColor;
         top: 10px;
         left: 10px;
         right: 10px;
         bottom: 10px;
         font-size: 20px;  
         border: 2px solid;
-        background-color: $secondaryColor;
         align-content: center;
         border-radius: 20px;
       }

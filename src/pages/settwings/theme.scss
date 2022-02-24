@@ -3,11 +3,10 @@
 .slide-pane {
   display: flex;
   flex-direction: column;
-  background: $backgroundColor;
+  background-color: white;
   color: $textColor;
   min-width: 100px;
   height: 100%;
-  box-shadow: $secondaryColor;
   transition: transform 0.5s;
   will-change: transform;
 }
@@ -18,12 +17,13 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: $backgroundColor;
+  background-color: white;
 }
 
 .slide-pane__header {
   align-items: left;
-  background: $primaryColor;
+  color: white;
+  background: #4242da;
   padding-left: 0px;
 }
 .slide-pane__title-wrapper {
@@ -60,9 +60,10 @@
   padding-bottom: 3px;
   font-size: 12px;  
   border: 2px solid;
+  color: white;
   margin-top: 5px;
   width: 100%;
-  background-color: $primaryColor;
+  background-color: #4242da;
   align-content: center;
   border-radius: 10px;
 }
@@ -70,14 +71,12 @@
 .text1 {
   font-size: 15px;
   color: $textColor;
-  background-color: $backgroundColor;
   text-align: left;
 }
 
 .text2 {
   font-size: 15px;
   color: $textColor;
-  background-color: $backgroundColor;
   text-align: left;
   margin-top: 20px;
 }

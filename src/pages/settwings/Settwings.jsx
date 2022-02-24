@@ -15,9 +15,9 @@ const Settwings = () => {
         <div className='title_'>
             Settwings
         </div>
-        <button className="press" onClick={() => window.location.href = '/app/logout'}>Logout</button>
+        <button className="press1" onClick={() => window.location.href = '/app/logout'}>Logout</button>
 
-        <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
+        <button className="press1" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
         <SlidingPane theme={theme} isOpen={state.isPaneOpen} title="Units" onRequestClose={() => {setState({ isPaneOpen: false })}}>
             <div className="text1"> Units for Temperature
             <button className="press" onClick={()=> changeUnitsTemp("celsius")}>Celsius</button>
@@ -31,7 +31,7 @@ const Settwings = () => {
             </div>
         </SlidingPane>
 
-        <button className="press" onClick={()=> setState({paneOpen: true})}>Privacy</button>
+        <button className="press1" onClick={()=> setState({paneOpen: true})}>Privacy</button>
         <div> <SlidingPane isOpen={state.paneOpen} title="Privacy" onRequestClose={() => {setState({ paneOpen: false })}}>
             <div className="text1"> Leaderbird Visibility
             <button className="press" onClick={()=> leaderbirdVisible("invisible")}>Invisible</button>
