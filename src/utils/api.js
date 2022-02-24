@@ -153,6 +153,14 @@ const getUserAchievements = () => {
     {name: "Cracking Start!", summary: "You hatched your bird!"}]
 }
 
+const getLocation = () => {
+    return [51.505, -0.09]
+}
+
+const getAggDistance = () => {
+    return 100
+}
+
 export {
     birdAssigned,
     submitLoginDetails,
@@ -174,5 +182,7 @@ export {
     assignBird,
     getBirdfact,
     getUserStats,
-    getUserAchievements 
+    getUserAchievements, 
+    getLocation,
+    getAggDistance, 
 };

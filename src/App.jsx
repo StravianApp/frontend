@@ -78,13 +78,15 @@ function App() {
                 <Route path="/app/logged-in" element={<LoggedIn />} />
                 <Route path="/app/hatch" element={<LoginRequired component={<Hatch />} />} />
                 <Route path="/app" element={<Layout />}>
+                    <Route path="hatch" element={<LoginRequired component={<Hatch />} />} />
                     <Route path="logout" element={<LoginRequired component={<Logout />} />} />
                     <Route index element={<LoginRequired component={<Nest />} />} />
                     <Route path="flock" element={<LoginRequired component={<Flock />} />} />
                     <Route path="settwings" element={<LoginRequired component={<Settwings />} />} />
                     <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
                     <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
-                    <Route path="about" element={<LoginRequired component={<About />} />} />
+                    <Route path="about" element={<LoginRequired component={<About />} />} /> 
+
                 </Route>
                 <Route path="*" element={<ErrorPage
                     faIcon={faSearch}

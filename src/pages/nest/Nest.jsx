@@ -1,21 +1,21 @@
 import "./nest.scss";
-import { getBirdfact, getBirdname } from '../../utils/api';
+import { getBirdfact, getBirdname, getLocation, getAggDistance } from '../../utils/api';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { icon } from "leaflet";
 const birdname = getBirdname();
 const fact = getBirdfact();
-const position = [51.505, -0.09];
+const position = getLocation();
 const ICON = new icon({
     iconUrl: require("./assets/icon.png"),
     iconSize: [10, 10],
 });
-const distance = 100;
+const distance = getAggDistance();
 
 const Nest = () => {
     return <div className='bird-main'>
         <div className='title'>
-            Your Bird - {birdname}
+            {birdname}
         </div>
 
         <div className='subtitle'>
