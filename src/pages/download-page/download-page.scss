@@ -1,8 +1,9 @@
 @import '../../theme.scss';
 
 .download-main-container {
-    background-color: $backgroundColor;
     height: 100%;
+    position: relative;
+    z-index: 1;
 
     .powered-by-strava {
         width: 100%;

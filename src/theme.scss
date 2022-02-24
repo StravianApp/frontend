@@ -11,10 +11,11 @@ $backgroundColor: #f8f0e3; /*248, 240, 227*/
     background-color: inherit;
     font-weight: bold;
     margin: 0 auto;
+    color: white;
 }
 
 .subtitle_ {
-    font-size: 1.3em;
+    font-size: 1.5em;
     color: $textColor;
     text-align: center;
     padding-bottom: 1px;
@@ -22,13 +23,12 @@ $backgroundColor: #f8f0e3; /*248, 240, 227*/
 }
 
 .text_ {
-    font-size: 0.75em;
+    font-size: 1em;
     padding-left: 10px;
     position: relative;
     color: $textColor;
     text-align: left;
     display: inline-block;
-    background: inherit;
 }
 
 .section-divider {
@@ -37,4 +37,16 @@ $backgroundColor: #f8f0e3; /*248, 240, 227*/
     margin-right: auto;
     margin-top: 2em;
     margin-bottom: 2em;
+    background-color: none;
+    color: white;
+    border: none;
+    opacity: 1;
+}
+
+.content-box {
+    background-color: rgba(255,255,255,0.5);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

@@ -1,0 +1,84 @@
+@keyframes cloud1 {
+    0% {
+        left: -25vw;
+    }
+
+    100% {
+        left: 100vw;
+    }
+}
+
+@keyframes cloud2 {
+    0% {
+        left: -40vw;
+    }
+
+    100% {
+        left: 100vw;
+    }
+}
+
+@keyframes cloud3 {
+    0% {
+        left: 100vw;
+    }
+
+    100% {
+        left: -25vw;
+    }
+}
+
+@keyframes cloud4 {
+    0% {
+        left: -30vw;
+    }
+
+    100% {
+        left: 100vw;
+    }
+}
+
+@keyframes cloud5 {
+    0% {
+        left: 100vw;
+    }
+
+    100% {
+        left: -20vw;
+    }
+}
+
+.cloud {
+    position: fixed;
+    z-index: 0;
+}
+
+.cloud1 {
+    width: 25vw;
+    top: 2vh;
+    animation: cloud1 90s linear infinite;
+}
+
+.cloud2 {
+    width: 40vw;
+    top: 14vh;
+    animation: cloud2 140s linear infinite;
+}
+
+.cloud3 {
+    width: 25vw;
+    top: 36vh;
+    animation: cloud3 100s linear infinite;
+}
+
+.cloud4 {
+    width: 30vw;
+    top: 53vh;
+    animation: cloud4 120s linear infinite;
+}
+
+.cloud5 {
+    width: 20vw;
+    top: 75vh;
+    animation: cloud5 80s linear infinite;
+}

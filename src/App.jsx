@@ -21,6 +21,7 @@ import LoggedIn from './pages/login/LoggedIn';
 import Logout from './pages/login/Logout';
 import { isPWA } from './utils/pwa';
 import "react-sliding-pane/dist/react-sliding-pane.css";
+import RootLayout from './RootLayout';
 
 const isOnline = () => (
     typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
@@ -67,26 +68,28 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<DownloadPage />} />
-                <Route path="/not-on-mobile" element={<ErrorPage faIcon={faMobileAlt} errorTitle="Stravian is only available for mobile devices." errorCaption="Please visit this site on a smartphone to use Stravian."/>} />
-                <Route path="/app" element={<Layout />}>
-                    <Route path="login" element={<Login />} />
-                    <Route path="logged-in" element={<LoggedIn />} />
-                    <Route path="hatch" element={<LoginRequired component={<Hatch />} />} />
-                    <Route path="logout" element={<LoginRequired component={<Logout />} />} />
-                    <Route index element={<LoginRequired component={<Nest />} />} />
-                    <Route path="flock" element={<LoginRequired component={<Flock />} />} />
-                    <Route path="settwings" element={<LoginRequired component={<Settwings />} />} />
-                    <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
-                    <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
-                    <Route path="about" element={<LoginRequired component={<About />} />} /> 
-                </Route>
+                <Route path="/" element={<RootLayout />}>
+                    <Route index element={<DownloadPage />} />
+                    <Route path="not-on-mobile" element={<ErrorPage faIcon={faMobileAlt} errorTitle="Stravian is only available for mobile devices." errorCaption="Please visit this site on a smartphone to use Stravian."/>} />
+                    <Route path="app" element={<Layout />}>
+                        <Route path="login" element={<Login />} />
+                        <Route path="logged-in" element={<LoggedIn />} />
+                        <Route path="hatch" element={<LoginRequired component={<Hatch />} />} />
+                        <Route path="logout" element={<LoginRequired component={<Logout />} />} />
+                        <Route index element={<LoginRequired component={<Nest />} />} />
+                        <Route path="flock" element={<LoginRequired component={<Flock />} />} />
+                        <Route path="settwings" element={<LoginRequired component={<Settwings />} />} />
+                        <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
+                        <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
+                        <Route path="about" element={<LoginRequired component={<About />} />} /> 
+                    </Route>
 
-                <Route path="*" element={<ErrorPage
-                    faIcon={faSearch}
-                    errorTitle="Page not found"
-                    errorCaption={<p>Please check the URL, or click <a href="/">here</a> to go back to the homepage.</p>}
-                />} />
+                    <Route path="*" element={<ErrorPage
+                        faIcon={faSearch}
+                        errorTitle="Page not found"
+                        errorCaption={<p>Please check the URL, or click <a href="/">here</a> to go back to the homepage.</p>}
+                    />} />
+                </Route>
 
             </Routes>
         </BrowserRouter>

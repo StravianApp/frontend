@@ -24,34 +24,48 @@ const Nest = () => {
                 <img src={bird} />
             </div>
 
-        <div className='text_'>
-        <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br>
-            This week, I've flown {distance}km. Track me down below!
-        </div> 
+        <div className="content-box">
+            <div className='text_'>
+            <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br>
+                This week, I've flown {distance}km. Track me down below!
+            </div> 
+        </div>
+
+       
 
         <hr className="section-divider" />
 
-        <div className='subtitle_'>
-            Did you know?
+        <div className="content-box">
+            <div className='subtitle_'>
+                Did you know?
+            </div>
+
+
+
+            <div className='text_'>
+                {fact}
+            </div> 
         </div>
 
-
-
-        <div className='text_'>
-            {fact}
-        </div> 
+        
 
         <hr className="section-divider" />
 
-        <div className='subtitle_'>
-            Bird tracking
-        </div> 
-        <div  className='map'>
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: "300px", height: "300px", background: 'inherit' }} >
-            <Marker position={position} icon={ICON}> </Marker>
-            <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
-        </MapContainer>
+        <div className="content-box">
+            <div className='subtitle_'>
+                Bird tracking
+            </div> 
+            <div  className='map'>
+            <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: "300px", height: "300px", background: 'inherit' }} >
+                <Marker position={position} icon={ICON}> </Marker>
+                <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
+            </MapContainer>
+            </div>
         </div>
+
+        
+
+        
 
     </div>)
 }

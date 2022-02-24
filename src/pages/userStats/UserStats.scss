@@ -1,7 +1,6 @@
 @import '../../theme.scss';
 
 .page {
-    background-color: $backgroundColor;
     position: relative;
     width: 100%;
     height: 100%;
@@ -33,7 +32,6 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    //background-color: adjust-hue($color: $secondaryColor, $degrees: -50);
 }
 
 .stats table{
