@@ -5,40 +5,6 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
-const getGlobalLeaderbird = () => {
-    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
-    { name: "Robert", bird: "Lucky", dist: 2.0 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 }]
-};
-
-const getFlockLeaderbird = () => {
-    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
-    { name: "Robert", bird: "Lucky", dist: 2.0 }]
-};
-
-const getGlobalRank = () => { return [{ rank: 2, name: "Robert", bird: "Lucky", dist: 2.0 }] };
-const getFlockRank = () => { return [{ rank: 2, name: "Robert", bird: "Lucky", dist: 2.0 }] };
-
 /* Store? This changes every time so need to store on code*/
 const getBirdname = () => {
     const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird", "Vikolas", "Vik", "Vik III"];
@@ -112,6 +78,47 @@ const deleteAccount = () => {
     console.log("FUCK");
 }
 
+
+const getGlobalLeaderbird = () => { return [{name: "Fred", bird: "Kal", dist: 2.3},
+{name: "Robert", bird: "Lucky", dist: 2.0},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4}]};
+const getFlockLeaderbird = () => {return [{name: "Fred", bird: "Kal", dist: 2.3},
+{name: "Robert", bird: "Lucky", dist: 2.0}]};
+const getGlobalRank = () => {return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}]};
+const getFlockRank = () => {return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}]};
+
+const getUserStats = () => {return {
+    week: 5,
+    month: 10,
+    year: 20,
+    allTime: 20
+}}
+
+const getUserAchievements = () => {
+    return [{name: "Nothing!", summary: "You have never achieved anything!"},
+    {name: "Cracking Start!", summary: "You hatched your bird!"}]
+}
+
 export {
     birdAssigned,
     submitLoginDetails,
@@ -131,4 +138,5 @@ export {
     leaderbirdVisible,
     deleteAccount,
     assignBird,
-};
+    getUserStats,
+    getUserAchievements };
