@@ -55,19 +55,24 @@ const getFriends = () => {
 
 
 const exchangeStravaCodeForLoginCode = async (code) => {
-    const fetchResponse = await fetch('https://server.stravian.app/exchange-strava-code', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ code })
-    });
-    const data = await fetchResponse.json();
-    console.log(data);
-    return data['linking_code'];
+    try {
+        const fetchResponse = await fetch('https://server.stravian.app/exchange-strava-code', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ code })
+        });
+        const data = await fetchResponse.json();
+        console.log(data);
+        return data['linking_code'];
+    }
+    catch (err) {
+        throw err;
+    }
 };
 
-const getUserDetails = (loginCode) => (loginCode.length === 10 ? {
+const getUserDetails = (loginCode) => (loginCode.length === 12 ? {
     username: 'Test Username'
 } : null);
 
