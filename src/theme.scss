@@ -28,7 +28,7 @@ $backgroundColor: #f8f0e3; /*248, 240, 227*/
     color: $textColor;
     text-align: left;
     display: inline-block;
-    background: $backgroundColor;
+    background: inherit;
 }
 
 .section-divider {

@@ -24,7 +24,7 @@ const Flock = () => {
                 else setFriendMessage('What the flock!? That friend isn\'t flying at the moment.');
             }} />
             <br />
-            <div className="text-return">{ friendMessage }</div>
+            <div className="text_">{ friendMessage }</div>
         </div>
         <div className='header-updates'>
             Updates from Your Flock:
