@@ -3,6 +3,7 @@ import { getBirdfact, getBirdname, getLocation, getAggDistance } from '../../uti
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { icon } from "leaflet";
+import bird from './assets/bird.png';
 const birdname = getBirdname();
 const fact = getBirdfact();
 const position = getLocation();
@@ -14,39 +15,45 @@ const distance = getAggDistance();
 
 
 const Nest = () => {
-    return <div className='nest-main'>
+    return (<div className='nest-main'>
         <div className='title_'>
             {birdname}
         </div>
 
-        <div className='subtitle_'>
-            Screech - hi there - screech
-        </div>
+        <div className="bird">
+                <img src={bird} />
+            </div>
 
         <div className='text_'>
-            I'm {birdname}, your friend and a greater spotted eagle!<br></br>
-            This week, I've flown {distance}km. track me down below!
+        <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br>
+            This week, I've flown {distance}km. Track me down below!
         </div> 
 
+        <hr className="section-divider" />
+
         <div className='subtitle_'>
-            <b>Did you know?</b>
+            Did you know?
         </div>
+
 
 
         <div className='text_'>
             {fact}
         </div> 
 
+        <hr className="section-divider" />
+
         <div className='subtitle_'>
-            <b>Bird tracking</b>
-        </div>
+            Bird tracking
+        </div> 
         <div  className='map'>
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: "300px", height: "300px" }} >
+        <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: "300px", height: "300px", background: 'inherit' }} >
             <Marker position={position} icon={ICON}> </Marker>
             <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
         </MapContainer>
         </div>
-    </div>
+
+    </div>)
 }
 
 export default Nest;

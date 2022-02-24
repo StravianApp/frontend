@@ -24,15 +24,18 @@ const Flock = () => {
                 else setFriendMessage('What the flock!? That friend isn\'t flying at the moment.');
             }} />
             <br />
-            <div className="text-return">{ friendMessage }</div>
+            <div className="text_">{ friendMessage }</div>
         </div>
+
+        <hr className="section-divider" />
+
         <div className='header-updates'>
-            Updates from Your Flock:
+            Updates from Your Flock
         </div>
         {friendUpdates.map((e) => <div className='text-updates'>{e}</div>)}
-        <div className='break'> </div>
+        <hr className="section-divider" />
         <div className='header-flockmates'>
-            Your Flockmates:
+            Your Flockmates
         </div>
         {friends.map((e) => <div className='text-flockmates'>{e}<button className="remove" onClick={() => noFriend(e)}>Remove</button></div>)}
     </div>

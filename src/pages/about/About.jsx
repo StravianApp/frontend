@@ -14,12 +14,18 @@ const About = () => (
         <div className="text_">
             Stravian assigns you a bird friend from the twenty egg-cellent eagles we have live tracking data on. You can then connect with your human friends and alongside your greater spotted eagle; using data from radio tags attached to the birds to measure how far they fly each day. The distance you cycle and record on Strava alongside the distance your bird friend moves each day count towards your overall placement on the leaderbird, so no fowl play!
         </div>
+
+        <hr className="section-divider" />
+
         <div className="subtitle_">
             Why this app?
         </div>
         <div className="text_">
             The greater spotted eagle is nearly extinct in Western Europe. Stravian aims to increase awareness and knowledge of this endangered species in a fun, active and de-flightful way; the medium of sport!    
         </div>
+
+        <hr className="section-divider" />
+
         <div className="subtitle_">
             Who are these magnificent birds?
         </div>
@@ -30,6 +36,9 @@ const About = () => (
             <a href="https://wildpolesia.org/greater-spotted-eagles/">
             Read more about greater spotted eagles</a>
         </div>
+
+        <hr className="section-divider" />
+
         <div className="subtitle_">
             Credits
         </div>
