@@ -26,9 +26,9 @@ const Hatch = () => {
 
     const hatchTap = () => (hatchCount <= 10) && setHatchCount(hatchCount + 1);
 
-    return <div className="hatch-main">
-
-            <div className="title_">
+    return (
+        <div className="hatch-main">
+            <div className="subtitle_">
                 {caption}
             </div>
 
@@ -39,8 +39,10 @@ const Hatch = () => {
                 <img src={hatchCount < 5 ? unhatched : hatchCount > 10 ? hatched : parthatched} alt="Egg" />
             </div>
 
-        {hatchCount > 10 && <small className="photo-credit">"Greater Spotted Eagle (Aquila clanga)" by Sergey Pisarevskiy is licensed under CC BY-NC-SA 2.0</small>}
-    </div>
+
+
+            {hatchCount > 10 && <small className="photo-credit">"Greater Spotted Eagle (Aquila clanga)" by Sergey Pisarevskiy is licensed under CC BY-NC-SA 2.0</small>}
+        </div>)
 };
 
 export default Hatch;
