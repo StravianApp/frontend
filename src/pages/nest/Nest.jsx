@@ -12,8 +12,9 @@ const ICON = new icon({
 });
 const distance = getAggDistance();
 
+
 const Nest = () => {
-    return <div className='bird-main'>
+    return <div className='nest-main'>
         <div className='title'>
             {birdname}
         </div>
