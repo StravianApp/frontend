@@ -15,7 +15,7 @@ const distance = 100;
 const Nest = () => {
     return <div className='bird-main'>
         <div className='title'>
-            {birdname}
+            Your Bird - {birdname}
         </div>
 
         <div className='subtitle'>
