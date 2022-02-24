@@ -15,32 +15,34 @@
         padding-bottom: 30px;
         padding-top: 10px;
         top: 0;
+        background-color: $backgroundColor;
         font-weight: bold;
     }
 
-    .subwords {
-        font-size: 13px;
+    .subtitle {
+        font-size: 20px;
         color: $textColor;
         text-align: center;
-        padding-bottom: 10px;
+        padding-bottom: 1px;
         font-weight: bold;
     }
 
-    .words {
+    .text {
         font-size: 12px;
-        padding-top: 5px;
-        padding-left: 20px;
+        padding-left: 5px;
         color: $textColor;
         text-align: left;
+        padding-bottom: 30px;
         background: $backgroundColor;
     }
 
-    .map {
-        position: absolute;
-        padding-top: 100px;        
+    .meep {
         text-align: center;
         align-items: center;
+        position: absolute;
+        left: 50%;
         align-self: center;
+        transform: translate(-50%);
     }
 
 }
