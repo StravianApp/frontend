@@ -5,40 +5,6 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
-const getGlobalLeaderbird = () => {
-    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
-    { name: "Robert", bird: "Lucky", dist: 2.0 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 }]
-};
-
-const getFlockLeaderbird = () => {
-    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
-    { name: "Robert", bird: "Lucky", dist: 2.0 }]
-};
-
-const getGlobalRank = () => { return [{ rank: 2, name: "Robert", bird: "Lucky", dist: 2.0 }] };
-const getFlockRank = () => { return [{ rank: 2, name: "Robert", bird: "Lucky", dist: 2.0 }] };
-
 /* Store? This changes every time so need to store on code*/
 const getBirdname = () => {
     const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird", "Vikolas", "Vik", "Vik III"];
@@ -60,19 +26,24 @@ const getFriends = () => {
 
 
 const exchangeStravaCodeForLoginCode = async (code) => {
-    const fetchResponse = await fetch('https://server.stravian.app/exchange-strava-code', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ code })
-    });
-    const data = await fetchResponse.json();
-    console.log(data);
-    return data['linking_code'];
+    try {
+        const fetchResponse = await fetch('https://server.stravian.app/exchange-strava-code', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ code })
+        });
+        const data = await fetchResponse.json();
+        console.log(data);
+        return data['linking_code'];
+    }
+    catch (err) {
+        throw err;
+    }
 };
 
-const getUserDetails = (loginCode) => (loginCode.length === 10 ? {
+const getUserDetails = (loginCode) => (loginCode.length === 12 ? {
     username: 'Test Username'
 } : null);
 
@@ -112,6 +83,47 @@ const deleteAccount = () => {
     console.log("FUCK");
 }
 
+
+const getGlobalLeaderbird = () => { return [{name: "Fred", bird: "Kal", dist: 2.3},
+{name: "Robert", bird: "Lucky", dist: 2.0},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4},
+{name: "Lucy", bird: "Lucky", dist: 1.4}]};
+const getFlockLeaderbird = () => {return [{name: "Fred", bird: "Kal", dist: 2.3},
+{name: "Robert", bird: "Lucky", dist: 2.0}]};
+const getGlobalRank = () => {return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}]};
+const getFlockRank = () => {return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}]};
+
+const getUserStats = () => {return {
+    week: 5,
+    month: 10,
+    year: 20,
+    allTime: 20
+}}
+
+const getUserAchievements = () => {
+    return [{name: "Nothing!", summary: "You have never achieved anything!"},
+    {name: "Cracking Start!", summary: "You hatched your bird!"}]
+}
+
 export {
     birdAssigned,
     submitLoginDetails,
@@ -132,4 +144,6 @@ export {
     deleteAccount,
     assignBird,
     getBirdfact,
+    getUserStats,
+    getUserAchievements 
 };

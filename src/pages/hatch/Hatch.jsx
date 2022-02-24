@@ -15,7 +15,7 @@ const Hatch = () => {
         if (hatchCount > 10) {
             setTimeout(() => {
                 assignBird(birdname);
-                window.location.href = '/app/bird';
+                window.location.href = '/app';
             }, 8000);
         }
     }, [hatchCount]);
