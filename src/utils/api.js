@@ -53,7 +53,7 @@ const login = async (linkingCode) => {
             body: JSON.stringify([{ linking_code: linkingCode }])
         });
         const data = await fetchResponse.json();
-        return data['jwt'];
+        return data['JWT'];
     }
     catch (err) {
         console.log(err);
