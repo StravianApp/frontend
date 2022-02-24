@@ -29,14 +29,19 @@ const Nest = () => {
             This week, I've flown {distance}km. Track me down below!
         </div> 
 
+        <hr className="section-divider" />
+
         <div className='subtitle_'>
-            <b>Did you know?</b>
+            Did you know?
         </div>
+
 
 
         <div className='text_'>
             {fact}
         </div> 
+
+        <hr className="section-divider" />
 
         <div className='subtitle_'>
             Bird tracking
