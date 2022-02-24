@@ -38,7 +38,7 @@ const LoggedIn = () => {
             </div>
             { code && (<>
                 <b>Copy the login code:</b><br />
-                <input type="text" value={code} ref={codeEl} /> &nbsp;
+                <input type="text_" value={code} ref={codeEl} /> &nbsp;
                 {navigator.clipboard && <Button onClick={() => navigator.clipboard.writeText(code)}>Copy</Button>}
                 <br /><br />
                 <b>Close this window and paste it into the login page:</b>

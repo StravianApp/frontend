@@ -15,29 +15,29 @@ const distance = getAggDistance();
 
 const Nest = () => {
     return <div className='nest-main'>
-        <div className='title'>
+        <div className='title_'>
             {birdname}
         </div>
 
-        <div className='subtitle'>
+        <div className='subtitle_'>
             Screech - hi there - screech
         </div>
 
-        <div className='text'>
+        <div className='text_'>
             I'm {birdname}, your friend and a greater spotted eagle!<br></br>
             This week, I've flown {distance}km. track me down below!
         </div> 
 
-        <div className='subtitle'>
+        <div className='subtitle_'>
             <b>Did you know?</b>
         </div>
 
 
-        <div className='text'>
+        <div className='text_'>
             {fact}
         </div> 
 
-        <div className='subtitle'>
+        <div className='subtitle_'>
             <b>Bird tracking</b>
         </div>
         <div  className='map'>

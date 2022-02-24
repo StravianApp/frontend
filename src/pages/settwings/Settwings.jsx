@@ -12,7 +12,7 @@ const Settwings = () => {
     });
     
     return <div className='settwings-main'>
-        <div className='title'>
+        <div className='title_'>
             Settwings
         </div>
         <button className="press" onClick={() => window.location.href = '/app/logout'}>Logout</button>

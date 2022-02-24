@@ -3,18 +3,18 @@ $primaryColor: #87e5eb;
 $secondaryColor: #f4c06c; /*244, 192, 108*/
 $backgroundColor: #f8f0e3; /*248, 240, 227*/
 
-.title {
-    font-size: 30px;
+.title_ {
+    font-size: 250%;
     color: $primaryColor;
     text-align: center;
-    display: inline-block;
     position: relative;
-    padding-bottom: 80px;
-    background-color: $backgroundColor;
+    //padding-bottom: 80px;
+    background-color: inherit;
     font-weight: bold;
+    margin: 0 auto;
 }
 
-.subtitle {
+.subtitle_ {
     font-size: 15px;
     color: $textColor;
     text-align: left;
@@ -25,7 +25,7 @@ $backgroundColor: #f8f0e3; /*248, 240, 227*/
     font-weight: bold;
 }
 
-.text {
+.text_ {
     font-size: 12px;
     padding-left: 10px;
     position: relative;

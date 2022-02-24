@@ -101,11 +101,11 @@ class Board extends Component{
 
 const Leaderbird = () => (
     <div className="page">
-        <div id="title" className="title">
+        <div id="title_" className="title_">
             <div>Leaderbird</div>
         </div>
         
-        <div id="subTitle" className="subTitle">
+        <div id="subtitle_" className="subtitle_">
             <div>Global</div>
         </div>
             
@@ -116,7 +116,7 @@ const Leaderbird = () => (
 export default Leaderbird;
 
 function globalLb(obj){
-    document.getElementById("subTitle").innerText = "Global";
+    document.getElementById("subtitle_").innerText = "Global";
     obj.setState({theLbDat: getLeaderbird(5),
         yourRank: getRank(5),
         quote: `${obj.state["yourRank"][0].name} and their bird, ${obj.state["yourRank"][0].bird}, ranked ${obj.state["yourRank"][0].rank} globally!`});
@@ -132,7 +132,7 @@ function globalLb(obj){
 }
 
 function flockLb(obj){
-    document.getElementById("subTitle").innerText = "Flock";
+    document.getElementById("subtitle_").innerText = "Flock";
     obj.setState({theLbDat: getLeaderbird(6),
         yourRank: getRank(6),
         quote: `${obj.state["yourRank"][0].name} and their bird, ${obj.state["yourRank"][0].bird}, ranked ${obj.state["yourRank"][0].rank} amongst their flock!`});
@@ -147,7 +147,7 @@ function flockLb(obj){
     }
 }
 function eventLb(obj){
-    /*document.getElementById("subTitle").innerText = "Event";
+    /*document.getElementById("subtitle_").innerText = "Event";
     obj.setState({theLbDat: getLeaderbird(7),
         yourRank: getRank(7),
         quote: `${obj.state["yourRank"][0].name} and their bird, ${obj.state["yourRank"][0].bird}, ranked ${obj.state["yourRank"][0].rank} in this event!`});

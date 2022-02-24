@@ -20,8 +20,8 @@ class Pg extends Component{
 
     render() {
         return (
-            <div class="parent">
-                <div id="statsFrame" class="stats">
+            <div className="parent">
+                <div id="statsFrame" className="stats">
                     <div class="notBr">
                     <table>
                         <tr>
@@ -73,7 +73,7 @@ class Pg extends Component{
 
 const UserStats = () => (
     <div class="page"> 
-        <div id="title" class="title">
+        <div id="title_" class="title_">
             <div>All About You</div>
         </div>
         <Pg />

@@ -10,7 +10,7 @@ const Flock = () => {
     const [friendMessage, setFriendMessage] = useState('');
 
     return <div className='flock-main'>
-        <div className='title'>
+        <div className='title_'>
             Your Flock
         </div>
         <div className='find-new'>
@@ -18,7 +18,7 @@ const Flock = () => {
             Find a new Flockmate
         </div>
         <div className='in'>
-            <input type="text" name="input" className="search-box" ref={friendName}/>
+            <input type="text_" name="input" className="search-box" ref={friendName}/>
             <input type="button" className="search-button" value="Search" onClick={() => {
                 if (newFriend(friendName.current.value)) setFriendMessage('Success! Another friend flies with you!');
                 else setFriendMessage('What the flock!? That friend isn\'t flying at the moment.');
