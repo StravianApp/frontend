@@ -2,11 +2,12 @@ import { getUserDetails } from "./api";
 
 const loggedIn = () => !!localStorage.getItem('username');
 const logout = () => localStorage.clear();
-const login = (loginCode) => {
-    const userDetails = getUserDetails(loginCode);
+const login = async (loginCode) => {
+    const userDetails = await getUserDetails(loginCode);
     if (userDetails == null) return false;
-    const { username } = userDetails;
+    const { username, jwt } = userDetails;
     localStorage.setItem('username', username);
+    localStorage.setItem('jwt', jwt);
     return true;
 }
 
