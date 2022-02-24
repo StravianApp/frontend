@@ -39,4 +39,5 @@ const Flock = () => {
         {friends.map((e) => <div className='text-flockmates'>{e}<button className="remove" onClick={() => noFriend(e)}>Remove</button></div>)}
     </div>
 }
+
 export default Flock;
