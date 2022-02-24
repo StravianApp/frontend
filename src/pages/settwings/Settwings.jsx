@@ -20,23 +20,23 @@ const Settwings = () => {
         <button className="press1" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
         <SlidingPane theme={theme} isOpen={state.isPaneOpen} title="Units" onRequestClose={() => {setState({ isPaneOpen: false })}}>
             <div className="text1"> Units for Temperature
-            <button className="press" onClick={()=> changeUnitsTemp("celsius")}>Celsius</button>
-            <button className="press" onClick={()=> changeUnitsTemp("fahrenheit")}>Fahrenheit</button>
-            <button className="press" onClick={()=> changeUnitsTemp("kelvin")}>Kelvin</button>
+            <button className="press" onClick={()=> changeUnitsTemp(1)}>Celsius</button>
+            <button className="press" onClick={()=> changeUnitsTemp(2)}>Fahrenheit</button>
+            <button className="press" onClick={()=> changeUnitsTemp(3)}>Kelvin</button>
             </div>
             <div className="text2"> Units for Distance
-            <button className="press" onClick={()=> changeUnitsDis("kilometre")}>Kilometres</button>
-            <button className="press" onClick={()=> changeUnitsDis("mile")}>Miles</button>
-            <button className="press" onClick={()=> changeUnitsDis("neelu")}>Watts per Newton Hertz</button>
+            <button className="press" onClick={()=> changeUnitsDis(1)}>Kilometres</button>
+            <button className="press" onClick={()=> changeUnitsDis(2)}>Miles</button>
+            <button className="press" onClick={()=> changeUnitsDis(3)}>Furlongs</button>
             </div>
         </SlidingPane>
 
         <button className="press1" onClick={()=> setState({paneOpen: true})}>Privacy</button>
         <div> <SlidingPane isOpen={state.paneOpen} title="Privacy" onRequestClose={() => {setState({ paneOpen: false })}}>
             <div className="text1"> Leaderbird Visibility
-            <button className="press" onClick={()=> leaderbirdVisible("invisible")}>Invisible</button>
-            <button className="press" onClick={()=> leaderbirdVisible("friends")}>Friends</button>
-            <button className="press" onClick={()=> leaderbirdVisible("global")}>Everyone</button>
+            <button className="press" onClick={()=> leaderbirdVisible(1)}>Invisible</button>
+            <button className="press" onClick={()=> leaderbirdVisible(2)}>Friends</button>
+            <button className="press" onClick={()=> leaderbirdVisible(3)}>Everyone</button>
             </div>
             <div className="text2"> Account deletion - beware!
             <button className="press" onClick={()=> deleteAccount()}>Delete Account</button>

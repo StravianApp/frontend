@@ -1,3 +1,7 @@
+var tempUnit = "Celcius";
+var disUnit = "Kilometres";
+var leaderbirdVisibility = "Everyone";
+
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
     localStorage.setItem('code', code);
@@ -5,7 +9,7 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
-/* Store? This changes every time so need to store on code*/
+/* Store? This changes every time so need to store*/
 const getBirdname = () => {
     const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird", "Vikolas", "Vik", "Vik III"];
     return names[Math.floor(Math.random() * names.length)];
@@ -94,7 +98,6 @@ const assignBird = (bird) => true;
 const newFriend = (friend) => {
     console.log(friend);
     if (["Alice", "Bob", "Carl", "Diane", "Egg", "Fill"].indexOf(friend) > -1) {
-        //add friend as a new friend here please!!!!!!!!! but only if they exist
         return true;
     }
     else {
@@ -104,19 +107,68 @@ const newFriend = (friend) => {
 
 const noFriend = (friend) => {
     console.log(friend);
-    //Remove friend here please :(
+    //Remove friend here :(
 };
 
-const changeUnitsTemp = (newUnit) => {
-    console.log(newUnit);
-}
+const changeUnitsTemp = (choice) => {
+    console.log(choice);
+    switch (choice) {
+        case 1:
+            console.log("Celcius like a normal person");
+            tempUnit = "Celcius";
+            console.log(tempUnit);
+            break;
+        case 2:
+            console.log("Fahrenheit");
+            tempUnit = "Fahrenheit";
+            console.log(tempUnit);
+            break;
+        case 3:
+            console.log("Kelvin");
+            tempUnit = "Kelvin";
+            console.log(tempUnit);
+            break;
+    }}
 
-const changeUnitsDis = (newUnit) => {
-    console.log(newUnit);
-}
+const changeUnitsDis = (choice) => {
+    console.log(choice);
+    switch (choice) {
+        case 1:
+            console.log("Kilometres");
+            disUnit = "Kilometres";
+            console.log(disUnit);
+            break;
+        case 2:
+            console.log("Miles");
+            disUnit = "Miles";
+            console.log(disUnit);
+            break;
+        case 3:
+            console.log("Furlong");
+            disUnit = "Furlongs";
+            console.log(disUnit);
+            break;
+    }}
 
 const leaderbirdVisible = (choice) => {
     console.log(choice);
+    switch (choice) {
+        case 1:
+            console.log("Invisible");
+            leaderbirdVisibility = "Invisible";
+            console.log(leaderbirdVisibility);
+            break;
+        case 2:
+            console.log("Friends");
+            leaderbirdVisibility = "Friends";
+            console.log(leaderbirdVisibility);
+            break;
+        case 3:
+            console.log("Everyone");
+            leaderbirdVisibility = "Everyone";
+            console.log(leaderbirdVisibility);
+            break;
+    }
 }
 
 const deleteAccount = () => {
