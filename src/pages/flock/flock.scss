@@ -12,9 +12,20 @@
         text-align: center;
         padding-top: 15px;
         .magglass {
-            max-width: 15%;
+            max-width: 10%;
+            max-height: 100%;
             align-items: center;
+            margin-right: 0.75em;
+            padding-bottom: 0.2em;
         }
+    }
+
+    .friend-text {
+        font-size: 0.75em;
+        padding-left: 10px;
+        color: $textColor;
+        text-align: left;
+        padding-top: 7px;
     }
 
     .in {

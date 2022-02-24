@@ -10,6 +10,7 @@ const Flock = () => {
     const [friendMessage, setFriendMessage] = useState('');
 
     return <div className='flock-main'>
+
         <div className='title_'>
             Your Flock
         </div>
@@ -23,20 +24,27 @@ const Flock = () => {
                 if (newFriend(friendName.current.value)) setFriendMessage('Success! Another friend flies with you!');
                 else setFriendMessage('What the flock!? That friend isn\'t flying at the moment.');
             }} />
-            <div className="text_">{ friendMessage }</div>
+            <div className="friend-text">{ friendMessage }</div>
         </div>
+
 
         <hr className="section-divider" />
 
+        <div className="content-box">
         <div className='header-updates'>
             Updates from Your Flock
         </div>
         {friendUpdates.map((e) => <div className='text-updates'>{e}</div>)}
+        </div>
+        
         <hr className="section-divider" />
+
+        <div className="content-box">
         <div className='header-flockmates'>
             Your Flockmates
         </div>
         {friends.map((e) => <div className='text-flockmates'>{e}<button className="remove" onClick={() => noFriend(e)}>Remove</button></div>)}
+        </div>
     </div>
 }
 
