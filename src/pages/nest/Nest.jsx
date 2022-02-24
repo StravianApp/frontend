@@ -19,12 +19,10 @@ const Nest = () => {
         <div className='title_'>
             {birdname}
         </div>
-
+        <div className="content-box">
         <div className="bird">
                 <img src={bird} />
             </div>
-
-        <div className="content-box">
             <div className='text_'>
             <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br>
                 This week, I've flown {distance}km. Track me down below!
