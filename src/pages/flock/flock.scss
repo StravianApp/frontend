@@ -12,7 +12,6 @@
         color: $textColor;
         text-align: center;
         padding-top: 15px;
-        padding-bottom: 5px;
         .magglass {
             max-width: 15%;
             align-items: center;
@@ -22,11 +21,8 @@
     .in {
         align-items: center;
         text-align: center;
-        padding-bottom: 20px;
         background-color: $backgroundColor;
         .search-box {
-            align-items: left;
-            align-self: left;
             align-content: left;
             text-align: left;
             font-size: 11px;  
@@ -50,46 +46,40 @@
         }
     }
 
-    .break {
-        background-color: $backgroundColor;
-        padding-top: 40px;
-    }
-
     .header-updates {
-        font-size: 15px;
-        padding-top: 5px;
+        font-size: 1.3em;
         color: $textColor;
-        text-align: left;
+        text-align: center;
         padding-left: 5px;
+        padding-top: 5px;
         padding-bottom: 5px;
-        font-weight: bold;
         background-color: $primaryColor;
     }
 
     .text-updates {
-        font-size: 12px;
+        font-size: 0.75em;
         padding-left: 10px;
+        color: $textColor;
+        text-align: left;
         padding-top: 5px;
         padding-bottom: 3px;
-        color: $textColor;
         background-color: $primaryColor;
-        text-align: left;
     }
 
     .header-flockmates {
-        font-size: 15px;
+        font-size: 1.3em;
         color: $textColor;
-        text-align: left;
-        padding-top: 5px;
+        text-align: center;
         padding-left: 5px;
+        padding-top: 5px;
         padding-bottom: 5px;
-        font-weight: bold;
         background-color: $secondaryColor;
     }
 
     .text-flockmates {
-        font-size: 12px;
+        font-size: 0.75em;
         padding-left: 10px;
+        color: $textColor;
         padding-top: 5px;
         padding-bottom: 3px;
         color: $textColor;
