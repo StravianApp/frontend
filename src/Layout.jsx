@@ -32,7 +32,6 @@ const Layout = () => {
         <a href="/app">Nest</a>
         <a href="/app/leaderbird">Leaderbird</a>
         <a href="/app/user-stats">User Stats</a>
-        <a href="/app/bird">Your Bird</a>
         <a href="/app/flock">Your Flock</a>
         <a className="l" href="/app/about">Abou</a><a className="s" target="_blank" href={getLink()} rel="noreferrer">t</a>
         <a href="/app/settwings">Settwings</a>
