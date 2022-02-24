@@ -7,7 +7,7 @@
     z-index: 2; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: $textColor; /* Blue*/
+    background-color: #4242da; /* Blue*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -16,9 +16,9 @@
 .navDrawerButton {
     position: fixed;
     z-index: 2;
-    background-color: $textColor; /* Blue*/
-    width: 38px;
-    height: 38px;
+    background-color: #4242da; /* Blue*/
+    width: 37px;
+    height: 37px;
     transition: 0.5s;
     background-image: url("./Icons/pirds36px.png");
 }
@@ -30,7 +30,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: $textColor;
+    background-color: #4242da;
     overflow-x: hidden;
     transition: 0.5s;
     opacity: 0.5;
@@ -41,7 +41,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: $backgroundColor;
+    color: white;
     display: block;
     transition: 0.3s;
   }
@@ -58,7 +58,7 @@
   
   /* When you mouse over the navigation links, change their color */
   .navDrawer a:hover {
-    color: $backgroundColor;
+    color: $primaryColor;
   }
   
   /* Position and style the close button (top right corner) */
