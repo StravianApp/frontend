@@ -23,7 +23,6 @@ const Flock = () => {
                 if (newFriend(friendName.current.value)) setFriendMessage('Success! Another friend flies with you!');
                 else setFriendMessage('What the flock!? That friend isn\'t flying at the moment.');
             }} />
-            <br />
             <div className="text_">{ friendMessage }</div>
         </div>
 
