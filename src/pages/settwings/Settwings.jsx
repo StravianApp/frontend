@@ -19,7 +19,7 @@ const Settwings = () => {
 
         <button className="press" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
         <SlidingPane theme={theme} isOpen={state.isPaneOpen} title="Units" onRequestClose={() => {setState({ isPaneOpen: false })}}>
-            <div className="text"> Units for Temperature
+            <div className="text1"> Units for Temperature
             <button className="press" onClick={()=> changeUnitsTemp("celsius")}>Celsius</button>
             <button className="press" onClick={()=> changeUnitsTemp("fahrenheit")}>Fahrenheit</button>
             <button className="press" onClick={()=> changeUnitsTemp("kelvin")}>Kelvin</button>
