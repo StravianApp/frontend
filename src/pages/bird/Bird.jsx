@@ -1,4 +1,4 @@
-import "./Bird.scss";
+import "./bird.scss";
 import { getBirdfact, getBirdname } from '../../utils/api';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
