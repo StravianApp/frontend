@@ -10,16 +10,28 @@ const ICON = new icon({
     iconUrl: require("./assets/icon.png"),
     iconSize: [10, 10],
 });
+const distance = 100;
 
 const Bird = () => {
-
     return <div className='bird-main'>
         <div className='title'>
             {birdname}
         </div>
+
+        <div className='subtitle'>
+            Screech - hi there - screech
+        </div>
+
+        <div className='text'>
+            I'm {birdname}, your friend and a greater spotted eagle!<br></br>
+            This week, I've flown {distance}km. track me down below!
+        </div> 
+
         <div className='subtitle'>
             <b>Did you know?</b>
         </div>
+
+
         <div className='text'>
             {fact}
         </div> 
