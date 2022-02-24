@@ -10,29 +10,20 @@
 }
 
 .parent {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
-}
-
-.title_ {
-    position: absolute;
-    background-color: $secondaryColor;
-    font-size: 275%;
-    text-align: center;
-    height: 8%;
-    width: 80%;
-    margin: 0 auto;
 }
 
 .stats {
     position: relative;
     height: 80%;
     width: 80%;
-    top: 55%;
+    margin: 0 auto;
+    /*top: 55%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
     //background-color: adjust-hue($color: $secondaryColor, $degrees: -50);
 }
 
@@ -58,6 +49,6 @@
 }
 
 .stats .notBr{
-    border-color: adjust-hue($color: $secondaryColor, $degrees: -20);
+    border-color: $borderColor;
     border-style: solid;
 }

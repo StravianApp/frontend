@@ -25,7 +25,7 @@ class Board extends Component{
 
     render(){
     return (
-        <div>
+        <div className="parent">
             <div id="leaderbirdFrame" className="leaderbird">
                 <table id="theLeaderbird"><tbody>
                     <tr>
@@ -43,7 +43,7 @@ class Board extends Component{
                                         style={{color: "red"}}>{key.valueOf() +1}</td>
                                         <td>{val.name}</td>
                                         <td>{val.bird}</td>
-                                        <td>{val.dist}</td>
+                                        <td className="dist">{val.dist}</td>
                                     </tr>
                                 )   
                             }
@@ -52,7 +52,7 @@ class Board extends Component{
                                     <td className="rank">{key.valueOf() +1}</td>
                                     <td>{val.name}</td>
                                     <td>{val.bird}</td>
-                                    <td>{val.dist}</td>
+                                    <td className="dist">{val.dist}</td>
                                 </tr>
                             )
                         }
@@ -65,10 +65,10 @@ class Board extends Component{
                     {this.state.yourRank.map((val,key) => {
                         return(
                             <tr key={key}>
-                                <td>{val.rank}</td>
+                                <td className="rank">{val.rank}</td>
                                 <td>{val.name}</td>
                                 <td>{val.bird}</td>
-                                <td>{val.dist}</td>
+                                <td className="dist">{val.dist}</td>
                             </tr>
                         )
                     })}
@@ -125,9 +125,11 @@ function globalLb(obj){
     document.getElementById("eventButton").style.borderStyle = "outset";
     if(getRank(5)[0].rank < 50){
         document.getElementById("yourRank").style.height="0%";
+        document.getElementById("yourRank").style.borderStyle="hidden";
     }
     else{
-        document.getElementById("yourRank").style.height="auto"; 
+        document.getElementById("yourRank").style.height="auto";
+        document.getElementById("yourRank").style.borderStyle="solid";
     }
 }
 
@@ -141,9 +143,11 @@ function flockLb(obj){
     document.getElementById("eventButton").style.borderStyle = "outset";
     if(getRank(6)[0].rank < 50){
         document.getElementById("yourRank").style.height="0%";
+        document.getElementById("yourRank").style.borderStyle="hidden";
     }
     else{
         document.getElementById("yourRank").style.height="auto"; 
+        document.getElementById("yourRank").style.borderStyle="solid";
     }
 }
 function eventLb(obj){

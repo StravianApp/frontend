@@ -2,40 +2,44 @@
 
 .page {
     background-color: $backgroundColor;
-    position: fixed;
-    top: 0%;
-    bottom: 0%;
-    left: 0%;
-    right: 0%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
     color: $textColor;
-    padding: 15px 15px 15px 15px;
+}
+
+.parent {
+    position: relative;
+    margin: 0 auto;
+    max-height: 100%;
+    width: 100%;
 }
 
 .leaderbird{
-    position: fixed;
-    top: 30%;
-    bottom: 20%;
-    left: 15%;
-    right: 15%;
+    position: relative;
+    margin: 0 auto;
+    max-height: 60%;
+    width: 80%;
     background-color: $secondaryColor;
     overflow-y: auto;
-
+    border-style: solid;
+    border-color: $borderColor;
 }
 .leaderbird th{
     position: sticky;
     top: 0;
     left: 0%;
     right: 0%;
-    background-color: adjust-hue($color: $secondaryColor, $degrees: -5);
 }
 
 .yourRank{
-    position: fixed;
-    bottom: 15%;
-    left: 15%;
-    right: 15%;
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
     background-color: $secondaryColor;
     overflow-y: auto;
+    border-style: hidden;
+    border-color: $borderColor;
 }
 .yourRank table {
     text-align: left;
@@ -44,34 +48,17 @@
     margin: 0 auto;
 }
 
-.yourRank th,td {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-.yourRank .rank{
-    text-align: center;
-    padding-left: 1rem;
-    padding-right: 0rem;
-}
-
 .leaderbird table {
     text-align: left;
     position: relative;
     border-collapse: collapse;
-    margin: 0 auto;
+    //margin: 0 auto;
 }
 .leaderbird th,td {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    background-color: $secondaryColor;
 }
-.leaderbird .rank{
+table .rank, .dist{
     text-align: center;
-    padding-left: 1rem;
-    padding-right: 0rem;
 }
 
 
