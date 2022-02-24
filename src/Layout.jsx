@@ -71,7 +71,8 @@ export default Layout;
 const arr = ["https://twitter.com/birdsarentreal?s=21",
 "https://flappybird.io/",
 "https://en.wikipedia.org/wiki/Crime_in_Antarctica",
-"https://mcphee.com/products/inflatable-toast-mattress"];
+"https://mcphee.com/products/inflatable-toast-mattress",
+"https://en.wikipedia.org/wiki/Peterborough_ditch_murders"];
 function getLink(){
   return arr[Math.floor((Math.random() * arr.length))];
 }
