@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { loggedIn, login } from '../../utils/login';
 import { stravaApi } from '../../Config';
 import { birdAssigned } from '../../utils/api';
+import { logout } from '../../utils/login';
 
 import eagle from './assets/eagle.jpg';
 const { clientId, scope, redirectUri } = stravaApi;
@@ -35,8 +36,10 @@ const Login = () => {
                         login(codeEl.current.value).then((r) => {
                             if (!r) setError(true);
                             else {
-                                if (birdAssigned()) window.location.href = "/app";
-                                else window.location.href = "/app/hatch";
+                                birdAssigned(localStorage.getItem('jwt')).then((hatched) => {
+                                    if (hatched) window.location.href = "/app";
+                                    else window.location.href = "/app/hatch";
+                                }).catch(logout);
                             }
                         })
                     }} />

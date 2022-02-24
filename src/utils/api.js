@@ -53,7 +53,7 @@ const login = async (linkingCode) => {
             body: JSON.stringify([{ linking_code: linkingCode }])
         });
         const data = await fetchResponse.json();
-        return data['JWT'];
+        return {username: data['UserName'], jwt: data['JWT']};
     }
     catch (err) {
         console.log(err);
@@ -64,19 +64,30 @@ const login = async (linkingCode) => {
 
 const getUserDetails = async (loginCode) => {
     try {
-        const jwt = await login(loginCode);
-        console.log(1);
-        return {
-            username: 'Test username',
-            jwt: jwt
-        }
+        const { username, jwt } = await login(loginCode);
+        return { username, jwt };
     }
     catch (err) {
         return null;
     }
 }
 
-const birdAssigned = () => false;
+const birdAssigned = async (jwt) => {
+    try {
+        const fetchResponse = await fetch('https://server.stravian.app/hatched_status', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        });
+        const data = await fetchResponse.json();
+        console.log('hatch', data['hatchedStatus']);
+        return data['hatchedStatus'];
+    }
+    catch (err) {
+        return false;
+    }
+};
 
 const assignBird = (bird) => true;
 
