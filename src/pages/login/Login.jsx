@@ -32,11 +32,13 @@ const Login = () => {
                 </div>
                 <div className="step step2">
                     <input className={error ? 'invalid-code' : ''} ref={codeEl} type="text" placeholder="Enter login code..." onChange={() => {
-                        if (login(codeEl.current.value)) {
-                            if (birdAssigned()) window.location.href = '/app';
-                            else window.location.href = '/app/hatch';
-                        }
-                        else setError(true);
+                        login(codeEl.current.value).then((r) => {
+                            if (!r) setError(true);
+                            else {
+                                if (birdAssigned()) window.location.href = "/app";
+                                else window.location.href = "/app/hatch";
+                            }
+                        })
                     }} />
                 </div>
             </div>

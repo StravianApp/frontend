@@ -72,9 +72,38 @@ const exchangeStravaCodeForLoginCode = async (code) => {
     }
 };
 
-const getUserDetails = (loginCode) => (loginCode.length === 12 ? {
-    username: 'Test Username'
-} : null);
+const login = async (linkingCode) => {
+    try {
+        const fetchResponse = await fetch('https://server.stravian.app/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify([{ linking_code: linkingCode }])
+        });
+        const data = await fetchResponse.json();
+        return data['jwt'];
+    }
+    catch (err) {
+        console.log(err);
+        throw err;
+    }
+}
+
+
+const getUserDetails = async (loginCode) => {
+    try {
+        const jwt = await login(loginCode);
+        console.log(1);
+        return {
+            username: 'Test username',
+            jwt: jwt
+        }
+    }
+    catch (err) {
+        return null;
+    }
+}
 
 const birdAssigned = () => false;
 
