@@ -1,15 +1,58 @@
 @import '../../theme.scss';
 
-.download-main {
-    height: 100%;
+.download-main-container {
     background-color: $backgroundColor;
+    height: 100%;
 
-    .logo-container {
-        height: 100px;
+    .powered-by-strava {
+        width: 100%;
+        height: 20%;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        img {
+            width: 50%;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.download-main {
+    
+    padding: 30px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .welcome-to-stravian {
+        
+        .welcome-to {
+            font-size: 2em;
+            text-align: center;
+            color: linear-gradient($primaryColor, white);
+        }
+    
+        .logo-container {
+            
+            height: 100px;
+            text-align: center;
+            .logo {
+                max-height: 100%;
+                max-width: 80%;
+            }
+        }
+    }
+
+    
+
+    .instructions {
+        text-align: center;
+        font-size: 1.3em;
         .logo {
-            max-height: 100%;
-            max-width: 100%;
+            height: 1.5em;
         }
     }
 }
