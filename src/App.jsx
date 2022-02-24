@@ -14,7 +14,6 @@ import Settwings from './pages/settwings/Settwings';
 import Offline from './pages/offline/Offline';
 import ErrorPage from './pages/error-page/ErrorPage';
 import Hatch from './pages/hatch/Hatch';
-import Bird from './pages/bird/Bird';
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Login from './pages/login/Login';
@@ -76,7 +75,6 @@ function App() {
                     errorCaption="Please visit this site on a smartphone to use Stravian."
                 />} />
                 <Route path="/app/login" element={<Login />} />
-                <Route path="/app/nest" element={<Nest />} />
                 <Route path="/app/logged-in" element={<LoggedIn />} />
                 <Route path="/app/hatch" element={<LoginRequired component={<Hatch />} />} />
                 <Route path="/app" element={<Layout />}>
@@ -87,7 +85,6 @@ function App() {
                     <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
                     <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
                     <Route path="about" element={<LoginRequired component={<About />} />} />
-                    <Route path="bird" element={<LoginRequired component={<Bird />} />} />
                 </Route>
                 <Route path="*" element={<ErrorPage
                     faIcon={faSearch}
