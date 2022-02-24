@@ -2,8 +2,16 @@
 
 .hatch-main {
     height: 100%;
+    padding: 15px;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 15px 15px 15px 15px;
+
+    .subtitle_ {
+        height: 3.1em;
+    }
     
     .photo-credit {
         position: fixed;
@@ -17,7 +25,6 @@
     .egg {
         max-width: 100%;
         text-align: center;
-        padding-top: 90px;
         display: absolute;
         img {
             max-width: 70%;

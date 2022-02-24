@@ -4,20 +4,33 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    padding: 0px 15px 0px 15px;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .logo-container {
+        position: fixed;
         width: 100%;
-        padding-top: 10px;
-        padding-left: 60px;
-        padding-right: 60px;
+        top: 0;
+        padding: 20px 60px 20px 60px;
+        text-align: center;
         .logo {
-            max-width: 100%;
+            max-width: 80%;
         }
     }
 
-    .error {
-        font-size: 1.3em;
-        text-align: left;
+    .content-box {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .copyBtn, .closeBtn {
+        margin-top: 6px;
+    }
+
+    .text_ {
+        text-align: center;
     }
 }
