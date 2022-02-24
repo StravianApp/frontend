@@ -76,6 +76,7 @@ function App() {
                     errorCaption="Please visit this site on a smartphone to use Stravian."
                 />} />
                 <Route path="/app/login" element={<Login />} />
+                <Route path="/app/nest" element={<Nest />} />
                 <Route path="/app/logged-in" element={<LoggedIn />} />
                 <Route path="/app/hatch" element={<LoginRequired component={<Hatch />} />} />
                 <Route path="/app" element={<Layout />}>

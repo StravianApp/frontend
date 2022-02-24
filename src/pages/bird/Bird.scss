@@ -1,1 +1,37 @@
 @import '../../theme.scss';
+
+.bird-main {
+    width: 100%;
+    height: 100%;
+    padding: 15px 15px 15px 15px;
+    background-color: $backgroundColor;
+    overflow-y: scroll;
+
+    .title {
+        position: static;
+        font-size: 30px;
+        color: $primaryColor;
+        text-align: center;
+        padding-bottom: 30px;
+        padding-top: 10px;
+        top: 0;
+        font-weight: bold;
+    }
+
+    .subtitle {
+        font-size: 13px;
+        color: $textColor;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .words {
+        font-size: 12px;
+        padding-top: 5px;
+        padding-left: 20px;
+        color: $textColor;
+        text-align: left;
+        background: $backgroundColor;
+    }
+
+}
