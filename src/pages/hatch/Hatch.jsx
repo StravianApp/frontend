@@ -22,7 +22,7 @@ const Hatch = () => {
 
     return <div className="hatch-main">
 
-            <div className="message-caption">
+            <div className="title">
                 {hatchCount < 3 ? "Tap the egg to hatch your bird" : hatchCount > 10 ? "Meet your bird, " + birdname : "Keep tapping the egg!"}
             </div>
 

@@ -7,31 +7,6 @@
     background-color: $backgroundColor;
     overflow-y: scroll;
 
-    .title {
-        position: static;
-        font-size: 30px;
-        color: $primaryColor;
-        text-align: center;
-        padding-bottom: 30px;
-        padding-top: 10px;
-        top: 0;
-        font-weight: bold;
-        background-color: $backgroundColor;
-    }
-
-    .text {
-        font-size: 12px;
-        padding-left: 7px;
-        padding-top: 5px;
-        padding-bottom: 3px;
-        color: $textColor;
-        background-color: $secondaryColor;
-        text-align: center;
-        align-items: center;
-        align-self: center;
-        align-content: center;
-    }
-
     .press {
         padding-top: 20px;
         padding-bottom: 20px;

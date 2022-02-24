@@ -33,7 +33,7 @@ const Settwings = () => {
 
         <button className="press" onClick={()=> setState({paneOpen: true})}>Privacy</button>
         <div> <SlidingPane isOpen={state.paneOpen} title="Privacy" onRequestClose={() => {setState({ paneOpen: false })}}>
-            <div className="text"> Leaderbird Visibility
+            <div className="text1"> Leaderbird Visibility
             <button className="press" onClick={()=> leaderbirdVisible("invisible")}>Invisible</button>
             <button className="press" onClick={()=> leaderbirdVisible("friends")}>Friends</button>
             <button className="press" onClick={()=> leaderbirdVisible("global")}>Everyone</button>
