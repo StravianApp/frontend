@@ -1,6 +1,6 @@
 import './about.scss';
 import logo from '../../assets/logos/full-text-3.png';
-import poweredBy from './assets/poweredbystrava.png';
+import poweredBy from '../../assets/powered-by-strava.svg';
 
 
 const About = () => (

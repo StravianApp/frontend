@@ -56,7 +56,7 @@ const Nest = () => {
                 Bird tracking
             </div> 
             <div  className='map'>
-            <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: "300px", height: "300px", background: 'inherit' }} >
+            <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: "300px", height: "300px" }} >
                 <Marker position={position} icon={ICON}> </Marker>
                 <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
             </MapContainer>

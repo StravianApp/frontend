@@ -1,12 +1,13 @@
 @import '../../theme.scss';
 
 .offline-main {
-    background-color: $primaryColor;
     height: 100%;
     color: $textColor;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 
     .main-section {
         padding: 24px;

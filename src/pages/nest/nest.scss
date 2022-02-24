@@ -9,13 +9,9 @@
     position: relative;
 
     .map {
-        text-align: center;
-        align-items: center;
-        position: absolute;
-        left: 50%;
-        align-self: center;
-        transform: translate(-50%);
-        background-color: inherit;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
     .bird {

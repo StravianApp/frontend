@@ -1,6 +1,6 @@
 import './download-page.scss';
 import logo from '../../assets/logos/full-text-3.png';
-import poweredByStravaIcon from './assets/poweredbystrava.png';
+import poweredByStravaIcon from '../../assets/powered-by-strava.svg';
 
 const DownloadPage = () => {
     return (

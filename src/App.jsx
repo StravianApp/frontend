@@ -82,6 +82,7 @@ function App() {
                         <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
                         <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
                         <Route path="about" element={<LoginRequired component={<About />} />} /> 
+                        <Route path="offline" element={<Offline />} />
                     </Route>
 
                     <Route path="*" element={<ErrorPage
