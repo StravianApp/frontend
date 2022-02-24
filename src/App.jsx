@@ -22,7 +22,6 @@ import Logout from './pages/login/Logout';
 import { isPWA } from './utils/pwa';
 import "react-sliding-pane/dist/react-sliding-pane.css";
 
-
 const isOnline = () => (
     typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
         ? navigator.onLine
@@ -69,15 +68,10 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<DownloadPage />} />
-                <Route path="/not-on-mobile" element={<ErrorPage
-                    faIcon={faMobileAlt}
-                    errorTitle="Stravian is only available for mobile devices."
-                    errorCaption="Please visit this site on a smartphone to use Stravian."
-                />} />
-                <Route path="/app/login" element={<Login />} />
-                <Route path="/app/logged-in" element={<LoggedIn />} />
-                <Route path="/app/hatch" element={<LoginRequired component={<Hatch />} />} />
+                <Route path="/not-on-mobile" element={<ErrorPage faIcon={faMobileAlt} errorTitle="Stravian is only available for mobile devices." errorCaption="Please visit this site on a smartphone to use Stravian."/>} />
                 <Route path="/app" element={<Layout />}>
+                    <Route path="login" element={<Login />} />
+                    <Route path="logged-in" element={<LoggedIn />} />
                     <Route path="hatch" element={<LoginRequired component={<Hatch />} />} />
                     <Route path="logout" element={<LoginRequired component={<Logout />} />} />
                     <Route index element={<LoginRequired component={<Nest />} />} />
@@ -86,13 +80,14 @@ function App() {
                     <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
                     <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
                     <Route path="about" element={<LoginRequired component={<About />} />} /> 
-
                 </Route>
+
                 <Route path="*" element={<ErrorPage
                     faIcon={faSearch}
                     errorTitle="Page not found"
                     errorCaption={<p>Please check the URL, or click <a href="/">here</a> to go back to the homepage.</p>}
                 />} />
+
             </Routes>
         </BrowserRouter>
     );
