@@ -1,5 +1,6 @@
 import { getUserDetails } from "./api";
 
+// const loggedIn = () => !!localStorage.getItem('username');
 const loggedIn = () => true;
 const logout = () => localStorage.clear();
 const login = async (loginCode) => {

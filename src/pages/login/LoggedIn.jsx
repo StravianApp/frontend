@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { exchangeStravaCodeForLoginCode } from "../../utils/api";
 import { Button } from "reactstrap";
 
-import logo from '../../assets/logos/full-text-1.png';
+import logo from '../../assets/logos/full-text-3.png';
 import './logged-in.scss';
 
 const LoggedIn = () => {
@@ -37,17 +37,20 @@ const LoggedIn = () => {
                 <img className='logo' src={logo} alt="Stravian Logo" />
             </div>
             { code && (<>
-                <b>Copy the login code:</b><br />
-                <input type="text_" value={code} ref={codeEl} /> &nbsp;
-                {navigator.clipboard && <Button onClick={() => navigator.clipboard.writeText(code)}>Copy</Button>}
-                <br /><br />
-                <b>Close this window and paste it into the login page:</b>
-                <br />
+                <div className="content-box">
+                    <div className="text_">Copy the login code:</div>
+                    <input type="text" contentEditable={false} value={code} ref={codeEl} /><br />
+                    {navigator.clipboard && <Button className="copyBtn" onClick={() => navigator.clipboard.writeText(code)}>Copy</Button>}
+                </div>
+                <div className="content-box">
+                    <div className="text_">Close this window and paste the code into the login page:</div>
+                    <Button className="closeBtn" onClick={() => setCloseWindow(true)}>Close window</Button>
+                </div>
             </>)}
-            { error && (<div className="error">
-                { error }
+            { error && (<div className="error content-box">
+                <div className="text_">{ error }</div>
+                <Button className="closeBtn" onClick={() => setCloseWindow(true)}>Close window</Button>
             </div>)}
-            <Button className="closeBtn" onClick={() => setCloseWindow(true)}>Close window</Button>
         </div>
     );
 };
