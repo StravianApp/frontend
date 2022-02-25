@@ -1,6 +1,6 @@
-var tempUnit = "Celcius";
-var disUnit = "Kilometres";
-var leaderbirdVisibility = "Everyone";
+var tempUnit = "celcius";
+var disUnit = "kilometres";
+var leaderbirdVisibility = "everyone";
 
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
@@ -8,6 +8,18 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('scope', scope);
     localStorage.setItem('username', 'Test');
 };
+
+const getDisUnit = () => {
+    return(disUnit);
+}
+
+const getLeaderbirdVis = () => {
+    return(leaderbirdVisibility);
+}
+
+const getTempUnit = () => {
+    return(tempUnit);
+}
 
 /* Store? This changes every time so need to store*/
 const getBirdname = () => {
@@ -135,17 +147,17 @@ const changeUnitsDis = (choice) => {
     switch (choice) {
         case 1:
             console.log("Kilometres");
-            disUnit = "Kilometres";
+            disUnit = "kilometres";
             console.log(disUnit);
             break;
         case 2:
             console.log("Miles");
-            disUnit = "Miles";
+            disUnit = "miles";
             console.log(disUnit);
             break;
         case 3:
-            console.log("Furlong");
-            disUnit = "Furlongs";
+            console.log("Wingspans");
+            disUnit = "wingspans";
             console.log(disUnit);
             break;
     }}
@@ -155,17 +167,17 @@ const leaderbirdVisible = (choice) => {
     switch (choice) {
         case 1:
             console.log("Invisible");
-            leaderbirdVisibility = "Invisible";
+            leaderbirdVisibility = "invisible";
             console.log(leaderbirdVisibility);
             break;
         case 2:
             console.log("Friends");
-            leaderbirdVisibility = "Friends";
+            leaderbirdVisibility = "friends";
             console.log(leaderbirdVisibility);
             break;
         case 3:
             console.log("Everyone");
-            leaderbirdVisibility = "Everyone";
+            leaderbirdVisibility = "everyone";
             console.log(leaderbirdVisibility);
             break;
     }
@@ -224,6 +236,10 @@ const getAggDistance = () => {
     return 100
 }
 
+const getDistance = () => {
+    return 10
+}
+
 export {
     birdAssigned,
     submitLoginDetails,
@@ -248,4 +264,8 @@ export {
     getUserAchievements, 
     getLocation,
     getAggDistance, 
+    getDistance,
+    getDisUnit,
+    getLeaderbirdVis,
+    getTempUnit,
 };

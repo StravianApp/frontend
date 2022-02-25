@@ -24,4 +24,19 @@
         border-radius: 20px;
       }
 
+      
+    .strava-container {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      position: fixed;
+      padding-top: 2em;
+      padding-bottom: 0.5em;
+      padding-left: 3em;
+      padding-right: 3em;
+      .strava {
+          max-width: 100%;
+      }
+  }
+
 }
