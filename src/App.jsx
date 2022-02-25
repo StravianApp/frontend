@@ -71,20 +71,21 @@ function App() {
                 <Route path="/" element={<RootLayout />}>
                     <Route index element={<DownloadPage />} />
                     <Route path="not-on-mobile" element={<ErrorPage faIcon={faMobileAlt} errorTitle="Stravian is only available for mobile devices." errorCaption="Please visit this site on a smartphone to use Stravian."/>} />
-                    <Route path="app" element={<Layout />}>
+                    <Route path="app"> {/* Without nav drawer */}
                         <Route path="login" element={<Login />} />
                         <Route path="logged-in" element={<LoggedIn />} />
                         <Route path="hatch" element={<LoginRequired component={<Hatch />} />} />
+                        <Route path="offline" element={<Offline />} />
                         <Route path="logout" element={<LoginRequired component={<Logout />} />} />
+                    </Route>
+                    <Route path="app" element={<Layout />}> {/* With nav drawer */}
                         <Route index element={<LoginRequired component={<Nest />} />} />
                         <Route path="flock" element={<LoginRequired component={<Flock />} />} />
                         <Route path="settwings" element={<LoginRequired component={<Settwings />} />} />
                         <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
                         <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
                         <Route path="about" element={<LoginRequired component={<About />} />} /> 
-                        <Route path="offline" element={<Offline />} />
                     </Route>
-
                     <Route path="*" element={<ErrorPage
                         faIcon={faSearch}
                         errorTitle="Page not found"

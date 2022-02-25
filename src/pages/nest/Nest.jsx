@@ -17,13 +17,10 @@ const alldistance = getAggDistance();
 
 
 const Nest = () => {
-    return (<div className='nest-main'>
-        <div className='title_'>
-            {birdname}
-        </div>
-        <div className="content-box">
-        <div className="bird">
-                <img src={bird} />
+    return (
+        <div className='nest-main page-main'>
+        <div className="page-header">
+                {birdname}
             </div>
             <div className='text_'>
             <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br>
@@ -55,12 +52,22 @@ const Nest = () => {
             </MapContainer>
             </div>
         </div>
+                <hr className="section-divider" />
 
-        
+                <div className="content-box">
+                    <div className='subtitle_'>
+                        Bird tracking
+                    </div>
+                    <div className='map'>
+                        <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: "300px", height: "300px" }} >
+                            <Marker position={position} icon={ICON}> </Marker>
+                            <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
+                        </MapContainer>
+                    </div>
+                </div>
+            </div>
+        </div>);
 
-        
-
-    </div>)
 }
 
 export default Nest;
