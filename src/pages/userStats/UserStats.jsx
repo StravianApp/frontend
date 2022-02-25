@@ -72,11 +72,11 @@ class Pg extends Component{
 
 
 const UserStats = () => (
-    <div class="page"> 
-        <div id="title_" class="title_">
-            <div>All About You</div>
+    <div className="page-container">
+        <div className="page-header">All About You</div>
+        <div class="stats-main page-main"> 
+            <Pg />
         </div>
-        <Pg />
     </div>
 )
 

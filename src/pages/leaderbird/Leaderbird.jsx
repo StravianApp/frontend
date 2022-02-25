@@ -100,16 +100,15 @@ class Board extends Component{
 }
 
 const Leaderbird = () => (
-    <div className="page">
-        <div id="title_" className="title_">
-            <div>Leaderbird</div>
+    <div className="page-container">
+        <div className="page-header">Leaderbird</div>
+        <div className="leaderbird-main page-main">
+            <div id="subtitle_" className="subtitle_">
+                <div>Global</div>
+            </div>
+                
+            <Board />
         </div>
-        
-        <div id="subtitle_" className="subtitle_">
-            <div>Global</div>
-        </div>
-            
-        <Board />
     </div>
 
 )

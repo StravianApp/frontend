@@ -44,34 +44,56 @@
     color: white;
     display: block;
     transition: 0.3s;
-  }
+}
 
-  .navDrawer .l {
+.navDrawer .l {
     padding: 8px 0px 8px 32px;
     display: inline-block;
-  }
+}
 
-  .navDrawer .s {
+.navDrawer .s {
     padding: 8px 8px 8px 0px;
     display: inline-block;
-  }
+}
   
-  /* When you mouse over the navigation links, change their color */
-  .navDrawer a:hover {
+/* When you mouse over the navigation links, change their color */
+.navDrawer a:hover {
     color: $primaryColor;
-  }
+}
   
-  /* Position and style the close button (top right corner) */
-  .navDrawer .closebtn {
+/* Position and style the close button (top right corner) */
+.navDrawer .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
+}
   
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
     .navDrawer {padding-top: 15px;}
     .navDrawer a {font-size: 18px;}
-  }
+}
+
+.page-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .page-header {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+        flex: 0 1 auto;
+        text-align: center;
+    }
+    
+    .page-main {
+        flex: 1 1 auto;
+        z-index: 1;
+        position: relative;
+        padding: 0 15px 15px 15px;
+    }
+}
