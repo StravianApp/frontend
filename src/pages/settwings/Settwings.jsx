@@ -4,7 +4,7 @@ import "react-sliding-pane/dist/react-sliding-pane.css";
 import { useState } from 'react';
 import poweredBy from '../../assets/powered-by-strava.svg';
 import theme from './theme.scss';
-import { changeUnitsTemp, changeUnitsDis, leaderbirdVisible, deleteAccount,  getDisUnit, getTempUnit, getLeaderbirdVis} from '../../utils/api';
+import { changeUnitsTemp, changeUnitsDis, leaderbirdVisible, deleteAccount, getDisUnit, getTempUnit, getLeaderbirdVis } from '../../utils/api';
 const disUnit = getDisUnit();
 const tempUnit = getTempUnit();
 const visibility = getLeaderbirdVis();
@@ -54,14 +54,14 @@ const Settwings = () => {
                 <div className="text2"> Account deletion - beware!
                     <button className="press" onClick={() => deleteAccount()}>Delete Account</button>
                 </div>
-            </SlidingPane> </div> 
-            </div>
+            </SlidingPane> </div>
+        </div>
 
-    <div className="strava-container">
-    <a href="https://www.strava.com/">
-        <img className="strava" src={poweredBy} alt="Powered by Strava" />
-    </a>
-    </div>
+        <div className="strava-container">
+            <a href="https://www.strava.com/">
+                <img className="strava" src={poweredBy} alt="Powered by Strava" />
+            </a>
+        </div>
     </div>
 }
 
