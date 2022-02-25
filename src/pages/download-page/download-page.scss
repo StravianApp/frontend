@@ -27,7 +27,12 @@
 
     .instructions {
         .logo {
-            height: 1.5em;
+            height: 1.7em;
+            transform: translateY(-1.5px);
+        }
+
+        .ios-share-icon {
+            height: 1.2em;
         }
     }
 

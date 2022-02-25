@@ -57,6 +57,8 @@ const Settwings = () => {
             </a>
 
         {/* <div className='settwings-main page-main'>
+=======
+        <div className='settwings-main page-main'>
 
             <div className="btns">
                 <button className="press1" onClick={() => window.location.href = '/app/logout'}>Logout</button>
@@ -87,6 +89,7 @@ const Settwings = () => {
                     <button className="press" onClick={() => deleteAccount()}>Delete Account</button>
                 </div>
             </SlidingPane> </div> */}
+            {/* </SlidingPane> </div> */}
         </div>
     </div>
 
