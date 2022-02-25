@@ -18,22 +18,21 @@ const alldistance = getAggDistance();
 
 const Nest = () => {
     return (
-        <div className='nest-main page-main'>
+    <div className='nest-main page-main'>
         <div className="page-header">
-                {birdname}
-            </div>
-            <div className='text_'>
-            <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br>
-                This week, I've flown {distance} {disUnit}. Overall, I've flown {alldistance} {disUnit}! <br></br> Track me down below!
-            </div> 
+            {birdname}
+        </div>
+
+        <div className='text_'>
+            <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br> This week, I've flown {distance} {disUnit}. Overall, I've flown {alldistance} {disUnit}! <br></br> Track me down below!
         </div>
 
         <hr className="section-divider" />
+
         <div className="content-box">
             <div className='subtitle_'>
                 Did you know?
             </div>
-
             <div className='text_'>
                 {fact}
             </div> 
@@ -50,7 +49,6 @@ const Nest = () => {
                 <Marker position={position} icon={ICON}> </Marker>
                 <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
             </MapContainer>
-            </div>
         </div>
                 <hr className="section-divider" />
 
@@ -66,8 +64,7 @@ const Nest = () => {
                     </div>
                 </div>
             </div>
-        </div>);
-
-}
+    </div>
+);}
 
 export default Nest;
