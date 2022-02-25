@@ -20,7 +20,6 @@ const Settwings = () => {
         <div className='page-header'>
             Settwings
         </div>
-<<<<<<< HEAD
         <button className="press1" onClick={() => window.location.href = '/app/logout'}>Logout</button>
 
         <button className="press1" onClick={()=> setState({isPaneOpen: true})}>Change Units</button>
@@ -56,8 +55,8 @@ const Settwings = () => {
             <a href="https://www.strava.com/">
             <img className="strava" src={poweredBy} alt="Powered by Strava" />
             </a>
-=======
-        <div className='settwings-main page-main'>
+
+        {/* <div className='settwings-main page-main'>
 
             <div className="btns">
                 <button className="press1" onClick={() => window.location.href = '/app/logout'}>Logout</button>
@@ -87,8 +86,7 @@ const Settwings = () => {
                 <div className="text2"> Account deletion - beware!
                     <button className="press" onClick={() => deleteAccount()}>Delete Account</button>
                 </div>
-            </SlidingPane> </div>
->>>>>>> de71790159ef060206b99161b05207cb7b0900bb
+            </SlidingPane> </div> */}
         </div>
     </div>
 
