@@ -29,7 +29,7 @@ const Layout = () => {
       <>
 
       <div id="navDrawer" className="navDrawer">
-        <a href="/app">Nest</a>
+        <a href="/app">Your Nest</a>
         <a href="/app/leaderbird">Leaderbird</a>
         <a href="/app/user-stats">User Stats</a>
         <a href="/app/flock">Your Flock</a>
@@ -50,20 +50,6 @@ const Layout = () => {
     )
 }
 export default Layout;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 const arr = ["https://twitter.com/birdsarentreal?s=21",

@@ -1,6 +1,8 @@
 import './about.scss';
 import logo from '../../assets/logos/full-text-3.png';
 import poweredBy from '../../assets/powered-by-strava.svg';
+import { getBirdfact } from '../../utils/api';
+const fact = getBirdfact();
 
 
 const About = () => (
@@ -13,7 +15,7 @@ const About = () => (
                 What is this app?    
             </div>
             <div className="text_">
-                Stravian assigns you a bird friend from the twenty egg-cellent eagles we have live tracking data on. You can then connect with your human friends and alongside your greater spotted eagle; using data from radio tags attached to the birds to measure how far they fly each day. The distance you cycle and record on Strava alongside the distance your bird friend moves each day count towards your overall placement on the leaderbird, so no fowl play!
+                Stravian introduces you to a bird friend from the twenty egg-cellent eagles we have tracking data on. You then connect with your human friends and compete! Both data from radio tags attached to the birds to measure how far they fly each day and the distance you record on Strava counts towards your overall placement on the leaderbird, so no fowl play!
             </div>
         </div>
         
@@ -46,7 +48,16 @@ const About = () => (
             </div>
         </div>
 
-        
+        <hr className="section-divider" />
+        <div className="content-box">
+            <div className='subtitle_'>
+                Did you know?
+            </div>
+
+            <div className='text_'>
+                {fact}
+            </div> 
+        </div>
 
         <hr className="section-divider" />
 
