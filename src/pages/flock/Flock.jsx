@@ -2,6 +2,7 @@ import './flock.scss';
 import glass from './assets/magglass.png'
 import { useRef, useState } from 'react';
 import { noFriend, newFriend, getFriendUpdates, getFriends } from '../../utils/api';
+import { getUsername } from '../../utils/login';
 
 import { Row, Col } from 'reactstrap';
 
@@ -17,6 +18,11 @@ const Flock = () => {
         <div className="page-header">Your Flock</div>
 
         <div className='flock-main page-main'>
+
+            <div className="your-username content-box">
+                Your username is <b>{ getUsername() }</b>.
+            </div>
+            <div className="add-friend content-box">
 
             <div className='find-new'>
                 <img className="magglass" src={glass} alt="Magnifying glass" />
@@ -36,6 +42,9 @@ const Flock = () => {
                 </Row>
                 <div className="friend-text">{friendMessage}</div>
             </div>
+            </div>
+
+
 
 
             <hr className="section-divider" />

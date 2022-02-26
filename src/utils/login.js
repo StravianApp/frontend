@@ -1,7 +1,7 @@
 import { getUserDetails } from "./api";
 
 // const loggedIn = () => !!localStorage.getItem('username');
-const loggedIn = () => true;
+const loggedIn = () => !localStorage.setItem('username', 'Test Username');
 const logout = () => localStorage.clear();
 const login = async (loginCode) => {
     const userDetails = await getUserDetails(loginCode);
@@ -11,5 +11,6 @@ const login = async (loginCode) => {
     localStorage.setItem('jwt', jwt);
     return true;
 }
+const getUsername = () => localStorage.getItem('username');
 
-export { loggedIn, logout, login };
+export { loggedIn, logout, login, getUsername };

@@ -2,12 +2,25 @@
 
 .flock-main {
 
+    .your-username {
+        text-align: center;
+        margin-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: 2px solid white;
+    }
+
+    .add-friend {
+        margin-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
 
     .find-new {
         font-size: 1.3em;
         color: $textColor;
         text-align: center;
-        padding-top: 15px;
         .magglass {
             max-width: 10%;
             max-height: 100%;
@@ -28,12 +41,11 @@
     .in {
         padding-top: 10px;
         font-size: 1.2em;
+        margin: 0 10px 0 10px;
         .search-box {  
-            margin-left: 10px;
             border: 1px solid;
         }
-        .search-button {  
-            float: right;
+        .search-button {
             border: 1px solid;
         }
     }
