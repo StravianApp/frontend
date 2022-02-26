@@ -32,6 +32,9 @@ class Pg extends Component {
                     Your username is <b>{getUsername()}</b>.
                 </div>
             </div>
+
+            <hr className="section-divider" />
+
             <div className="content-box">
                 <div className="subtitle_">Distance travelled</div>
                 <div className="distance-stat text_"><div className="period">This week</div><div className="stat">{this.state.stats.week} {disUnit}</div></div>
@@ -39,6 +42,9 @@ class Pg extends Component {
                 <div className="distance-stat text_"><div className="period">This year</div><div className="stat">{this.state.stats.year} {disUnit}</div></div>
                 <div className="distance-stat text_"><div className="period">All time</div><div className="stat">{this.state.stats.allTime} {disUnit}</div></div>
             </div>
+
+            <hr className="section-divider" />
+
             <div className="content-box achievements">
                 <div className="subtitle_">Achievements</div>
                 {this.state.achievements.map((achievement) => (
@@ -107,7 +113,7 @@ class Pg extends Component {
 
 const UserStats = () => (
     <div className="page-container">
-        <div className="page-header">All About You</div>
+        <div className="page-header">User Stats</div>
         <div className="stats-main page-main">
             <Pg />
         </div>
