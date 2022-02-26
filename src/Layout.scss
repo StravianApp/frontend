@@ -17,10 +17,17 @@
     position: fixed;
     z-index: 2;
     background-color: #4242da; /* Blue*/
-    width: 37px;
-    height: 37px;
+    width: 45px;
+    height: 45px;
+    top: 8px;
+    left: 8px;
     transition: 0.5s;
-    background-image: url("./Icons/pirds36px.png");
+    border-radius: 10px;
+    img {
+        width: 100%;
+        height: 100%;
+        padding: 7px;
+    }
 }
 
 .shader {
