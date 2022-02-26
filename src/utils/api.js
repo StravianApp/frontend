@@ -79,6 +79,7 @@ const login = async (linkingCode) => {
 
 
 const getUserDetails = async (loginCode) => {
+    if (loginCode.length < 12) return null;
     try {
         const { username, jwt } = await login(loginCode);
         return { username, jwt };
