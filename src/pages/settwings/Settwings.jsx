@@ -33,13 +33,13 @@ const Settwings = () => {
                     <button className="press" onClick={() => changeUnitsTemp(1)}>Celsius</button>
                     <button className="press" onClick={() => changeUnitsTemp(2)}>Fahrenheit</button>
                     <button className="press" onClick={() => changeUnitsTemp(3)}>Kelvin</button>
-                    <i>Your current unit for temperature is {tempUnit}.</i>
+                    <i>Your current unit for temperature is <b>{tempUnit}</b></i>
                 </div>
                 <div className="text2"> Units for Distance
                     <button className="press" onClick={() => changeUnitsDis(1)}>Kilometres</button>
                     <button className="press" onClick={() => changeUnitsDis(2)}>Miles</button>
                     <button className="press" onClick={() => changeUnitsDis(3)}>Furlongs</button>
-                    <i>Your current unit for distance is {disUnit}.</i>
+                    <i>Your current unit for distance is <b>{disUnit}</b></i>
                 </div>
             </SlidingPane>
 
@@ -49,7 +49,7 @@ const Settwings = () => {
                     <button className="press" onClick={() => leaderbirdVisible(1)}>Invisible</button>
                     <button className="press" onClick={() => leaderbirdVisible(2)}>Friends</button>
                     <button className="press" onClick={() => leaderbirdVisible(3)}>Everyone</button>
-                    <i>Your current visibility is set to {visibility}.</i>
+                    <i>Your current visibility is set to <b>{visibility}</b></i>
                 </div>
                 <div className="text2"> Account deletion - beware!
                     <button className="press" onClick={() => deleteAccount()}>Delete Account</button>
