@@ -21,7 +21,6 @@ const getTempUnit = () => {
     return(tempUnit);
 }
 
-/* Store? This changes every time so need to store*/
 const getBirdname = () => {
     const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird", "Vikolas", "Vik", "Vik III"];
     return names[Math.floor(Math.random() * names.length)];
@@ -76,7 +75,6 @@ const login = async (linkingCode) => {
         throw err;
     }
 }
-
 
 const getUserDetails = async (loginCode) => {
     if (loginCode.length < 12) return null;
@@ -230,7 +228,7 @@ const getUserAchievements = () => {
 }
 
 const getLocation = () => {
-    return [51.505, -0.09]
+    return [-0.56, 22.94]
 }
 
 const getAggDistance = () => {

@@ -47,7 +47,7 @@ const Nest = () => {
                         Tracking
                     </div>
                     <div className='map'>
-                        <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: "300px", height: "300px" }} >
+                        <MapContainer center={position} zoom={8} scrollWheelZoom={false} style={{ width: "300px", height: "300px" }} >
                             <Marker position={position} icon={ICON}> </Marker>
                             <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
                         </MapContainer>
