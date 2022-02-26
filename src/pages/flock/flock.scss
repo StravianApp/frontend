@@ -59,20 +59,9 @@
         display: block;
 
         .remove {
-            // align-items: right;
             border-radius: 5px;
-            // align-self: right;
-            // align-content: right;
-            // text-align: right;
-            // padding-left: 3px;
-            // padding-top: 0px;
-            // padding-bottom: 0px;
-            // padding-right: 3px;
-            font-size: 0.9em;  
-            // float: right;
-            // margin-right: 10px;
-            // margin-left: auto;
             border: 1px solid;
+            width: 10;
             background-color: $primaryColor;
             float: right;
         }
@@ -112,19 +101,8 @@
     // }    
 
     .remove {
-        // align-items: right;
         border-radius: 5px;
-        // align-self: right;
-        // align-content: right;
-        // text-align: right;
-        // padding-left: 3px;
-        // padding-top: 0px;
-        // padding-bottom: 0px;
-        // padding-right: 3px;
-        font-size: 0.9em;  
-        // float: right;
-        // margin-right: 10px;
-        // margin-left: auto;
+        font-size: x-small;
         border: 1px solid;
         background-color: $primaryColor;
     }
