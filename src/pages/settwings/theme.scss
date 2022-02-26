@@ -1,5 +1,7 @@
 @import '../../theme.scss';
 
+$paneThemeColor: #4242da;
+
 .slide-pane {
   display: flex;
   flex-direction: column;
@@ -18,13 +20,12 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: white;
 }
 
 .slide-pane__header {
   align-items: left;
   color: white;
-  background: #4242da;
+  background: $paneThemeColor;
   padding-left: 0px;
 }
 .slide-pane__title-wrapper {
@@ -64,7 +65,7 @@
   color: white;
   margin-top: 5px;
   width: 100%;
-  background-color: #4242da;
+  background-color: $paneThemeColor;
   align-content: center;
   border-radius: 10px;
 }
