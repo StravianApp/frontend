@@ -52,7 +52,7 @@ const Settwings = () => {
                     <i>Your current visibility is set to <b>{visibility}</b></i>
                 </div>
                 <div className="text2"> Account deletion - beware!
-                    <button className="press" onClick={() => deleteAccount()}>Delete Account</button>
+                    <button  className="press2" onClick={() => deleteAccount()}>Delete Account</button>
                 </div>
             </SlidingPane> </div>
         </div>
