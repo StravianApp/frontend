@@ -66,7 +66,7 @@ const login = async (linkingCode) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify([{ linking_code: linkingCode }])
+            body: JSON.stringify({ linking_code: linkingCode })
         });
         const data = await fetchResponse.json();
         return {username: data['UserName'], jwt: data['JWT']};
