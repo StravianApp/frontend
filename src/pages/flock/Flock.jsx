@@ -30,10 +30,10 @@ const Flock = () => {
             </div>
             <div className='in'>
                 <Row>
-                    <Col xs={9}>
+                    <Col xs={8}>
                         <input type="text" name="input" className="search-box" ref={friendName} />
                     </Col>
-                    <Col xs={3}>
+                    <Col xs={4}>
                         <input type="button" className="search-button" value="Search" onClick={() => {
                             if (newFriend(friendName.current.value)) setFriendMessage('Success! Another friend flies with you!');
                             else setFriendMessage('What the flock!? That friend isn\'t flying at the moment.');
