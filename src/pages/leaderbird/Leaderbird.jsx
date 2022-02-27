@@ -84,13 +84,13 @@ class Board extends Component{
                 </Row>
                 <Row>
                     <Col xs = "4"><button 
-                    id = "globalButton"
+                    id = "globalButton"  className='single-button'
                     onClick={() => globalLb(this)}>Global</button></Col>
                     <Col xs = "4"><button
-                    id = "flockButton"
+                    id = "flockButton"  className='single-button'
                     onClick={() => flockLb(this)}>Flock</button></Col>
                     <Col xs = "4"><button
-                    id = "eventButton"
+                    id = "eventButton"  className='single-button'
                     onClick={() => eventLb(this)}>Event</button></Col>
                 </Row>
             </div>
