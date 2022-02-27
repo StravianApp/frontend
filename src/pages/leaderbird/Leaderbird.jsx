@@ -59,6 +59,7 @@ class Board extends Component{
                     })}
                 </tbody></table>
             </div>
+            
 
             <div id="yourRank" className="yourRank">
                 <table><tbody>
@@ -82,6 +83,7 @@ class Board extends Component{
                     quote={this.state["quote"]}
                     hashtag={"#Stravian"}>Share on FaceBook!</FacebookShareButton></Col>
                 </Row>
+
                 <Row>
                     <Col xs = "4"><button 
                     id = "globalButton"  className='single-button'

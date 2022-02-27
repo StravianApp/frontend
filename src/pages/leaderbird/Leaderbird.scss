@@ -5,20 +5,22 @@
     
     .leaderbird{
         position: fixed;
-        top: 30%;
+        top: 25%;
         bottom: 20%;
         left: 15%;
         right: 15%;
-        background-color: $secondaryColor;
-        overflow-y: auto;
-    
+        //background-color: $secondaryColor;
+        background-color: white;
+        overflow-y: auto;    
     }
     .leaderbird th{
         position: sticky;
         top: 0;
         left: 0%;
         right: 0%;
-        background-color: adjust-hue($color: $secondaryColor, $degrees: -5);
+        //background-color: adjust-hue($color: $secondaryColor, $degrees: -5);
+        color: white;
+        background-color: #4242da;
     }
     
     .yourRank{
@@ -26,7 +28,7 @@
         bottom: 15%;
         left: 15%;
         right: 15%;
-        background-color: $secondaryColor;
+
         overflow-y: auto;
     }
     .yourRank table {
