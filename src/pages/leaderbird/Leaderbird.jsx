@@ -1,15 +1,8 @@
 import {Row, Col} from 'reactstrap';
 import "./Leaderbird.scss";
 import { Component } from 'react';
-import {
-    FacebookShareButton
-} from "react-share";
-import {
-    getGlobalLeaderbird,
-    getFlockLeaderbird,
-    getGlobalRank,
-    getFlockRank
-} from '../../utils/api.js';
+import { FacebookShareButton } from "react-share";
+import { getGlobalLeaderbird, getFlockLeaderbird, getGlobalRank, getFlockRank } from '../../utils/api.js';
 
 class Board extends Component{
     constructor(props) {
@@ -78,8 +71,8 @@ class Board extends Component{
 
             <div id="buttons" className="buttons">
                 <Row>
-                    <Col><FacebookShareButton
-                    url="www.google.com"
+                    <Col><FacebookShareButton classname='single-button'
+                    url={"www.google.com"}
                     quote={this.state["quote"]}
                     hashtag={"#Stravian"}>Share on FaceBook!</FacebookShareButton></Col>
                 </Row>
@@ -92,6 +85,7 @@ class Board extends Component{
                     id = "flockButton"  className='single-button'
                     onClick={() => flockLb(this)}>Flock</button></Col>
                     <Col xs = "4"><button
+                    //this doesn't work?? 
                     id = "eventButton"  className='single-button'
                     onClick={() => eventLb(this)}>Event</button></Col>
                 </Row>

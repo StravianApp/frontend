@@ -11,12 +11,12 @@
         right: 15%;
         //background-color: $secondaryColor;
         background-color: white;
-        overflow-y: auto;    
+        overflow-y: auto;
+    
     }
     .leaderbird th{
         position: sticky;
         top: 0;
-        left: 0%;
         right: 0%;
         //background-color: adjust-hue($color: $secondaryColor, $degrees: -5);
         color: white;
@@ -80,11 +80,11 @@
         padding-top: 3px;
         padding-bottom: 3px;
         font-size: 12px;  
-        border: 2px solid white;
+        border: 2px solid #4242da;
         margin-top: 5px;
         width: 130%;
-        color: #4242da;
-        background-color: white;
+        background-color: #4242da;
+        color: white;
         border-radius: 20px;
         }
       
