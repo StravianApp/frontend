@@ -19,7 +19,7 @@ const Hatch = () => {
             setTimeout(() => {
                 assignBird(birdname);
                 window.location.href = '/app';
-            }, 8000);
+            }, 7000);
         }
         else setCaption("Keep tapping the egg!")
     }, [hatchCount]);

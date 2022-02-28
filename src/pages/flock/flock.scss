@@ -22,8 +22,8 @@
         color: $textColor;
         text-align: center;
         .magglass {
-            max-width: 10%;
-            max-height: 100%;
+            max-width: 8%;
+            max-height: auto;
             align-items: center;
             margin-right: 0.75em;
             padding-bottom: 0.2em;
@@ -66,39 +66,6 @@
             float: right;
         }
     }
-
-    // .header-updates {
-    //     font-size: 1.3em;
-    //     text-align: center;
-    // }
-
-
-    // .text-updates {
-    //     font-size: 1em;
-    //     padding-left: 10px;
-    //     color: $textColor;
-    //     text-align: left;
-    //     padding-top: 5px;
-    //     padding-bottom: 3px;
-    // }
-
-    // .header-flockmates {
-    //     font-size: 1.3em;
-    //     text-align: center;
-    // }
-
-    // .text-flockmates {
-    //     font-size: 1em;
-    //     padding-left: 10px;
-    //     color: $textColor;
-    //     padding-top: 5px;
-    //     padding-bottom: 3px;
-    //     color: $textColor;
-    //     text-align: left;
-    //     align-items: right;
-    //     align-self: right;
-    //     align-content: right;
-    // }    
 
     .remove {
         border-radius: 5px;
