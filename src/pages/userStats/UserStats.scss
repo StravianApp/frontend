@@ -27,14 +27,14 @@
     //background-color: adjust-hue($color: $secondaryColor, $degrees: -50);
 }
 
-.stats table{
+/*.stats table{
     background-color: $secondaryColor;
-}
+}*/
 
 .stats th{
     position: sticky;
     top: 0;
-    background-color: adjust-hue($color: $secondaryColor, $degrees: 0);
+    //background-color: adjust-hue($color: $secondaryColor, $degrees: 0);
 }
 
 .stats .break {
@@ -48,7 +48,7 @@
     width: 98%;
 }
 
-.stats .notBr{
+/*.stats .notBr{
     border-color: $borderColor;
     border-style: solid;
-}
+}*/

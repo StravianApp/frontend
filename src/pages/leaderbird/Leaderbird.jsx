@@ -59,6 +59,8 @@ class Board extends Component{
                     })}
                 </tbody></table>
             </div>
+            
+            <hr className="section-divider" />
 
             <div id="yourRank" className="yourRank">
                 <table><tbody>
