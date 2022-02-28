@@ -1,3 +1,7 @@
+var tempUnit = "celcius";
+var disUnit = "kilometres";
+var leaderbirdVisibility = "everyone";
+
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
     localStorage.setItem('code', code);
@@ -5,14 +9,25 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
-/* Store? This changes every time so need to store on code*/
+const getDisUnit = () => {
+    return(disUnit);
+}
+
+const getLeaderbirdVis = () => {
+    return(leaderbirdVisibility);
+}
+
+const getTempUnit = () => {
+    return(tempUnit);
+}
+
 const getBirdname = () => {
     const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird", "Vikolas", "Vik", "Vik III"];
     return names[Math.floor(Math.random() * names.length)];
 };
 
 const getBirdfact = () => {
-    const facts = ["Greater Spotted Eagles are the largest raptors belonging to the Accipitridae family!", "Greater Spotted Eagles can weigh between 1.5 and 2.5 kg - as much as three bags of sugar!", "Greater Spotted Eagles' primary habitates are wetlands and forests!", "Greater Spotted Eagles have a wingspan of up to 180 cm - that's taller than the average UK male human!", "Greater Spotted Eagles are carnivorous, eating small mammals, snakes, lizards, fish, insects and even other birds!", "Greater Spotted eagles are endangered due to habitat loss.", "Greater Spotted Eagles face many threats every day, including illegal shooting, poaching, poisoning and electocution.", "Greater Spotted Eagles only have white spots as juveniles.", "When in gliding flight, Greater Spotted Eagles hold the feathers on their wingtips downwards.", "Greater Spotted Eagles are large, brown birds of prey!", "Greater Spotter Eagles are members of the Aquilinae family, also known as booted eagles!", "Greater Spotted Eagles make nests out of large sticks, which can be 70 to 110cm in diameter and 100cm deep!"];
+    const facts = ["Greater Spotted Eagles are the largest raptors belonging to the Accipitridae family!", "Greater Spotted Eagles can weigh between 1.5 and 2.5 kg - as much as three bags of sugar!", "Greater Spotted Eagles' primary habitates are wetlands and forests!", "Greater Spotted Eagles have a wingspan of up to 180 cm - that's taller than the average UK male human!", "Greater Spotted Eagles are carnivorous, eating small mammals, snakes, lizards, fish, insects and even other birds!", "Greater Spotted eagles are endangered due to habitat loss.", "Greater Spotted Eagles face many threats every day, including illegal shooting, poaching, poisoning and electocution.", "Greater Spotted Eagles only have white spots as juveniles.", "When in gliding flight, Greater Spotted Eagles hold the feathers on their wingtips downwards.", "Greater Spotted Eagles are large, brown birds of prey!", "Greater Spotted Eagles are members of the Aquilinae family, also known as booted eagles!", "Greater Spotted Eagles make nests out of large sticks, which can be 70 to 110cm in diameter and 100cm deep!"];
     return facts[Math.floor(Math.random() * facts.length)];
 };
 
@@ -61,8 +76,8 @@ const login = async (linkingCode) => {
     }
 }
 
-
 const getUserDetails = async (loginCode) => {
+    if (loginCode.length < 12) return null;
     try {
         const { username, jwt } = await login(loginCode);
         return { username, jwt };
@@ -94,7 +109,6 @@ const assignBird = (bird) => true;
 const newFriend = (friend) => {
     console.log(friend);
     if (["Alice", "Bob", "Carl", "Diane", "Egg", "Fill"].indexOf(friend) > -1) {
-        //add friend as a new friend here please!!!!!!!!! but only if they exist
         return true;
     }
     else {
@@ -104,19 +118,68 @@ const newFriend = (friend) => {
 
 const noFriend = (friend) => {
     console.log(friend);
-    //Remove friend here please :(
+    //Remove friend here :(
 };
 
-const changeUnitsTemp = (newUnit) => {
-    console.log(newUnit);
-}
+const changeUnitsTemp = (choice) => {
+    console.log(choice);
+    switch (choice) {
+        case 1:
+            console.log("Celcius like a normal person");
+            tempUnit = "Celcius";
+            console.log(tempUnit);
+            break;
+        case 2:
+            console.log("Fahrenheit");
+            tempUnit = "Fahrenheit";
+            console.log(tempUnit);
+            break;
+        case 3:
+            console.log("Kelvin");
+            tempUnit = "Kelvin";
+            console.log(tempUnit);
+            break;
+    }}
 
-const changeUnitsDis = (newUnit) => {
-    console.log(newUnit);
-}
+const changeUnitsDis = (choice) => {
+    console.log(choice);
+    switch (choice) {
+        case 1:
+            console.log("Kilometres");
+            disUnit = "kilometres";
+            console.log(disUnit);
+            break;
+        case 2:
+            console.log("Miles");
+            disUnit = "miles";
+            console.log(disUnit);
+            break;
+        case 3:
+            console.log("Wingspans");
+            disUnit = "wingspans";
+            console.log(disUnit);
+            break;
+    }}
 
 const leaderbirdVisible = (choice) => {
     console.log(choice);
+    switch (choice) {
+        case 1:
+            console.log("Invisible");
+            leaderbirdVisibility = "invisible";
+            console.log(leaderbirdVisibility);
+            break;
+        case 2:
+            console.log("Friends");
+            leaderbirdVisibility = "friends";
+            console.log(leaderbirdVisibility);
+            break;
+        case 3:
+            console.log("Everyone");
+            leaderbirdVisibility = "everyone";
+            console.log(leaderbirdVisibility);
+            break;
+    }
 }
 
 const deleteAccount = () => {
@@ -165,11 +228,15 @@ const getUserAchievements = () => {
 }
 
 const getLocation = () => {
-    return [51.505, -0.09]
+    return [-0.56, 22.94]
 }
 
 const getAggDistance = () => {
     return 100
+}
+
+const getDistance = () => {
+    return 10
 }
 
 export {
@@ -196,4 +263,8 @@ export {
     getUserAchievements, 
     getLocation,
     getAggDistance, 
+    getDistance,
+    getDisUnit,
+    getLeaderbirdVis,
+    getTempUnit,
 };

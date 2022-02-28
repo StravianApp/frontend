@@ -10,31 +10,39 @@ const birdname = getBirdname();
 
 const Hatch = () => {
     const [hatchCount, setHatchCount] = useState(0);
+    const [caption, setCaption] = useState("Tap the egg to hatch your bird");
 
     useEffect(() => {
-        if (hatchCount > 10) {
+        if (hatchCount < 3) setCaption("Tap the egg to hatch your bird");
+        else if (hatchCount > 10) {
+            setCaption("Meet your bird, " + birdname);
             setTimeout(() => {
                 assignBird(birdname);
                 window.location.href = '/app';
-            }, 8000);
+            }, 7000);
         }
+        else setCaption("Keep tapping the egg!")
     }, [hatchCount]);
 
-    return <div className="hatch-main">
+    const hatchTap = () => (hatchCount <= 10) && setHatchCount(hatchCount + 1);
 
-            <div className="title_">
-                {hatchCount < 3 ? "Tap the egg to hatch your bird" : hatchCount > 10 ? "Meet your bird, " + birdname : "Keep tapping the egg!"}
+    return (
+        <div className="hatch-main">
+            <div className="subtitle_">
+                {caption}
             </div>
 
-            <div className="bird" onClick={() => setHatchCount(hatchCount + 1)}>
-                <img src={hatchCount > 10 ? bird : null} />
-            </div>
-            <div className="egg" onClick={() => {if (hatchCount <= 10) setHatchCount(hatchCount + 1)}}>
+            {hatchCount > 10 && <div className="bird">
+                <img src={bird} alt="Bird" />
+            </div>}
+            <div className="egg" onClick={hatchTap}>
                 <img src={hatchCount < 5 ? unhatched : hatchCount > 10 ? hatched : parthatched} alt="Egg" />
             </div>
 
-        {hatchCount > 10 && <small className="photo-credit">"Greater Spotted Eagle (Aquila clanga)" by Sergey Pisarevskiy is licensed under CC BY-NC-SA 2.0</small>}
-    </div>
+
+
+            {hatchCount > 10 && <small className="photo-credit">"Greater Spotted Eagle (Aquila clanga)" by Sergey Pisarevskiy is licensed under CC BY-NC-SA 2.0</small>}
+        </div>)
 };
 
 export default Hatch;

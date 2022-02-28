@@ -1,13 +1,6 @@
 @import '../../theme.scss';
 
-.page {
-    background-color: $backgroundColor;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    color: $textColor;
-    padding: 15px 15px 15px 15px;
-}
+.stats-main {
 
 .parent {
     position: relative;
@@ -36,19 +29,78 @@
     top: 0;
     //background-color: adjust-hue($color: $secondaryColor, $degrees: 0);
 }
+    .username {
+        text-align: center;
+    }
 
-.stats .break {
-    height: 5%;
+    .distance-stat {
+        width: 100%;
+        font-size: 1em;
+        div {
+            display: inline-block;
+        }
+        .period {
+            font-weight: bold;
+            float: left;
+        }
+        .stat {
+            float: right;
+        }
+    }
+
+    .achievements {
+
+        .achievement {
+            .title {
+                font-size: 1.1em;
+                font-weight: bold;
+            }
+            margin-top: 8px;
+        }
+    }
+
+
+    // padding: 0 !important;
+
+    // .parent {
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    // }
+    
+    // .stats {
+    //     position: relative;
+    //     height: 80%;
+    //     width: 80%;
+    //     top: 55%;
+    //     left: 50%;
+    //     -ms-transform: translate(-50%, -50%);
+    //     transform: translate(-50%, -50%);
+    // }
+    
+    // .stats table{
+    //     background-color: $secondaryColor;
+    // }
+    
+    // .stats th{
+    //     position: sticky;
+    //     top: 0;
+    //     background-color: adjust-hue($color: $secondaryColor, $degrees: 0);
+    // }
+    
+    // .stats .break {
+    //     height: 5%;
+    // }
+    
+    // .stats div{
+    //     overflow-y: auto;
+    //     max-height: 60%;
+    //     margin: 0 auto;
+    //     width: 98%;
+    // }
+    
+    // .stats .notBr{
+    //     border-color: adjust-hue($color: $secondaryColor, $degrees: -20);
+    //     border-style: solid;
+    // }
 }
-
-.stats div{
-    overflow-y: auto;
-    max-height: 60%;
-    margin: 0 auto;
-    width: 98%;
-}
-
-/*.stats .notBr{
-    border-color: $borderColor;
-    border-style: solid;
-}*/

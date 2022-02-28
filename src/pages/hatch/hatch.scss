@@ -1,10 +1,17 @@
 @import '../../theme.scss';
 
 .hatch-main {
-    background-color: $backgroundColor;
     height: 100%;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 15px 15px 15px 15px;
+    padding: 15px;
+
+    .subtitle_ {
+        height: 3.1em;
+    }
     
     .photo-credit {
         position: fixed;
@@ -18,7 +25,6 @@
     .egg {
         max-width: 100%;
         text-align: center;
-        padding-top: 90px;
         display: absolute;
         img {
             max-width: 70%;
@@ -33,5 +39,4 @@
             max-width: 70%;
         }
     }
-
 }

@@ -1,20 +1,10 @@
 @import '../../theme.scss';
 
 .nest-main {
-    width: 100%;
-    height: 125%;
-    padding: 15px 15px 15px 15px;
-    background-color: $backgroundColor;
-    overflow-y: scroll;
-
     .map {
-        text-align: center;
-        align-items: center;
-        position: absolute;
-        left: 50%;
-        align-self: center;
-        transform: translate(-50%);
-        background-color: inherit;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
     .bird {

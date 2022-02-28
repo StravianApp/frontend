@@ -4,10 +4,10 @@
     height: 100%;
     width: 0%; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
-    z-index: 2; /* Stay on top */
+    z-index: 3; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: $textColor; /* Blue*/
+    background-color: #4242da; /* Blue*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -15,23 +15,29 @@
 
 .navDrawerButton {
     position: fixed;
-    z-index: 2;
-    // top: 10%;
-    background-color: $textColor; /* Blue*/
-    width: 38px;
-    height: 38px;
+    z-index: 3;
+    background-color: #4242da; /* Blue*/
+    width: 45px;
+    height: 45px;
+    top: 8px;
+    left: 8px;
     transition: 0.5s;
-    background-image: url("./Icons/pirds36px.png");
+    border-radius: 10px;
+    img {
+        width: 100%;
+        height: 100%;
+        padding: 7px;
+    }
 }
 
 .shader {
     height: 100%;
     width: 0%;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
-    background-color: $textColor;
+    background-color: #4242da;
     overflow-x: hidden;
     transition: 0.5s;
     opacity: 0.5;
@@ -42,37 +48,63 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: $backgroundColor;
+    color: white;
     display: block;
     transition: 0.3s;
-  }
+}
 
-  .navDrawer .l {
+.navDrawer .l {
     padding: 8px 0px 8px 32px;
     display: inline-block;
-  }
+}
 
-  .navDrawer .s {
+.navDrawer .s {
     padding: 8px 8px 8px 0px;
     display: inline-block;
-  }
+}
   
-  /* When you mouse over the navigation links, change their color */
-  .navDrawer a:hover {
-    color: $backgroundColor;
-  }
+/* When you mouse over the navigation links, change their color */
+.navDrawer a:hover {
+    color: $primaryColor;
+}
   
-  /* Position and style the close button (top right corner) */
-  .navDrawer .closebtn {
+/* Position and style the close button (top right corner) */
+.navDrawer .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
+}
   
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
     .navDrawer {padding-top: 15px;}
     .navDrawer a {font-size: 18px;}
-  }
+}
+
+.page-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .page-header {
+        padding: 10px 6px 10px 6px;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+        flex: 0 1 auto;
+        text-align: center;
+        // background-color: rgba(255,255,255,0.8);
+        // border-bottom: 1px solid lightgray;
+        // background: linear-gradient(rgba(255,255,255,0.7) 92%, rgba(255,255,255,0));
+    }
+    
+    .page-main {
+        flex: 1 1 auto;
+        z-index: 1;
+        position: relative;
+        padding: 15px;
+        overflow-y: scroll;
+    }
+}

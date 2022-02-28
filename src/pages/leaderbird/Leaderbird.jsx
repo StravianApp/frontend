@@ -1,15 +1,8 @@
 import {Row, Col} from 'reactstrap';
 import "./Leaderbird.scss";
 import { Component } from 'react';
-import {
-    FacebookShareButton
-} from "react-share";
-import {
-    getGlobalLeaderbird,
-    getFlockLeaderbird,
-    getGlobalRank,
-    getFlockRank
-} from '../../utils/api.js';
+import { FacebookShareButton } from "react-share";
+import { getGlobalLeaderbird, getFlockLeaderbird, getGlobalRank, getFlockRank } from '../../utils/api.js';
 
 class Board extends Component{
     constructor(props) {
@@ -79,20 +72,22 @@ class Board extends Component{
 
             <div id="buttons" className="buttons">
                 <Row>
-                    <Col><FacebookShareButton
-                    url="www.google.com"
+                    <Col><FacebookShareButton classname='single-button'
+                    url={"www.google.com"}
                     quote={this.state["quote"]}
                     hashtag={"#Stravian"}>Share on FaceBook!</FacebookShareButton></Col>
                 </Row>
+
                 <Row>
                     <Col xs = "4"><button 
-                    id = "globalButton"
+                    id = "globalButton"  className='single-button'
                     onClick={() => globalLb(this)}>Global</button></Col>
                     <Col xs = "4"><button
-                    id = "flockButton"
+                    id = "flockButton"  className='single-button'
                     onClick={() => flockLb(this)}>Flock</button></Col>
                     <Col xs = "4"><button
-                    id = "eventButton"
+                    //this doesn't work?? 
+                    id = "eventButton"  className='single-button'
                     onClick={() => eventLb(this)}>Event</button></Col>
                 </Row>
             </div>
@@ -102,16 +97,15 @@ class Board extends Component{
 }
 
 const Leaderbird = () => (
-    <div className="page">
-        <div id="title_" className="title_">
-            <div>Leaderbird</div>
+    <div className="page-container">
+        <div className="page-header">Leaderbird</div>
+        <div className="leaderbird-main page-main">
+            <div id="subtitle_" className="subtitle_">
+                <div>Global</div>
+            </div>
+                
+            <Board />
         </div>
-        
-        <div id="subtitle_" className="subtitle_">
-            <div>Global</div>
-        </div>
-            
-        <Board />
     </div>
 
 )
