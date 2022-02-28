@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { noFriend, newFriend, getFriendUpdates, getFriends } from '../../utils/api';
 import { getUsername } from '../../utils/login';
 
+
 import { Row, Col } from 'reactstrap';
 
 const friendUpdates = getFriendUpdates();

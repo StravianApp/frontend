@@ -5,6 +5,9 @@ import { useState } from 'react';
 import poweredBy from '../../assets/powered-by-strava.svg';
 import theme from './theme.scss';
 import { changeUnitsTemp, changeUnitsDis, leaderbirdVisible, deleteAccount, getDisUnit, getTempUnit, getLeaderbirdVis } from '../../utils/api';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 const disUnit = getDisUnit();
 const tempUnit = getTempUnit();
 const visibility = getLeaderbirdVis();
@@ -52,7 +55,9 @@ const Settwings = () => {
                     <i>Your current visibility is set to <b>{visibility}</b></i>
                 </div>
                 <div className="text2"> Account deletion - beware!
-                    <button  className="press2" onClick={() => deleteAccount()}>Delete Account</button>
+                    <Popup trigger={ <button  className="press">Delete Account</button>}>
+                        <div className='pop-up'>This will delete your account. Are you sure?<button  className='press2' onClick={() => deleteAccount()}>Yes</button> </div>
+                    </Popup>
                 </div>
             </SlidingPane> </div>
         </div>
