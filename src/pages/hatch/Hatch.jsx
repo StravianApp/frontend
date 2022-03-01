@@ -1,5 +1,4 @@
 import './hatch.scss';
-import bird from './assets/bird.png';
 import unhatched from './assets/unhatched.png';
 import parthatched from './assets/parthatched.png';
 import hatched from './assets/hatched.png';
@@ -40,10 +39,6 @@ const Hatch = () => {
             <div className="subtitle_">
                 {caption}
             </div>
-
-            {hatchCount > 10 && <div className="bird">
-                <img src={bird} alt="Bird" />
-            </div>}
             <div className="egg" onClick={hatchTap}>
                 <img src={hatchCount < 5 ? unhatched : hatchCount > 10 ? hatched : parthatched} alt="Egg" />
             </div>

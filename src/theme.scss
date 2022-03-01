@@ -2,8 +2,9 @@ $textColor: #1a3042;
 $primaryColor: #87e5eb;
 $secondaryColor: #f4c06c; /*244, 192, 108*/
 $backgroundColor: #f8f0e3; /*248, 240, 227*/
-$borderColor: adjust-hue($color: $secondaryColor, $degrees: -20);
-    
+$thePurple: #4242da;
+$thePurpleLite: #a9a9d9;   
+$shareColour: #046dc9;
 
 .title_ {
     font-size: 2em;
@@ -13,7 +14,7 @@ $borderColor: adjust-hue($color: $secondaryColor, $degrees: -20);
     background-color: inherit;
     font-weight: bold;
     margin: 0 auto;
-    color: #4242da;
+    color: $thePurple;
     //color: white;
 }
 

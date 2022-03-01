@@ -264,6 +264,9 @@ const getDistance = () => {
     return 10
 }
 
+const getEventLeaderbird = () => {return []};
+const getEventRank = () => {return []};
+
 export {
     birdAssigned,
     submitLoginDetails,
@@ -292,4 +295,6 @@ export {
     getDisUnit,
     getLeaderbirdVis,
     getTempUnit,
+    getEventLeaderbird,
+    getEventRank
 };
