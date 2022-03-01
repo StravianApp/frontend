@@ -90,10 +90,10 @@ class Board extends Component{
                 <Row>
                     <Col xs = "4"><button 
                     id = "globalButton"  className='single-button'
-                    onClick={() => globalLb(this, "Global")}>Global</button></Col>
+                    onClick={() => lB(this, "Global")}>Global</button></Col>
                     <Col xs = "4"><button
                     id = "flockButton"  className='single-button'
-                    onClick={() => flockLb(this, "Flock")}>Flock</button></Col>
+                    onClick={() => lB(this, "Flock")}>Flock</button></Col>
                     <Col xs = "4"><button
                     id = "eventButton"  className='single-button'
                     onClick={() => lB(this, "Event")}>Event</button></Col>
@@ -185,10 +185,10 @@ function getLeaderbird(type){
 };
 
 function getRank(type){
-    if(type === 5/*Leaderbirds.Global*/){
+    if(type === 5 || type === "Global"/*Leaderbirds.Global*/){
         return getGlobalRank();
     }
-    if(type === 6/*Leaderbirds.Flock*/){
+    if(type === 6 || type === "Flock"/*Leaderbirds.Flock*/){
         //stub for backend.get flock leadbird
         return getFlockRank();
     }
