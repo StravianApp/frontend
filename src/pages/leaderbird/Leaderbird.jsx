@@ -19,6 +19,20 @@ class Board extends Component{
     render(){
     return (
         <div className="parent">
+        <div id="buttons" className="buttons2">
+                <Row>
+                    <Col xs = "4"><button 
+                    id = "globalButton"  className='single-button'
+                    onClick={() => globalLb(this)}>Global</button></Col>
+                    <Col xs = "4"><button
+                    id = "flockButton"  className='single-button'
+                    onClick={() => flockLb(this)}>Flock</button></Col>
+                    <Col xs = "4"><button
+                    id = "eventButton"  className='single-button'
+                    onClick={() => eventLb(this)}>Event</button></Col>
+                </Row>
+        </div>
+
             <div id="leaderbirdFrame" className="leaderbird">
                 <table id="theLeaderbird"><tbody>
                     <tr>
@@ -90,18 +104,6 @@ class Board extends Component{
                     <Col><button className='facebook-button'> <TwitterShareButton
                     url={"https://stravian.app"}
                     hashtags={["Stravian"]}>Share on Twitter</TwitterShareButton> </button> </Col>
-                </Row>
-
-                <Row>
-                    <Col xs = "4"><button 
-                    id = "globalButton"  className='single-button'
-                    onClick={() => globalLb(this)}>Global</button></Col>
-                    <Col xs = "4"><button
-                    id = "flockButton"  className='single-button'
-                    onClick={() => flockLb(this)}>Flock</button></Col>
-                    <Col xs = "4"><button
-                    id = "eventButton"  className='single-button'
-                    onClick={() => eventLb(this)}>Event</button></Col>
                 </Row>
             </div>
         </div>
