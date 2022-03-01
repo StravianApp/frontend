@@ -9,12 +9,13 @@ const xhr = async (uri, { jwt, body, headers }, method) => {
     if (headers) reqHeaders = { ...reqHeaders, ...headers };
     if (jwt) (reqHeaders['Authorization'] = `Bearer ${localStorage.getItem('jwt')}`);
     const request = {
-        headers: reqHeaders,
-        body: JSON.stringify(body)
+        headers: reqHeaders
     };
+    if (body) request.body = JSON.stringify(body);
     if (method !== 'GET') request.method = method;
     console.log(request);
     await fetch(`https://server.stravian.app${uri}`, request);
+    console.log(1);
     const fetchResponse = await fetch(`https://server.stravian.app${uri}`, request);
     return fetchResponse;
 }
@@ -61,8 +62,11 @@ const getTempUnit = () => {
 }
 
 const getBirdname = async () => {
-    const data = await get('/get_bird_name', { jwt: true });
-    return data['birdName'];
+    if (!localStorage.getItem('birdName')) {
+        const data = await get('/get_bird_name', { jwt: true });
+        localStorage.setItem('birdName', data['birdName']);
+    }
+    return localStorage.getItem('birdName');
 };
 
 const getBirdfact = () => {
@@ -86,7 +90,7 @@ const exchangeStravaCodeForLoginCode = async (code) => {
 
 const login = async (linkingCode) => {
     const data = await post('/login', { body: [{ linking_code: linkingCode }] });
-    return { username: data['UserName'], jwt: data['JWT'] };
+    return { username: data['userName'], jwt: data['JWT'] };
 }
 
 const getUserDetails = async (loginCode) => {

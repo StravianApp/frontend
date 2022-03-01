@@ -29,7 +29,8 @@ const Hatch = () => {
     }, [hatchCount]);
 
     useEffect(() => {
-        if (birdAssigned) window.location.href = '/app';
+        birdAssigned().then((b) => {if (b) window.location.href = '/app'});
+        
     }, []);
 
     const hatchTap = () => (hatchCount <= 10) && setHatchCount(hatchCount + 1);

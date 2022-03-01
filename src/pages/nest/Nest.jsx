@@ -4,8 +4,8 @@ import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { icon } from "leaflet";
 import bird from './assets/bird.png';
+import { useEffect, useState } from "react";
 const disUnit = getDisUnit();
-const birdname = getBirdname();
 const fact = getBirdfact();
 const position = getLocation();
 const ICON = new icon({
@@ -17,6 +17,12 @@ const alldistance = getAggDistance();
 
 
 const Nest = () => {
+    const [birdname, setBirdName] = useState('');
+    
+    useEffect(() => {
+        getBirdname().then((birdName) => setBirdName(birdName));
+    }, []);
+
     return (
         <div className="page-container">
             <div className="page-header">
