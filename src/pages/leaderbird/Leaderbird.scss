@@ -1,73 +1,84 @@
 @import '../../theme.scss';
 
+.page-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.parent {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
 .leaderbird-main {
     padding: 0 !important;
+    position: relative;
+    width: 100%;
+    height: 100%;    
+
+    table {
+        text-align: left;
+        position: relative;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    th,td {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
     
     .leaderbird{
-        position: fixed;
-        top: 25%;
-        bottom: 20%;
-        left: 15%;
-        right: 15%;
-        //background-color: $secondaryColor;
-        background-color: white;
-        overflow-y: auto;
+        position: relative;
+        width: 90%;
+        max-height: 65%;
+        margin: 0 auto;
+        background-color: rgba(255,255,255,0.65);
+        overflow-y: scroll;
     
     }
-    .leaderbird th{
+    th{
         position: sticky;
         top: 0;
-        right: 0%;
-        //background-color: adjust-hue($color: $secondaryColor, $degrees: -5);
         color: white;
         background-color: #4242da;
     }
+
+    .leaderbird .rankH, .yourRank .rankH{
+        background-color: white;
+        color: #4242da;
+        z-index: 2;
+    }
     
     .yourRank{
-        position: fixed;
-        bottom: 15%;
-        left: 15%;
-        right: 15%;
+        position: relative;
+        width: 90%;
+        max-height: 65%;
+        margin: 0 auto;
+        background-color: rgba(255,255,255,0.65);
+        overflow-y: scroll;
+    }
+    .rank, .dist{
+        text-align: center;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .rank {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        color: white;
+        background-color:#4242da;
+    }
 
-        overflow-y: auto;
-    }
-    .yourRank table {
+    .name, .bName {
         text-align: left;
-        position: relative;
-        border-collapse: collapse;
-        margin: 0 auto;
-    }
-    
-    .yourRank th,td {
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    .yourRank .rank{
-        text-align: center;
-        padding-left: 1rem;
+        padding-left: 0.5rem;
         padding-right: 0rem;
     }
-    
-    .leaderbird table {
-        text-align: left;
-        position: relative;
-        border-collapse: collapse;
-        margin: 0 auto;
-    }
-    .leaderbird th,td {
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    .leaderbird .rank{
-        text-align: center;
-        padding-left: 1rem;
-        padding-right: 0rem;
-    }
-    
     
     .buttons {
         position: fixed;

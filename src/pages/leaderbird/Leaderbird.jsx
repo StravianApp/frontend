@@ -18,14 +18,14 @@ class Board extends Component{
 
     render(){
     return (
-        <div>
+        <div className="parent">
             <div id="leaderbirdFrame" className="leaderbird">
                 <table id="theLeaderbird"><tbody>
                     <tr>
-                        <th className="rank">Rank</th>
-                        <th>Name</th>
-                        <th>Bird</th>
-                        <th>Distance</th>
+                        <th className="rank rankH">Rank</th>
+                        <th className="name">Name</th>
+                        <th className="bName">Bird</th>
+                        <th className="dist">Distance</th>
                     </tr>
                     {this.state.theLbDat.map((val, key) => {
                         if(key.valueOf() < 50){
@@ -33,19 +33,22 @@ class Board extends Component{
                                 return (    
                                     <tr key={key}>
                                         <td className="rank"
-                                        style={{color: "red"}}>{key.valueOf() +1}</td>
-                                        <td>{val.name}</td>
-                                        <td>{val.bird}</td>
-                                        <td>{val.dist}</td>
+                                        style={{color: "orange"}}>{key.valueOf() +1}</td>
+                                        <td className="name"
+                                        style={{color: "green"}}>{splitUName(val.name)}</td>
+                                        <td className="bName"
+                                        style={{color: "green"}}>{val.bird}</td>
+                                        <td className="dist"
+                                        style={{color: "green"}}>{val.dist}</td>
                                     </tr>
                                 )   
                             }
                             return (
                                 <tr key={key}>
                                     <td className="rank">{key.valueOf() +1}</td>
-                                    <td>{val.name}</td>
-                                    <td>{val.bird}</td>
-                                    <td>{val.dist}</td>
+                                    <td className="name">{splitUName(val.name)}</td>
+                                    <td className="bName">{val.bird}</td>
+                                    <td className="dist">{val.dist}</td>
                                 </tr>
                             )
                         }
@@ -53,16 +56,23 @@ class Board extends Component{
                 </tbody></table>
             </div>
             
+            <hr id="divider" className="section-divider"/>
 
             <div id="yourRank" className="yourRank">
                 <table><tbody>
+                    <tr>
+                        <th className="rank rankH"> You! </th>
+                        <th className="name">Name</th>
+                        <th className="bName">Bird</th>
+                        <th className="dist">Distance</th>
+                    </tr>
                     {this.state.yourRank.map((val,key) => {
                         return(
                             <tr key={key}>
-                                <td>{val.rank}</td>
-                                <td>{val.name}</td>
-                                <td>{val.bird}</td>
-                                <td>{val.dist}</td>
+                                <td className="rank">{val.rank}</td>
+                                <td className="name">{splitUName(val.name)}</td>
+                                <td className="bName">{val.bird}</td>
+                                <td className="dist">{val.dist}</td>
                             </tr>
                         )
                     })}
@@ -98,11 +108,10 @@ class Board extends Component{
 const Leaderbird = () => (
     <div className="page-container">
         <div className="page-header">Leaderbird</div>
-        <div className="leaderbird-main page-main">
+        <div className="leaderbird-main page-main">    
             <div id="subtitle_" className="subtitle_">
                 <div>Global</div>
             </div>
-                
             <Board />
         </div>
     </div>
@@ -120,9 +129,11 @@ function globalLb(obj){
     document.getElementById("eventButton").style.borderStyle = "outset";
     if(getRank(5)[0].rank < 50){
         document.getElementById("yourRank").style.height="0%";
+        document.getElementById("divider").style.width="0%";
     }
     else{
-        document.getElementById("yourRank").style.height="auto"; 
+        document.getElementById("yourRank").style.height="auto";
+        document.getElementById("divider").style.width="75%";
     }
 }
 
@@ -138,21 +149,10 @@ function flockLb(obj){
         document.getElementById("yourRank").style.height="0%";
     }
     else{
-        document.getElementById("yourRank").style.height="auto"; 
+        document.getElementById("yourRank").style.height="auto";
     }
 }
 function eventLb(obj){
-    /*document.getElementById("subtitle_").innerText = "Event";
-    obj.setState({theLbDat: getLeaderbird(7),
-        yourRank: getRank(7),
-        quote: `${obj.state["yourRank"][0].name} and their bird, ${obj.state["yourRank"][0].bird}, ranked ${obj.state["yourRank"][0].rank} in this event!`});
-    document.getElementById("globalButton").style.borderStyle = "outset";
-    document.getElementById("flockButton").style.borderStyle = "outset";
-    document.getElementById("eventButton").style.borderStyle = "inset";
-    if(obj.state["yourRank"][0].rank < 50){
-        document.getElementById("yourRank").style.height="0%";
-    }*/
-    //Don't do any of this, just send a bubble saying there are no events yet
 }
 
 function getLeaderbird(type){
@@ -181,4 +181,15 @@ function getRank(type){
     else{
         return [];
     }
+}
+
+function splitUName(uName){
+    var ret = "";
+    for(var i = 0; i < uName.length; i++){
+        if(i % 12 == 0 && i != 0){
+            ret += "\n";
+        }
+        ret += uName.charAt(i);
+    }
+    return ret;
 }

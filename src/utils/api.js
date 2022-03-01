@@ -108,7 +108,7 @@ const assignBird = (bird) => true;
 
 const newFriend = (friend) => {
     console.log(friend);
-    if (["Alice", "Bob", "Carl", "Diane", "Egg", "Fill"].indexOf(friend) > -1) {
+    if (["Alice", "Bob", "Carl", "Diane", "Egg", "Fill", "Gill", "Hill", "Ill", "Jill", "Kill", "Lill", "Mill", "Nil", "Octopus"].indexOf(friend) > -1) {
         return true;
     }
     else {
@@ -119,6 +119,7 @@ const newFriend = (friend) => {
 const noFriend = (friend) => {
     console.log(friend);
     //Remove friend here :(
+        //MURDER - WE SET THE BIRDS ON THEM
 };
 
 const changeUnitsTemp = (choice) => {
@@ -188,7 +189,7 @@ const deleteAccount = () => {
 
 
 const getGlobalLeaderbird = () => { return [{name: "Fred", bird: "Kal", dist: 2.3},
-{name: "Robert", bird: "Lucky", dist: 2.0},
+{name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0},
 {name: "Lucy", bird: "Lucky", dist: 1.4},
 {name: "Lucy", bird: "Lucky", dist: 1.4},
 {name: "Lucy", bird: "Lucky", dist: 1.4},
@@ -211,9 +212,9 @@ const getGlobalLeaderbird = () => { return [{name: "Fred", bird: "Kal", dist: 2.
 {name: "Lucy", bird: "Lucky", dist: 1.4},
 {name: "Lucy", bird: "Lucky", dist: 1.4}]};
 const getFlockLeaderbird = () => {return [{name: "Fred", bird: "Kal", dist: 2.3},
-{name: "Robert", bird: "Lucky", dist: 2.0}]};
-const getGlobalRank = () => {return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}]};
-const getFlockRank = () => {return [{rank: 2, name: "Robert", bird: "Lucky", dist: 2.0}]};
+{name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
+const getGlobalRank = () => {return [{rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
+const getFlockRank = () => {return [{rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
 
 const getUserStats = () => {return {
     week: 5,

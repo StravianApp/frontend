@@ -2,6 +2,8 @@ $textColor: #1a3042;
 $primaryColor: #87e5eb;
 $secondaryColor: #f4c06c; /*244, 192, 108*/
 $backgroundColor: #f8f0e3; /*248, 240, 227*/
+$borderColor: adjust-hue($color: $secondaryColor, $degrees: -20);
+    
 
 .title_ {
     font-size: 2em;
