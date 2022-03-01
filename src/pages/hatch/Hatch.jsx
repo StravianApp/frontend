@@ -4,9 +4,7 @@ import unhatched from './assets/unhatched.png';
 import parthatched from './assets/parthatched.png';
 import hatched from './assets/hatched.png';
 import React, { useEffect, useState } from 'react';
-import { assignBird, getBirdname } from '../../utils/api';
-const birdname = getBirdname();
-
+import { hatchEgg, getBirdname, birdAssigned } from '../../utils/api';
 
 const Hatch = () => {
     const [hatchCount, setHatchCount] = useState(0);
@@ -15,14 +13,24 @@ const Hatch = () => {
     useEffect(() => {
         if (hatchCount < 3) setCaption("Tap the egg to hatch your bird");
         else if (hatchCount > 10) {
-            setCaption("Meet your bird, " + birdname);
-            setTimeout(() => {
-                assignBird(birdname);
-                window.location.href = '/app';
-            }, 7000);
+            hatchEgg().then((r) => {
+                if (r) {
+                    getBirdname().then((birdname) => {
+                        setCaption("Meet your bird, " + birdname);
+                        setTimeout(() => {
+                            window.location.href = '/app';
+                        }, 7000);
+                    })
+                }
+                else setCaption("An error occurred... Please restart Stravian and try again later.");
+            });
         }
         else setCaption("Keep tapping the egg!")
     }, [hatchCount]);
+
+    useEffect(() => {
+        if (birdAssigned) window.location.href = '/app';
+    }, []);
 
     const hatchTap = () => (hatchCount <= 10) && setHatchCount(hatchCount + 1);
 

@@ -37,7 +37,7 @@ const Login = () => {
                         login(codeEl.current.value).then((r) => {
                             if (r) {
                                 setError(false);
-                                birdAssigned(localStorage.getItem('jwt')).then((hatched) => {
+                                birdAssigned().then((hatched) => {
                                     if (hatched) window.location.href = "/app";
                                     else window.location.href = "/app/hatch";
                                 }).catch(logout);
