@@ -90,13 +90,13 @@ class Board extends Component{
                 <Row>
                     <Col xs = "4"><button 
                     id = "globalButton"  className='single-button'
-                    onClick={() => globalLb(this)}>Global</button></Col>
+                    onClick={() => globalLb(this, "Global")}>Global</button></Col>
                     <Col xs = "4"><button
                     id = "flockButton"  className='single-button'
-                    onClick={() => flockLb(this)}>Flock</button></Col>
+                    onClick={() => flockLb(this, "Flock")}>Flock</button></Col>
                     <Col xs = "4"><button
                     id = "eventButton"  className='single-button'
-                    onClick={() => eventLb(this)}>Event</button></Col>
+                    onClick={() => lB(this, "Event")}>Event</button></Col>
                 </Row>
             </div>
         </div>
@@ -118,7 +118,7 @@ const Leaderbird = () => (
 )
 export default Leaderbird;
 
-function globalLb(obj){
+function globalLb(obj, type){
     document.getElementById("subtitle_").innerText = "Global";
     obj.setState({theLbDat: getLeaderbird(5),
         yourRank: getRank(5),
@@ -136,7 +136,7 @@ function globalLb(obj){
     }
 }
 
-function flockLb(obj){
+function flockLb(obj, type){
     document.getElementById("subtitle_").innerText = "Flock";
     obj.setState({theLbDat: getLeaderbird(6),
         yourRank: getRank(6),
@@ -151,20 +151,35 @@ function flockLb(obj){
         document.getElementById("yourRank").style.height="auto";
     }
 }
-function eventLb(obj){
+
+function lB(obj, type){
+    document.getElementById("subtitle_").innerText = type;
+    obj.setState({
+        theLbDat: getLeaderbird(type),
+        yourRank: getRank(type),
+        quote: `${obj.state["yourRank"][0].name} and their bird, ${obj.state["yourRank"][0].bird}, ranked ${obj.state["yourRank"][0].rank} in the ${type} leaderbird!`
+    });
+    if(getRank(type)[0].rank < 50){
+        document.getElementById("yourRank").style.height="0%";
+        document.getElementById("divider").style.width="0%";
+    }
+    else{
+        document.getElementById("yourRank").style.height="auto";
+        document.getElementById("divider").style.width="75%";
+    }
 }
 
 function getLeaderbird(type){
-    if(type === 5/*Leaderbirds.Global*/){
+    if(type === "Global" || type === 5/*Leaderbirds.Global*/){
         //getGlobalLeaderbird();
         return getGlobalLeaderbird();
     }
-    if(type === 6/*Leaderbirds.Flock*/){
+    if(type === "Flock" || type === 6/*Leaderbirds.Flock*/){
         //stub for backend.get flock leadbird
         //getFlockLeaderbird();
         return getFlockLeaderbird();
     }
-    else{
+    else{ //type === "Event"
         return [];
     }
 };
