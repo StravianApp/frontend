@@ -1,7 +1,7 @@
 import {Row, Col} from 'reactstrap';
 import "./Leaderbird.scss";
 import { Component } from 'react';
-import { FacebookShareButton } from "react-share";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { getGlobalLeaderbird, getFlockLeaderbird, getGlobalRank, getFlockRank } from '../../utils/api.js';
 
 class Board extends Component{
@@ -19,6 +19,20 @@ class Board extends Component{
     render(){
     return (
         <div className="parent">
+        <div id="buttons" className="buttons2">
+                <Row>
+                    <Col xs = "4"><button 
+                    id = "globalButton"  className='single-button'
+                    onClick={() => globalLb(this)}>Global</button></Col>
+                    <Col xs = "4"><button
+                    id = "flockButton"  className='single-button'
+                    onClick={() => flockLb(this)}>Flock</button></Col>
+                    <Col xs = "4"><button
+                    id = "eventButton"  className='single-button'
+                    onClick={() => eventLb(this)}>Event</button></Col>
+                </Row>
+        </div>
+
             <div id="leaderbirdFrame" className="leaderbird">
                 <table id="theLeaderbird"><tbody>
                     <tr>
@@ -81,23 +95,15 @@ class Board extends Component{
 
             <div id="buttons" className="buttons">
                 <Row>
-                    <Col><FacebookShareButton classname='single-button'
+                    <Col><button className='facebook-button'> <FacebookShareButton
                     url={"https://stravian.app"}
                     quote={this.state["quote"]}
-                    hashtag={"#Stravian"}>Share on FaceBook!</FacebookShareButton></Col>
+                    hashtag={"#Stravian"}>Share on FaceBook</FacebookShareButton> </button> </Col>
                 </Row>
-
                 <Row>
-                    <Col xs = "4"><button 
-                    id = "globalButton"  className='single-button'
-                    onClick={() => globalLb(this)}>Global</button></Col>
-                    <Col xs = "4"><button
-                    id = "flockButton"  className='single-button'
-                    onClick={() => flockLb(this)}>Flock</button></Col>
-                    <Col xs = "4"><button
-                    //this doesn't work?? 
-                    id = "eventButton"  className='single-button'
-                    onClick={() => eventLb(this)}>Event</button></Col>
+                    <Col><button className='facebook-button'> <TwitterShareButton
+                    url={"https://stravian.app"}
+                    hashtags={["Stravian"]}>Share on Twitter</TwitterShareButton> </button> </Col>
                 </Row>
             </div>
         </div>
