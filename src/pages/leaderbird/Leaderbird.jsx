@@ -1,7 +1,7 @@
 import {Row, Col} from 'reactstrap';
 import "./Leaderbird.scss";
 import { Component } from 'react';
-import { FacebookShareButton } from "react-share";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 import { getGlobalLeaderbird, getFlockLeaderbird, getGlobalRank, getFlockRank } from '../../utils/api.js';
 
 class Board extends Component{
@@ -81,10 +81,15 @@ class Board extends Component{
 
             <div id="buttons" className="buttons">
                 <Row>
-                    <Col><FacebookShareButton className='single-button'
+                    <Col><button className='facebook-button'> <FacebookShareButton
                     url={"https://stravian.app"}
                     quote={this.state["quote"]}
-                    hashtag={"#Stravian"}>Share on FaceBook!</FacebookShareButton></Col>
+                    hashtag={"#Stravian"}>Share on FaceBook</FacebookShareButton> </button> </Col>
+                </Row>
+                <Row>
+                    <Col><button className='facebook-button'> <TwitterShareButton
+                    url={"https://stravian.app"}
+                    hashtags={["Stravian"]}>Share on Twitter</TwitterShareButton> </button> </Col>
                 </Row>
 
                 <Row>

@@ -81,10 +81,11 @@
     }
     
     .buttons {
-        position: fixed;
-        top: 90%;
+        position: absolute;
+        top: 100%;
         left: 25%;
         right: 25%;
+        padding-bottom: 1em;
     }
 
     .single-button {
@@ -92,12 +93,26 @@
         padding-bottom: 3px;
         font-size: 12px;  
         border: 2px solid #4242da;
-        margin-top: 5px;
+        margin-top: 10px;
         width: 130%;
         background-color: #4242da;
         color: white;
         border-radius: 20px;
+        position: relative;
         }
+
+        .facebook-button {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            font-size: 12px;  
+            border: 2px solid #046dc9;
+            margin-top: 5px;
+            width: 109%;
+            background-color: #046dc9;
+            color: white;
+            border-radius: 20px;
+            position: relative;
+            }
       
 }
 
