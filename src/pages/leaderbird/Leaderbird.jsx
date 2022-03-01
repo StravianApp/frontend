@@ -82,7 +82,7 @@ class Board extends Component{
             <div id="buttons" className="buttons">
                 <Row>
                     <Col><FacebookShareButton classname='single-button'
-                    url={"www.google.com"}
+                    url={"https://stravian.app"}
                     quote={this.state["quote"]}
                     hashtag={"#Stravian"}>Share on FaceBook!</FacebookShareButton></Col>
                 </Row>
