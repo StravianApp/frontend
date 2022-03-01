@@ -108,7 +108,7 @@ const assignBird = (bird) => true;
 
 const newFriend = (friend) => {
     console.log(friend);
-    if (["Alice", "Bob", "Carl", "Diane", "Egg", "Fill"].indexOf(friend) > -1) {
+    if (["Alice", "Bob", "Carl", "Diane", "Egg", "Fill", "Gill", "Hill", "Ill", "Jill", "Kill", "Lill", "Mill", "Nil", "Octopus"].indexOf(friend) > -1) {
         return true;
     }
     else {
@@ -119,6 +119,7 @@ const newFriend = (friend) => {
 const noFriend = (friend) => {
     console.log(friend);
     //Remove friend here :(
+        //MURDER - WE SET THE BIRDS ON THEM
 };
 
 const changeUnitsTemp = (choice) => {
