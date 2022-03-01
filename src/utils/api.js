@@ -153,6 +153,7 @@ const changeUnitsTemp = (choice) => {
             tempUnit = "Kelvin";
             console.log(tempUnit);
             break;
+        default: break;
     }
 }
 
@@ -174,6 +175,7 @@ const changeUnitsDis = (choice) => {
             disUnit = "wingspans";
             console.log(disUnit);
             break;
+        default: break;
     }
 }
 
@@ -195,6 +197,7 @@ const leaderbirdVisible = (choice) => {
             leaderbirdVisibility = "everyone";
             console.log(leaderbirdVisibility);
             break;
+        default: break;
     }
 }
 
