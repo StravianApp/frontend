@@ -81,7 +81,7 @@ class Board extends Component{
 
             <div id="buttons" className="buttons">
                 <Row>
-                    <Col><FacebookShareButton classname='single-button'
+                    <Col><FacebookShareButton className='single-button'
                     url={"www.google.com"}
                     quote={this.state["quote"]}
                     hashtag={"#Stravian"}>Share on FaceBook!</FacebookShareButton></Col>
@@ -95,7 +95,6 @@ class Board extends Component{
                     id = "flockButton"  className='single-button'
                     onClick={() => flockLb(this)}>Flock</button></Col>
                     <Col xs = "4"><button
-                    //this doesn't work?? 
                     id = "eventButton"  className='single-button'
                     onClick={() => eventLb(this)}>Event</button></Col>
                 </Row>
