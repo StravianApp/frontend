@@ -213,8 +213,11 @@ const getGlobalLeaderbird = () => { return [{name: "Fred", bird: "Kal", dist: 2.
 {name: "Lucy", bird: "Lucky", dist: 1.4}]};
 const getFlockLeaderbird = () => {return [{name: "Fred", bird: "Kal", dist: 2.3},
 {name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
-const getGlobalRank = () => {return [{rank: 52, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
-const getFlockRank = () => {return [{rank: 52, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
+const getGlobalRank = () => {return [{rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
+const getFlockRank = () => {return [{rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
+
+const getEventLeaderbird = () => {return []};
+const getEventRank = () => {return []};
 
 const getUserStats = () => {return {
     week: 5,
@@ -245,6 +248,8 @@ export {
     submitLoginDetails,
     getGlobalLeaderbird,
     getFlockLeaderbird,
+    getEventLeaderbird,
+    getEventRank,
     getFlockRank,
     getGlobalRank,
     getFriends,
