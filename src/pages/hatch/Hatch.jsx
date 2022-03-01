@@ -32,16 +32,12 @@ const Hatch = () => {
                 {caption}
             </div>
 
-            {hatchCount > 10 && <div className="bird">
-                <img src={bird} alt="Bird" />
-            </div>}
             <div className="egg" onClick={hatchTap}>
                 <img src={hatchCount < 5 ? unhatched : hatchCount > 10 ? hatched : parthatched} alt="Egg" />
             </div>
 
 
 
-            {hatchCount > 10 && <small className="photo-credit">"Greater Spotted Eagle (Aquila clanga)" by Sergey Pisarevskiy is licensed under CC BY-NC-SA 2.0</small>}
         </div>)
 };
 

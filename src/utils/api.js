@@ -1,6 +1,14 @@
+
+
 var tempUnit = "celcius";
-var disUnit = "kilometres";
+
+
+//0 - kilometres; 1 - miles; 2 - wingspans
+var disUnit = 0;
+
+
 var leaderbirdVisibility = "everyone";
+
 
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
@@ -147,17 +155,17 @@ const changeUnitsDis = (choice) => {
     switch (choice) {
         case 1:
             console.log("Kilometres");
-            disUnit = "kilometres";
+            disUnit = 0;
             console.log(disUnit);
             break;
         case 2:
             console.log("Miles");
-            disUnit = "miles";
+            disUnit = 1;
             console.log(disUnit);
             break;
         case 3:
             console.log("Wingspans");
-            disUnit = "wingspans";
+            disUnit = 2;
             console.log(disUnit);
             break;
     }}
