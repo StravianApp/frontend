@@ -3,14 +3,14 @@
         "stravaApi": {
             "clientId": "77718",
             "scope": "activity:read",
-            "redirectUri": "http://localhost:3000/app/logged-in"
+            "redirectUri": "http://localhost:3000/logged-in"
         }
     },
     "production": {
         "stravaApi": {
-            "clientId": "77808",
+            "clientId": "77718",
             "scope": "activity:read",
-            "redirectUri": "http://stravian-frontend.herokuapp.com/app/logged-in"
+            "redirectUri": "http://stravian.app/logged-in"
         }
     }
 }
