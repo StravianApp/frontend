@@ -71,9 +71,9 @@ function App() {
                 <Route path="/" element={<RootLayout />}>
                     <Route index element={<DownloadPage />} />
                     <Route path="not-on-mobile" element={<ErrorPage faIcon={faMobileAlt} errorTitle="Stravian is only available for mobile devices." errorCaption="Please visit this site on a smartphone to use Stravian."/>} />
+                    <Route path="logged-in" element={<LoggedIn />} />
                     <Route path="app"> {/* Without nav drawer */}
                         <Route path="login" element={<Login />} />
-                        <Route path="logged-in" element={<LoggedIn />} />
                         <Route path="hatch" element={<LoginRequired component={<Hatch />} />} />
                         <Route path="offline" element={<Offline />} />
                         <Route path="logout" element={<LoginRequired component={<Logout />} />} />
