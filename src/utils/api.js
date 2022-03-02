@@ -1,4 +1,4 @@
-var tempUnit = "celcius";
+//var tempUnit = "celcius";
 var disUnit = "kilometres";
 var leaderbirdVisibility = "everyone";
 
@@ -57,9 +57,9 @@ const getLeaderbirdVis = () => {
     return (leaderbirdVisibility);
 }
 
-const getTempUnit = () => {
-    return (tempUnit);
-}
+// const getTempUnit = () => {
+//     return (tempUnit);
+// }
 
 const getBirdname = async () => {
     if (!localStorage.getItem('birdName')) {
@@ -135,27 +135,27 @@ const noFriend = (friend) => {
     //MURDER - WE SET THE BIRDS ON THEM
 };
 
-const changeUnitsTemp = (choice) => {
-    console.log(choice);
-    switch (choice) {
-        case 1:
-            console.log("Celcius like a normal person");
-            tempUnit = "Celcius";
-            console.log(tempUnit);
-            break;
-        case 2:
-            console.log("Fahrenheit");
-            tempUnit = "Fahrenheit";
-            console.log(tempUnit);
-            break;
-        case 3:
-            console.log("Kelvin");
-            tempUnit = "Kelvin";
-            console.log(tempUnit);
-            break;
-        default: break;
-    }
-}
+// const changeUnitsTemp = (choice) => {
+//     console.log(choice);
+//     switch (choice) {
+//         case 1:
+//             console.log("Celcius like a normal person");
+//             tempUnit = "Celcius";
+//             console.log(tempUnit);
+//             break;
+//         case 2:
+//             console.log("Fahrenheit");
+//             tempUnit = "Fahrenheit";
+//             console.log(tempUnit);
+//             break;
+//         case 3:
+//             console.log("Kelvin");
+//             tempUnit = "Kelvin";
+//             console.log(tempUnit);
+//             break;
+//         default: break;
+//     }
+// }
 
 const changeUnitsDis = (choice) => {
     console.log(choice);
@@ -304,7 +304,7 @@ export {
     getFriendUpdates,
     newFriend,
     noFriend,
-    changeUnitsTemp,
+    //changeUnitsTemp,
     changeUnitsDis,
     leaderbirdVisible,
     deleteAccount,
@@ -317,7 +317,7 @@ export {
     getDistance,
     getDisUnit,
     getLeaderbirdVis,
-    getTempUnit,
+    //getTempUnit,
     getEventLeaderbird,
     getEventRank
 };
