@@ -4,13 +4,15 @@
             "clientId": "77718",
             "scope": "activity:read",
             "redirectUri": "http://localhost:3000/logged-in"
-        }
+        },
+        "backendUri": "https://server.stravian.app"
     },
     "production": {
         "stravaApi": {
             "clientId": "77718",
             "scope": "activity:read",
             "redirectUri": "http://stravian.app/logged-in"
-        }
+        },
+        "backendUri": "https://server.stravian.app"
     }
 }

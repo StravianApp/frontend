@@ -3,13 +3,14 @@ const axios = require('axios');
 const path = require('path');
 const port = process.env.PORT || 80;
 const app = express();
-// the __dirname is the current directory from where the script is running
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 
+const backendUri = 'https://server.stravian.app';
+
 app.get('/webhook', async (req, res) => {
     try {
-        const resp = await axios.get('https://server.stravian.app/webhook', req.query);
+        const resp = await axios.get(`${backendUri}/webhook`, req.query);
         const respJson = resp.data;
         res.json(respJson);
     }
@@ -21,7 +22,7 @@ app.get('/webhook', async (req, res) => {
 app.post('/webhook', async (req, res) => {
     try {
         console.log('WEBHOOK!!!');
-        const resp = await axios.post('https://server.stravian.app/webhook', req.body);
+        const resp = await axios.post(`${backendUri}/webhook`, req.body);
         console.log(resp);
         res.status(resp.status).send(resp.data);
     }

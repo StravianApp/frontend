@@ -1,8 +1,10 @@
+import { backendUri } from "../Config";
+
 //var tempUnit = "celcius";
 var disUnit = "kilometres";
 var leaderbirdVisibility = "everyone";
 
-const xhr = async (uri, { jwt, body, headers }, method) => {
+const xhr = async (path, { jwt, body, headers }, method) => {
     let reqHeaders = {
         'Content-Type': 'application/json'
     };
@@ -13,31 +15,28 @@ const xhr = async (uri, { jwt, body, headers }, method) => {
     };
     if (body) request.body = JSON.stringify(body);
     if (method !== 'GET') request.method = method;
-    console.log(request);
-    await fetch(`https://server.stravian.app${uri}`, request);
-    console.log(1);
-    const fetchResponse = await fetch(`https://server.stravian.app${uri}`, request);
+    const fetchResponse = await fetch(`${backendUri}${path}`, request);
     return fetchResponse;
 }
 
-const getFullResp = async (uri, { jwt, body, headers }) => {
-    const resp = await xhr(uri, { jwt, body, headers }, 'GET');
+const getFullResp = async (path, { jwt, body, headers }) => {
+    const resp = await xhr(path, { jwt, body, headers }, 'GET');
     return resp;
 }
 
-const postFullResp = async (uri, { jwt, body, headers }) => {
-    const resp = await xhr(uri, { jwt, body, headers }, 'POST');
+const postFullResp = async (path, { jwt, body, headers }) => {
+    const resp = await xhr(path, { jwt, body, headers }, 'POST');
     return resp;
 }
 
-const get = async (uri, { jwt, body, headers }) => {
-    const resp = await getFullResp(uri, { jwt, body, headers });
+const get = async (path, { jwt, body, headers }) => {
+    const resp = await getFullResp(path, { jwt, body, headers });
     const data = await resp.json();
     return data;
 }
 
-const post = async (uri, { jwt, body, headers }) => {
-    const resp = await postFullResp(uri, { jwt, body, headers });
+const post = async (path, { jwt, body, headers }) => {
+    const resp = await postFullResp(path, { jwt, body, headers });
     const data = await resp.json();
     return data;
 }
