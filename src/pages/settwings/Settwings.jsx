@@ -28,8 +28,8 @@ const Settwings = () => {
 
             <div className="btns">
                 <button className="press1" onClick={() => window.location.href = '/app/logout'}>Logout</button>
-                <button className="press1" onClick={() => setState({ isPaneOpen: true })}>Change Units</button>
-                <button className="press1" onClick={() => setState({ paneOpen: true })}>Privacy</button>
+                <button className="press1" onClick={() => setState({ isPaneOpen: true })}>Preferences</button>
+                <button className="press1" onClick={() => setState({ paneOpen: true })}>Privacy Settings</button>
             </div>
             <SlidingPane theme={theme} isOpen={state.isPaneOpen} title="Units" onRequestClose={() => { setState({ isPaneOpen: false }) }}>
                 {/* <div className="text1"> Units for Temperature
@@ -42,7 +42,7 @@ const Settwings = () => {
                     <button className="press" onClick={() => changeUnitsDis(1)}>Kilometres</button>
                     <button className="press" onClick={() => changeUnitsDis(2)}>Miles</button>
                     <button className="press" onClick={() => changeUnitsDis(3)}>Furlongs</button>
-                    <i>Your current unit for distance is <b>{disUnit}</b></i>
+                    <i>Your current unit for distance is set to <b>{disUnit}</b></i>
                 </div>
             </SlidingPane>
 
