@@ -58,7 +58,7 @@ function App() {
     if (window.location.pathname.replace('/', '') === 'not-on-mobile' && onMobile())
         window.location.href = '/';
 
-    if (process.env.NODE_ENV !== 'development') {
+    if (process.env.NODE_ENV !== 'development' && !window.location.pathname.startsWith('/logged-in')) {
         if (isPWA() && !window.location.pathname.startsWith('/app')) window.location.href = '/app';
         else if (!isPWA() && window.location.pathname.startsWith('/app')) window.location.href = '/';
     }
