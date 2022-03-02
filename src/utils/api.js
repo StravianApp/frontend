@@ -1,14 +1,46 @@
-
-
 var tempUnit = "celcius";
-
-
-//0 - kilometres; 1 - miles; 2 - wingspans
-var disUnit = 0;
-
-
+var disUnit = "kilometres";
 var leaderbirdVisibility = "everyone";
 
+const xhr = async (uri, { jwt, body, headers }, method) => {
+    let reqHeaders = {
+        'Content-Type': 'application/json'
+    };
+    if (headers) reqHeaders = { ...reqHeaders, ...headers };
+    if (jwt) (reqHeaders['Authorization'] = `Bearer ${localStorage.getItem('jwt')}`);
+    const request = {
+        headers: reqHeaders
+    };
+    if (body) request.body = JSON.stringify(body);
+    if (method !== 'GET') request.method = method;
+    console.log(request);
+    await fetch(`https://server.stravian.app${uri}`, request);
+    console.log(1);
+    const fetchResponse = await fetch(`https://server.stravian.app${uri}`, request);
+    return fetchResponse;
+}
+
+const getFullResp = async (uri, { jwt, body, headers }) => {
+    const resp = await xhr(uri, { jwt, body, headers }, 'GET');
+    return resp;
+}
+
+const postFullResp = async (uri, { jwt, body, headers }) => {
+    const resp = await xhr(uri, { jwt, body, headers }, 'POST');
+    return resp;
+}
+
+const get = async (uri, { jwt, body, headers }) => {
+    const resp = await getFullResp(uri, { jwt, body, headers });
+    const data = await resp.json();
+    return data;
+}
+
+const post = async (uri, { jwt, body, headers }) => {
+    const resp = await postFullResp(uri, { jwt, body, headers });
+    const data = await resp.json();
+    return data;
+}
 
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
@@ -18,20 +50,23 @@ const submitLoginDetails = (code, scope) => {
 };
 
 const getDisUnit = () => {
-    return(disUnit);
+    return (disUnit);
 }
 
 const getLeaderbirdVis = () => {
-    return(leaderbirdVisibility);
+    return (leaderbirdVisibility);
 }
 
 const getTempUnit = () => {
-    return(tempUnit);
+    return (tempUnit);
 }
 
-const getBirdname = () => {
-    const names = ["Mia", "Fiona", "Sky", "Easter Egg", "Cameron", "Water Bottle", "Data Path", "That's Policy", "Bird", "Vikolas", "Vik", "Vik III"];
-    return names[Math.floor(Math.random() * names.length)];
+const getBirdname = async () => {
+    if (!localStorage.getItem('birdName')) {
+        const data = await get('/get_bird_name', { jwt: true });
+        localStorage.setItem('birdName', data['birdName']);
+    }
+    return localStorage.getItem('birdName');
 };
 
 const getBirdfact = () => {
@@ -49,39 +84,13 @@ const getFriends = () => {
 
 
 const exchangeStravaCodeForLoginCode = async (code) => {
-    try {
-        const fetchResponse = await fetch('https://server.stravian.app/exchange-strava-code', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ code })
-        });
-        const data = await fetchResponse.json();
-        console.log(data);
-        return data['linking_code'];
-    }
-    catch (err) {
-        throw err;
-    }
+    const data = await post('/exchange-strava-code', { body: { code } });
+    return data['linking_code'];
 };
 
 const login = async (linkingCode) => {
-    try {
-        const fetchResponse = await fetch('https://server.stravian.app/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify([{ linking_code: linkingCode }])
-        });
-        const data = await fetchResponse.json();
-        return {username: data['UserName'], jwt: data['JWT']};
-    }
-    catch (err) {
-        console.log(err);
-        throw err;
-    }
+    const data = await post('/login', { body: [{ linking_code: linkingCode }] });
+    return { username: data['userName'], jwt: data['JWT'] };
 }
 
 const getUserDetails = async (loginCode) => {
@@ -95,16 +104,9 @@ const getUserDetails = async (loginCode) => {
     }
 }
 
-const birdAssigned = async (jwt) => {
+const birdAssigned = async () => {
     try {
-        const fetchResponse = await fetch('https://server.stravian.app/hatched_status', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${jwt}`
-            }
-        });
-        const data = await fetchResponse.json();
-        console.log('hatch', data['hatchedStatus']);
+        const data = await get('/hatched_status', { jwt: true });
         return data['hatchedStatus'];
     }
     catch (err) {
@@ -112,7 +114,10 @@ const birdAssigned = async (jwt) => {
     }
 };
 
-const assignBird = (bird) => true;
+const hatchEgg = async () => {
+    const data = await postFullResp('/hatch_egg', { jwt: true });
+    return data.ok;
+};
 
 const newFriend = (friend) => {
     console.log(friend);
@@ -127,7 +132,7 @@ const newFriend = (friend) => {
 const noFriend = (friend) => {
     console.log(friend);
     //Remove friend here :(
-        //MURDER - WE SET THE BIRDS ON THEM
+    //MURDER - WE SET THE BIRDS ON THEM
 };
 
 const changeUnitsTemp = (choice) => {
@@ -148,27 +153,31 @@ const changeUnitsTemp = (choice) => {
             tempUnit = "Kelvin";
             console.log(tempUnit);
             break;
-    }}
+        default: break;
+    }
+}
 
 const changeUnitsDis = (choice) => {
     console.log(choice);
     switch (choice) {
         case 1:
             console.log("Kilometres");
-            disUnit = 0;
+            disUnit = "kilometres";
             console.log(disUnit);
             break;
         case 2:
             console.log("Miles");
-            disUnit = 1;
+            disUnit = "miles";
             console.log(disUnit);
             break;
         case 3:
             console.log("Wingspans");
-            disUnit = 2;
+            disUnit = "wingspans";
             console.log(disUnit);
             break;
-    }}
+        default: break;
+    }
+}
 
 const leaderbirdVisible = (choice) => {
     console.log(choice);
@@ -188,6 +197,7 @@ const leaderbirdVisible = (choice) => {
             leaderbirdVisibility = "everyone";
             console.log(leaderbirdVisibility);
             break;
+        default: break;
     }
 }
 
@@ -196,47 +206,67 @@ const deleteAccount = () => {
 }
 
 
-const getGlobalLeaderbird = () => { return [{name: "Fred", bird: "Kal", dist: 2.3},
-{name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4},
-{name: "Lucy", bird: "Lucky", dist: 1.4}]};
-const getFlockLeaderbird = () => {return [{name: "Fred", bird: "Kal", dist: 2.3},
-{name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
-const getGlobalRank = () => {return [{rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
-const getFlockRank = () => {return [{rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0}]};
+const getGlobalLeaderbird = () => {
+    //const data = await get('/get_global_leaderbird', {jwt: true});
+    //return data;
 
-const getEventLeaderbird = () => {return []};
-const getEventRank = () => {return []};
+    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
+    { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 },
+    { name: "Lucy", bird: "Lucky", dist: 1.4 }]
+};
+const getFlockLeaderbird = () => {
+    //const data = await get('/get_flock_leaderbird', {jwt: true});
+    //return data;
+    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
+    { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }]
+};
+const getGlobalRank = () => {
+    //const data = await get('/get_global_rank', {jwt: true});
+    //return data;
+    return [{ rank: 52, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
+const getFlockRank = () => {
+    //const data = await get('/get_flock_rank', {jwt: true});
+    //return data;
+    return [{ rank: 52, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
 
-const getUserStats = () => {return {
-    week: 5,
-    month: 10,
-    year: 20,
-    allTime: 20
-}}
+const getUserStats = () => {
+    //const data = await get('/get_user_stats', {jwt: true});
+    //return data;
+
+    return {
+        week: 5,
+        month: 10,
+        year: 20,
+        allTime: 20
+    }
+}
 
 const getUserAchievements = () => {
-    return [{name: "Nothing!", summary: "You have never achieved anything!"},
-    {name: "Cracking Start!", summary: "You hatched your bird!"}]
+    //const data = await get('/get_user_achievements', {jwt: true});
+    //return data;
+
+    return [{ name: "Nothing!", summary: "You have never achieved anything!" },
+    { name: "Cracking Start!", summary: "You hatched your bird!" }]
 }
 
 const getLocation = () => {
@@ -251,13 +281,20 @@ const getDistance = () => {
     return 10
 }
 
+const getEventLeaderbird = () => {
+    //const data = await get('/get_event_leaderbird', {jwt: true});
+    //return data;
+    return []};
+const getEventRank = () => {
+    //const data = await get('/get_event_rank', {jwt: true});
+    //return data;
+    return []};
+
 export {
     birdAssigned,
     submitLoginDetails,
     getGlobalLeaderbird,
     getFlockLeaderbird,
-    getEventLeaderbird,
-    getEventRank,
     getFlockRank,
     getGlobalRank,
     getFriends,
@@ -271,14 +308,16 @@ export {
     changeUnitsDis,
     leaderbirdVisible,
     deleteAccount,
-    assignBird,
+    hatchEgg,
     getBirdfact,
     getUserStats,
-    getUserAchievements, 
+    getUserAchievements,
     getLocation,
-    getAggDistance, 
+    getAggDistance,
     getDistance,
     getDisUnit,
     getLeaderbirdVis,
     getTempUnit,
+    getEventLeaderbird,
+    getEventRank
 };

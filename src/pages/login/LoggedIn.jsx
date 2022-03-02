@@ -43,8 +43,11 @@ const LoggedIn = () => {
                     {navigator.clipboard && <Button className="copyBtn" onClick={() => navigator.clipboard.writeText(code)}>Copy</Button>}
                 </div>
                 <div className="content-box">
-                    <div className="text_">Close this window and paste the code into the login page:</div>
+                    <div className="text_">Close this window and paste the code into the login screen of the Stravian app:</div>
                     <Button className="closeBtn" onClick={() => setCloseWindow(true)}>Close window</Button>
+                    <br />
+                    <br />
+                    <div className="text_">(If you're on iOS you may have to manually go back to the app)</div>
                 </div>
             </>)}
             { error && (<div className="error content-box">
