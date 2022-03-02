@@ -243,11 +243,11 @@ const getFlockLeaderbird = () => {
 const getGlobalRank = () => {
     //const data = await get('/get_global_rank', {jwt: true});
     //return data;
-    return [{ rank: 52, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
+    return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
 const getFlockRank = () => {
     //const data = await get('/get_flock_rank', {jwt: true});
     //return data;
-    return [{ rank: 52, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
+    return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
 
 const getUserStats = () => {
     //const data = await get('/get_user_stats', {jwt: true});
