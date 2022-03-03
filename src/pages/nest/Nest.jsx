@@ -1,32 +1,63 @@
 import "./nest.scss";
 import { getBirdfact, getBirdname, getDisUnit, getLocation, getAggDistance, getDistance } from '../../utils/api';
-import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { icon } from "leaflet";
 import bird1 from './assets/bird.png';
 import bird2 from './assets/bird2.png';
 
 import { useEffect, useState } from "react";
-const disUnit = getDisUnit();
 const fact = getBirdfact();
+
 const position = getLocation();
+
 const ICON = new icon({
     iconUrl: require("./assets/icon.png"),
     iconSize: [35, 42],
 });
+
 const distance = getDistance();
 const alldistance = getAggDistance();
 
 
 const bird = Math.random()>0.5 ? bird1 : bird2;
 
+function SetView({ coords }) {
+    const map = useMap();
+    map.setView(coords, map.getZoom());
+    return null;
+}
+
 
 const Nest = () => {
+     
+    const [disUnit, setDisUnit] = useState('kilometres');
+    
+    const showUpdatedDisUnit = async () => {
+        const unit = await getDisUnit()
+        setDisUnit(unit);
+    };
+
+
+    const [position, setPosition] = useState([0, 0]);
+    
+    const showUpdatedPosition = async  () => {
+        const location = await getLocation
+        getLocation().then((v) => setPosition(v));
+    };
+
+    useEffect(() => {
+        showUpdatedDisUnit();
+        showUpdatedPosition();
+    }, []);
+
     const [birdname, setBirdName] = useState('');
     
     useEffect(() => {
         getBirdname().then((birdName) => setBirdName(birdName));
     }, []);
+
+    console.log(position);
 
     return (
         <div className="page-container">
@@ -59,6 +90,7 @@ const Nest = () => {
                     </div>
                     <div className='map'>
                         <MapContainer center={position} zoom={8} scrollWheelZoom={false} style={{ width: "300px", height: "300px" }} >
+                            <SetView coords={position} />
                             <Marker position={position} icon={ICON}> </Marker>
                             <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' />
                         </MapContainer>

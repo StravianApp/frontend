@@ -1,9 +1,5 @@
 import { backendUri } from "../Config";
 
-//var tempUnit = "celcius";
-var disUnit = "kilometres";
-var leaderbirdVisibility = "everyone";
-
 const xhr = async (path, { jwt, body, headers }, method) => {
     let reqHeaders = {
         'Content-Type': 'application/json'
@@ -48,12 +44,30 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
-const getDisUnit = () => {
-    return (disUnit);
+const getDisUnit = async () => {
+    const resp = await get('/get_dist_unit', { jwt: true});
+    const data = resp['preferred_unit_type'];
+    switch (data) {
+        case 0:
+            return "kilometres";
+        case 1:
+            return "miles";
+        case 2: 
+            return "wingspans";
+    }
 };
 
-const getLeaderbirdVis = () => {
-    return (leaderbirdVisibility);
+const getLeaderbirdVis = async () => {
+    const resp = await get('/get_leaderbird_visibility', { jwt: true});
+    const data = resp["visibility_status"];
+    switch (data) {
+        case 0:
+            return "invisible";
+        case 1:
+            return "friends";
+        case 2: 
+            return "everyone";
+    }
 };
 
 // const getTempUnit = () => {
@@ -68,6 +82,7 @@ const getBirdname = async () => {
     return localStorage.getItem('birdName');
 };
 
+//STAY ON FRONTEND  
 const getBirdfact = () => {
     const facts = ["Greater Spotted Eagles are the largest raptors belonging to the Accipitridae family!", "Greater Spotted Eagles can weigh between 1.5 and 2.5 kg - as much as three bags of sugar!", "Greater Spotted Eagles' primary habitates are wetlands and forests!", "Greater Spotted Eagles have a wingspan of up to 180 cm - that's taller than the average UK male human!", "Greater Spotted Eagles are carnivorous, eating small mammals, snakes, lizards, fish, insects and even other birds!", "Greater Spotted eagles are endangered due to habitat loss.", "Greater Spotted Eagles face many threats every day, including illegal shooting, poaching, poisoning and electocution.", "Greater Spotted Eagles only have white spots as juveniles.", "When in gliding flight, Greater Spotted Eagles hold the feathers on their wingtips downwards.", "Greater Spotted Eagles are large, brown birds of prey!", "Greater Spotted Eagles are members of the Aquilinae family, also known as booted eagles!", "Greater Spotted Eagles make nests out of large sticks, which can be 70 to 110cm in diameter and 100cm deep!"];
     return facts[Math.floor(Math.random() * facts.length)];
@@ -83,7 +98,6 @@ const getFriends = async () => {
     return resp['friends'];
 };
 
-
 const exchangeStravaCodeForLoginCode = async (code) => {
     const data = await post('/exchange-strava-code', { body: { code } });
     return data['linking_code'];
@@ -92,7 +106,7 @@ const exchangeStravaCodeForLoginCode = async (code) => {
 const login = async (linkingCode) => {
     const data = await post('/login', { body: [{ linking_code: linkingCode }] });
     return { username: data['userName'], jwt: data['JWT'], stravaId: data['stravaId'] };
-}
+};
 
 const getUserDetails = async (loginCode) => {
     if (loginCode.length < 12) return null;
@@ -152,51 +166,45 @@ const noFriend = async (friend) => {
 //     }
 // };
 
-const changeUnitsDis = (choice) => {
-    console.log(choice);
+const changeUnitsDis = async (choice) => {
+    let resp;
     switch (choice) {
+        case 0:
+            resp = await postFullResp('/set_dist_unit', { jwt: true, body: [{"preferred_unit_type": 0}]});
+            console.log("kilometres");
+            break;
         case 1:
-            console.log("Kilometres");
-            disUnit = "kilometres";
-            console.log(disUnit);
+            resp = await postFullResp('/set_dist_unit', { jwt: true, body: [{"preferred_unit_type": 1}]});
+            console.log("miles");
             break;
         case 2:
-            console.log("Miles");
-            disUnit = "miles";
-            console.log(disUnit);
-            break;
-        case 3:
-            console.log("Wingspans");
-            disUnit = "wingspans";
-            console.log(disUnit);
+            resp = await postFullResp('/set_dist_unit', { jwt: true,  body: [{"preferred_unit_type": 2}]});
+            console.log("wingspans");
             break;
         default: break;
     }
 };
 
-const leaderbirdVisible = (choice) => {
-    console.log(choice);
+const leaderbirdVisible = async (choice) => {
+    let resp;
     switch (choice) {
-        case 1:
+        case 0:
+            resp = await postFullResp('/set_leaderbird_visibility', { jwt: true, body: [{"visibility_status": 0}]});
             console.log("Invisible");
-            leaderbirdVisibility = "invisible";
-            console.log(leaderbirdVisibility);
+            break;
+        case 1:
+            resp = await postFullResp('/set_leaderbird_visibility', { jwt: true,  body: [{"visibility_status": 1}]});
+            console.log("Friends");
             break;
         case 2:
-            console.log("Friends");
-            leaderbirdVisibility = "friends";
-            console.log(leaderbirdVisibility);
-            break;
-        case 3:
+            resp = await postFullResp('/set_leaderbird_visibility', { jwt: true,  body: [{"visibility_status": 2}]});
             console.log("Everyone");
-            leaderbirdVisibility = "everyone";
-            console.log(leaderbirdVisibility);
             break;
         default: break;
     }
 };
 
-const deleteAccount = () => {
+const deleteAccount = async () => {
     console.log("FUCK");
 };
 
@@ -204,48 +212,25 @@ const deleteAccount = () => {
 const getGlobalLeaderbird = async () => {
     const data = await get('/get_global_leaderbird', {jwt: true});
     return data["leaderbird"];
-
-    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
-    { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 }]
 };
 
 const getFlockLeaderbird = async () => {
     const data = await get('/get_flock_leaderbird', {jwt: true});
     return data["leaderbird"];
-    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
-    { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }]
 };
 
 const getGlobalRank = async () => {
+    console.log("JUST DO SOMETHING YOU SON OF A BITCH");
     const data = await get('/get_global_rank', {jwt: true});
-    return data["rank"];
-    return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
+    console.log("Merci fucking beacoup");
+    return data;
+};
 
 const getFlockRank = async () => {
     const data = await get('/get_flock_rank', {jwt: true});
+    console.log("hi");
     return data["rank"];
-    return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
+};
 
 const getUserStats = async () => {
     //const data = await get('/get_user_stats', {jwt: true});
@@ -266,10 +251,12 @@ const getUserAchievements = async () => {
     //{ name: "Cracking Start!", summary: "You hatched your bird!" }]
 };
 
-const getLocation = () => {
-    //const data = await get('/get_bird_location', {jwt: true});
-    //return data;
-    return [-0.56, 22.94]
+const getLocation = async () => {
+    const data = await get('/get_bird_location', {jwt: true});
+    console.log([data['lat'], data['long']]);
+    return([data['lat'], data['long']]);
+    
+    //return [-0.56, 22.94]
 };
 
 
@@ -293,6 +280,8 @@ const getEventRank = () => {
     return []
 };
 
+
+
 export {
     birdAssigned,
     submitLoginDetails,
@@ -307,7 +296,6 @@ export {
     getFriendRequests,
     newFriend,
     noFriend,
-    //changeUnitsTemp,
     changeUnitsDis,
     leaderbirdVisible,
     deleteAccount,
@@ -320,7 +308,6 @@ export {
     getDistance,
     getDisUnit,
     getLeaderbirdVis,
-    //getTempUnit,
     getEventLeaderbird,
     getEventRank
 };

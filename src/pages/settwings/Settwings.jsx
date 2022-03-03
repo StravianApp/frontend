@@ -1,23 +1,38 @@
 import './settwings.scss';
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import poweredBy from '../../assets/powered-by-strava.svg';
 import theme from './theme.scss';
 import { changeUnitsDis, leaderbirdVisible, deleteAccount, getDisUnit, getLeaderbirdVis } from '../../utils/api';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-const disUnit = getDisUnit();
 //const tempUnit = getTempUnit();
-const visibility = getLeaderbirdVis();
-
 
 const Settwings = () => {
     const [state, setState] = useState({
         isPaneOpen: false,
         paneOpen: false,
     });
+
+    const [visibility, setVisibility] = useState('everyone');
+
+    const showUpdatedLeaderbirdVis = () => {
+        getLeaderbirdVis().then((v) => setVisibility(v));
+    };
+
+    const [disUnit, setDisUnit] = useState('kilometres');
+    
+    const showUpdatedDisUnit = () => {
+        getDisUnit().then((v) => setDisUnit(v));
+    };
+
+    useEffect(() => {
+        showUpdatedDisUnit();
+        showUpdatedLeaderbirdVis();
+    }, []);
+
 
     return <div className="page-container">
         <div className='page-header'>
@@ -39,9 +54,9 @@ const Settwings = () => {
                     <i>Your current unit for temperature is <b>{tempUnit}</b></i>
                 </div> */}
                 <div className="text1"> Units for Distance
-                    <button className="press" onClick={() => changeUnitsDis(1)}>Kilometres</button>
-                    <button className="press" onClick={() => changeUnitsDis(2)}>Miles</button>
-                    <button className="press" onClick={() => changeUnitsDis(3)}>Furlongs</button>
+                    <button className="press" onClick={() => changeUnitsDis(0).then(showUpdatedDisUnit)}>Kilometres</button>
+                    <button className="press" onClick={() => changeUnitsDis(1).then(showUpdatedDisUnit)}>Miles</button>
+                    <button className="press" onClick={() => changeUnitsDis(2).then(showUpdatedDisUnit)}>Furlongs</button>
                     <i>Your current unit for distance is set to <b>{disUnit}</b></i>
                 </div>
             </SlidingPane>
@@ -49,9 +64,9 @@ const Settwings = () => {
 
             <div> <SlidingPane isOpen={state.paneOpen} title="Privacy" onRequestClose={() => { setState({ paneOpen: false }) }}>
                 <div className="text1"> Leaderbird Visibility
-                    <button className="press" onClick={() => leaderbirdVisible(1)}>Invisible</button>
-                    <button className="press" onClick={() => leaderbirdVisible(2)}>Friends</button>
-                    <button className="press" onClick={() => leaderbirdVisible(3)}>Everyone</button>
+                    <button className="press" onClick={() => leaderbirdVisible(0).then(showUpdatedLeaderbirdVis)}>Invisible</button>
+                    <button className="press" onClick={() => leaderbirdVisible(1).then(showUpdatedLeaderbirdVis)}>Flock Mates</button>
+                    <button className="press" onClick={() => leaderbirdVisible(2).then(showUpdatedLeaderbirdVis)}>Everyone</button>
                     <i>Your current visibility is set to <b>{visibility}</b></i>
                 </div>
                 <div className="text2"> Account deletion - beware!

@@ -21,7 +21,7 @@ const Leaderbird = () => {
 
         setType(type);
 
-        if (4 < 50) {
+        if (yourRank.rank < 50) {
             document.getElementById("yourRank").style.height = "0%";
             document.getElementById("divider").className = "section-divider-invisible";
         }
@@ -125,15 +125,12 @@ const Leaderbird = () => {
                             <th className="bName">Bird</th>
                             <th className="dist">Distance</th>
                         </tr>
-                        
-                                <tr>
-                                    <td className="rank">{yourRank.rank}</td>
-                                    <td className="name">{splitUName(yourRank.name)}</td>
-                                    <td className="bName">{yourRank.bird}</td>
-                                    <td className="dist">{yourRank.dist}</td>
-                                </tr>
-                            )
-                        )
+                        <tr>
+                            <td className="rank">{yourRank.rank}</td>
+                            <td className="name">{splitUName(yourRank.name)}</td>
+                            <td className="bName">{yourRank.bird}</td>
+                            <td className="dist">{yourRank.dist}</td>
+                        </tr>
                     </tbody></table>
                 </div>
 
