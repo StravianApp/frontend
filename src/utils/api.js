@@ -277,8 +277,6 @@ const getLocation = async () => {
     const data = await get('/get_bird_location', {jwt: true});
     console.log([data['lat'], data['long']]);
     return([data['lat'], data['long']]);
-    
-    //return [-0.56, 22.94]
 };
 
 
