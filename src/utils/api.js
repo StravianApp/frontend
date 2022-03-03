@@ -73,12 +73,14 @@ const getBirdfact = () => {
     return facts[Math.floor(Math.random() * facts.length)];
 };
 
-const getFriendUpdates = () => {
-    return ["Neelu cycled the 400700 kilometres, to Canada this week!", "Fiona cycled 50 kilometres this week!", "Alex had a nap."]
+const getFriendRequests = async () => {
+    const resp = await get('/friend_updates', { jwt: true });
+    return {incoming: resp['incomingRequests'], outgoing: resp['outgoingRequests']};
 };
 
-const getFriends = () => {
-    return ["DangerBirdStrikesAgain", "sbneelu", "mazalan01", "nicolechoong", "bazsi700", "fg406"]
+const getFriends = async () => {
+    const resp = await get('/friends', { jwt: true });
+    return resp['friends'];
 };
 
 
@@ -89,14 +91,14 @@ const exchangeStravaCodeForLoginCode = async (code) => {
 
 const login = async (linkingCode) => {
     const data = await post('/login', { body: [{ linking_code: linkingCode }] });
-    return { username: data['userName'], jwt: data['JWT'] };
-};
+    return { username: data['userName'], jwt: data['JWT'], stravaId: data['stravaId'] };
+}
 
 const getUserDetails = async (loginCode) => {
     if (loginCode.length < 12) return null;
     try {
-        const { username, jwt } = await login(loginCode);
-        return { username, jwt };
+        const { username, jwt, stravaId } = await login(loginCode);
+        return { username, jwt, stravaId };
     }
     catch (err) {
         return null;
@@ -118,20 +120,14 @@ const hatchEgg = async () => {
     return data.ok;
 };
 
-const newFriend = (friend) => {
-    console.log(friend);
-    if (["Alice", "Bob", "Carl", "Diane", "Egg", "Fill", "Gill", "Hill", "Ill", "Jill", "Kill", "Lill", "Mill", "Nil", "Octopus"].indexOf(friend) > -1) {
-        return true;
-    }
-    else {
-        return false;
-    }
+const newFriend = async (friend) => {
+    const resp = await postFullResp('/add_friend', { jwt: true, body: [{strava_id: friend}] });
+    return resp.ok;
 };
 
-const noFriend = (friend) => {
-    console.log(friend);
-    //Remove friend here :(
-    //MURDER - WE SET THE BIRDS ON THEM
+const noFriend = async (friend) => {
+    const resp = await postFullResp('/remove_friend', { jwt: true, body: [{strava_id: friend}] });
+    return resp.ok;
 };
 
 // const changeUnitsTemp = (choice) => {
@@ -308,7 +304,7 @@ export {
     getBirdname,
     exchangeStravaCodeForLoginCode,
     getUserDetails,
-    getFriendUpdates,
+    getFriendRequests,
     newFriend,
     noFriend,
     //changeUnitsTemp,
