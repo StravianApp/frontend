@@ -16,7 +16,7 @@ const Settwings = () => {
         paneOpen: false,
     });
 
-    const [visibility, setVisibility] = useState('Everyone');
+    const [visibility, setVisibility] = useState('everyone');
 
     const showUpdatedLeaderbirdVis = () => {
         getLeaderbirdVis().then((v) => setVisibility(v));
@@ -26,7 +26,7 @@ const Settwings = () => {
         showUpdatedLeaderbirdVis();
     }, []);
 
-    const [disUnit, setDisUnit] = useState('Kilometres');
+    const [disUnit, setDisUnit] = useState('kilometres');
     const showUpdatedDisUnit = () => {
         getDisUnit().then((v) => setDisUnit(v));
     };
@@ -56,9 +56,9 @@ const Settwings = () => {
                     <i>Your current unit for temperature is <b>{tempUnit}</b></i>
                 </div> */}
                 <div className="text1"> Units for Distance
-                    <button className="press" onClick={() => changeUnitsDis(0)}>Kilometres</button>
-                    <button className="press" onClick={() => changeUnitsDis(1)}>Miles</button>
-                    <button className="press" onClick={() => changeUnitsDis(2)}>Furlongs</button>
+                    <button className="press" onClick={() => changeUnitsDis(0).then(showUpdatedDisUnit)}>Kilometres</button>
+                    <button className="press" onClick={() => changeUnitsDis(1).then(showUpdatedDisUnit)}>Miles</button>
+                    <button className="press" onClick={() => changeUnitsDis(2).then(showUpdatedDisUnit)}>Furlongs</button>
                     <i>Your current unit for distance is set to <b>{disUnit}</b></i>
                 </div>
             </SlidingPane>

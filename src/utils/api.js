@@ -1,7 +1,5 @@
 import { backendUri } from "../Config";
 
-var disUnit = "kilometres";
-
 const xhr = async (path, { jwt, body, headers }, method) => {
     let reqHeaders = {
         'Content-Type': 'application/json'
@@ -47,7 +45,15 @@ const submitLoginDetails = (code, scope) => {
 };
 
 const getDisUnit = async () => {
-    return (disUnit);
+    const data = await get('/get_dis_unit', { jwt: true});
+    switch (data) {
+        case 0:
+            return "kilometres";
+        case 1:
+            return "miles";
+        case 2: 
+            return "wingspans";
+    }
 };
 
 const getLeaderbirdVis = async () => {
@@ -159,31 +165,29 @@ const noFriend = async (friend) => {
 // };
 
 const changeUnitsDis = async (choice) => {
-    console.log(choice);
+    let resp;
     switch (choice) {
         case 0:
-            console.log("Kilometres");
-            disUnit = "kilometres";
-            console.log(disUnit);
+            resp = await postFullResp('/set_dis_unit', { jwt: true, body: [0]});
+            console.log("kilometres");
             break;
         case 1:
-            console.log("Miles");
-            disUnit = "miles";
-            console.log(disUnit);
+            resp = await postFullResp('/set_dis_unit', { jwt: true, body: [1]});
+            console.log("miles");
             break;
         case 2:
-            console.log("Wingspans");
-            disUnit = "wingspans";
-            console.log(disUnit);
+            resp = await postFullResp('/set_dis_unit', { jwt: true, body: [2]});
+            console.log("wingspans");
             break;
         default: break;
     }
 };
 
 const leaderbirdVisible = async (choice) => {
+    let resp;
     switch (choice) {
         case 0:
-            const resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [0]});
+            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [0]});
             console.log("Invisible");
             break;
         case 1:
