@@ -205,7 +205,9 @@ const leaderbirdVisible = async (choice) => {
 };
 
 const deleteAccount = async () => {
-    console.log("FUCK");
+    console.log("please help");
+    const resp = await postFullResp('/delete_user', { jwt: true });
+    return;
 };
 
 
@@ -256,11 +258,11 @@ const getLocation = async () => {
 
 
 const getAggDistance = () => {
-    return 100
+    return 100;
 };
 
 const getDistance = () => {
-    return 10
+    return 10;
 };
 
 const getEventLeaderbird = () => {

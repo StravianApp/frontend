@@ -56,7 +56,7 @@ const Settwings = () => {
                 <div className="text1"> Units for Distance
                     <button className="press" onClick={() => changeUnitsDis(0).then(showUpdatedDisUnit)}>Kilometres</button>
                     <button className="press" onClick={() => changeUnitsDis(1).then(showUpdatedDisUnit)}>Miles</button>
-                    <button className="press" onClick={() => changeUnitsDis(2).then(showUpdatedDisUnit)}>Furlongs</button>
+                    <button className="press" onClick={() => changeUnitsDis(2).then(showUpdatedDisUnit)}>Wingspans</button>
                     <i>Your current unit for distance is set to <b>{disUnit}</b></i>
                 </div>
             </SlidingPane>
@@ -71,7 +71,7 @@ const Settwings = () => {
                 </div>
                 <div className="text2"> Account deletion - beware!
                     <Popup trigger={ <button  className="press">Delete Account</button>}>
-                        <div className='pop-up'>This will delete your account. Are you sure?<button  className='press2' onClick={() => deleteAccount()}>Yes</button> </div>
+                        <div className='pop-up'>This will delete your account. Are you sure?<button  className='press2' onClick={() => {deleteAccount(); window.location.href = '/app/logout'}}>Yes</button> </div>
                     </Popup>
                 </div>
             </SlidingPane> </div>
