@@ -56,7 +56,8 @@ const arr = ["https://twitter.com/birdsarentreal?s=21",
     "https://en.wikipedia.org/wiki/Crime_in_Antarctica",
     "https://mcphee.com/products/inflatable-toast-mattress",
     "https://en.wikipedia.org/wiki/Peterborough_ditch_murders",
-    "https://xkcd.com/1434/"];
+    "https://xkcd.com/1434/",
+    "https://xkcd.com/1472/"];
 function getLink() {
     return arr[Math.floor((Math.random() * arr.length))];
 }
