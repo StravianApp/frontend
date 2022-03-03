@@ -265,18 +265,23 @@ const getUserAchievements = async () => {
 
 const getLocation = async () => {
     const data = await get('/get_bird_location', {jwt: true});
-    console.log([data['lat'], data['long']]);
+    //console.log([data['lat'], data['long']]);
     return([data['lat'], data['long']]);
 };
 
 
-const getAggDistance = () => {
-    
-    return 100;
+const getAggDistance = async () => {
+    const data = await get('/get_bird_distances', {jwt: true});
+    console.log(data["lifetime"]);
+    return data["lifetime"];
+//    return 100;
 };
 
-const getDistance = () => {
-    return 10;
+const getDistance = async () => {
+    const data = await get('/get_bird_distances', {jwt: true});
+    console.log(data["week"]);
+    return data["week"];
+    //return 10;
 };
 
 const getEventLeaderbird = () => {

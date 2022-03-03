@@ -16,8 +16,6 @@ const ICON = new icon({
     iconSize: [35, 42],
 });
 
-const distance = getDistance();
-const alldistance = getAggDistance();
 
 
 const bird = Math.random()>0.5 ? bird1 : bird2;
@@ -30,6 +28,25 @@ function SetView({ coords }) {
 
 
 const Nest = () => {
+
+    const [distance, setDistance] = useState(0);
+    
+    const showUpdatedDistance = () => {
+        getDistance().then((v) => setDistance(v));
+    };
+
+    const [alldistance, setAggDistance] = useState(0);
+    
+    const showUpdatedAggDistance = () => {
+        getAggDistance().then((v) => setAggDistance(v));
+    };
+
+    useEffect(() => {
+        showUpdatedDistance();
+        showUpdatedAggDistance();
+    }, []);
+
+
      
     const [disUnit, setDisUnit] = useState('kilometres');
     
@@ -57,7 +74,7 @@ const Nest = () => {
         getBirdname().then((birdName) => setBirdName(birdName));
     }, []);
 
-    console.log(position);
+    //console.log(position);
 
     return (
         <div className="page-container">
