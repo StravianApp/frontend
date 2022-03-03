@@ -1,8 +1,6 @@
 import { backendUri } from "../Config";
 
-//var tempUnit = "celcius";
 var disUnit = "kilometres";
-var leaderbirdVisibility = "everyone";
 
 const xhr = async (path, { jwt, body, headers }, method) => {
     let reqHeaders = {
@@ -48,16 +46,20 @@ const submitLoginDetails = (code, scope) => {
     localStorage.setItem('username', 'Test');
 };
 
-const getDisUnit = () => {
+const getDisUnit = async () => {
     return (disUnit);
 };
 
-const getLeaderbirdVis = () => {
+const getLeaderbirdVis = async () => {
     const data = await get('/get_leaderbird_visible', { jwt: true});
     switch (data) {
-
+        case 0:
+            return "invisible";
+        case 1:
+            return "friends";
+        case 2: 
+            return "everyone";
     }
-    return (leaderbirdVisibility);
 };
 
 // const getTempUnit = () => {
@@ -156,20 +158,20 @@ const noFriend = async (friend) => {
 //     }
 // };
 
-const changeUnitsDis = (choice) => {
+const changeUnitsDis = async (choice) => {
     console.log(choice);
     switch (choice) {
-        case 1:
+        case 0:
             console.log("Kilometres");
             disUnit = "kilometres";
             console.log(disUnit);
             break;
-        case 2:
+        case 1:
             console.log("Miles");
             disUnit = "miles";
             console.log(disUnit);
             break;
-        case 3:
+        case 2:
             console.log("Wingspans");
             disUnit = "wingspans";
             console.log(disUnit);
@@ -178,44 +180,25 @@ const changeUnitsDis = (choice) => {
     }
 };
 
-const leaderbirdVisible = (choice) => {
-    // switch (choice) {
-    //     case 1:
-    //         const resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [0]});
-    //         console.log("Invisible");
-    //         break;
-    //     case 2:
-    //         const resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [1]});
-    //         console.log("Friends");
-    //         break;
-    //     case 3:
-    //         const resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [2]});
-    //         console.log("Everyone");
-    //         break;
-    //     default: break;
-    // }
-
+const leaderbirdVisible = async (choice) => {
     switch (choice) {
-        case 1:
+        case 0:
+            const resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [0]});
             console.log("Invisible");
-            leaderbirdVisibility = "invisible";
-            console.log(leaderbirdVisibility);
+            break;
+        case 1:
+            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [1]});
+            console.log("Friends");
             break;
         case 2:
-            console.log("Friends");
-            leaderbirdVisibility = "friends";
-            console.log(leaderbirdVisibility);
-            break;
-        case 3:
+            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [2]});
             console.log("Everyone");
-            leaderbirdVisibility = "everyone";
-            console.log(leaderbirdVisibility);
             break;
         default: break;
     }
 };
 
-const deleteAccount = () => {
+const deleteAccount = async () => {
     console.log("FUCK");
 };
 
@@ -312,6 +295,8 @@ const getEventRank = () => {
     return []
 };
 
+
+
 export {
     birdAssigned,
     submitLoginDetails,
@@ -326,7 +311,6 @@ export {
     getFriendRequests,
     newFriend,
     noFriend,
-    //changeUnitsTemp,
     changeUnitsDis,
     leaderbirdVisible,
     deleteAccount,
@@ -339,7 +323,6 @@ export {
     getDistance,
     getDisUnit,
     getLeaderbirdVis,
-    //getTempUnit,
     getEventLeaderbird,
     getEventRank
 };

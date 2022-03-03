@@ -8,9 +8,16 @@ import { changeUnitsDis, leaderbirdVisible, deleteAccount, getDisUnit, getLeader
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-const disUnit = getDisUnit();
 //const tempUnit = getTempUnit();
-const visibility = getLeaderbirdVis();
+
+const visibility = () => {
+    getLeaderbirdVis().then();
+}
+    
+const disUnit = () => {
+    getDisUnit().then();
+}
+
 
 
 const Settwings = () => {
@@ -39,9 +46,9 @@ const Settwings = () => {
                     <i>Your current unit for temperature is <b>{tempUnit}</b></i>
                 </div> */}
                 <div className="text1"> Units for Distance
-                    <button className="press" onClick={() => changeUnitsDis(1)}>Kilometres</button>
-                    <button className="press" onClick={() => changeUnitsDis(2)}>Miles</button>
-                    <button className="press" onClick={() => changeUnitsDis(3)}>Furlongs</button>
+                    <button className="press" onClick={() => changeUnitsDis(0)}>Kilometres</button>
+                    <button className="press" onClick={() => changeUnitsDis(1)}>Miles</button>
+                    <button className="press" onClick={() => changeUnitsDis(2)}>Furlongs</button>
                     <i>Your current unit for distance is set to <b>{disUnit}</b></i>
                 </div>
             </SlidingPane>
@@ -49,9 +56,9 @@ const Settwings = () => {
 
             <div> <SlidingPane isOpen={state.paneOpen} title="Privacy" onRequestClose={() => { setState({ paneOpen: false }) }}>
                 <div className="text1"> Leaderbird Visibility
-                    <button className="press" onClick={() => leaderbirdVisible(1)}>Invisible</button>
-                    <button className="press" onClick={() => leaderbirdVisible(2)}>Friends</button>
-                    <button className="press" onClick={() => leaderbirdVisible(3)}>Everyone</button>
+                    <button className="press" onClick={() => leaderbirdVisible(0)}>Invisible</button>
+                    <button className="press" onClick={() => leaderbirdVisible(1)}>Flock Mates</button>
+                    <button className="press" onClick={() => leaderbirdVisible(2)}>Everyone</button>
                     <i>Your current visibility is set to <b>{visibility}</b></i>
                 </div>
                 <div className="text2"> Account deletion - beware!
