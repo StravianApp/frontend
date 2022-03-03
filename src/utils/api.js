@@ -45,7 +45,7 @@ const submitLoginDetails = (code, scope) => {
 };
 
 const getDisUnit = async () => {
-    const resp = await get('/get_dis_unit', { jwt: true});
+    const resp = await get('/get_dist_unit', { jwt: true});
     const data = resp['preferred_unit_type'];
     switch (data) {
         case 0:
@@ -58,7 +58,7 @@ const getDisUnit = async () => {
 };
 
 const getLeaderbirdVis = async () => {
-    const resp = await get('/get_leaderbird_visible', { jwt: true});
+    const resp = await get('/get_leaderbird_visibility', { jwt: true});
     const data = resp["visibility_status"];
     switch (data) {
         case 0:
@@ -171,15 +171,15 @@ const changeUnitsDis = async (choice) => {
     let resp;
     switch (choice) {
         case 0:
-            resp = await postFullResp('/set_dis_unit', { jwt: true, "preferred_unit_type": 0});
+            resp = await postFullResp('/set_dist_unit', { jwt: true, body: [{"preferred_unit_type": 0}]});
             console.log("kilometres");
             break;
         case 1:
-            resp = await postFullResp('/set_dis_unit', { jwt: true, "preferred_unit_type": 1});
+            resp = await postFullResp('/set_dist_unit', { jwt: true, body: [{"preferred_unit_type": 1}]});
             console.log("miles");
             break;
         case 2:
-            resp = await postFullResp('/set_dis_unit', { jwt: true,  "preferred_unit_type": 2});
+            resp = await postFullResp('/set_dist_unit', { jwt: true,  body: [{"preferred_unit_type": 2}]});
             console.log("wingspans");
             break;
         default: break;
@@ -190,15 +190,15 @@ const leaderbirdVisible = async (choice) => {
     let resp;
     switch (choice) {
         case 0:
-            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, "visibility_status": 0});
+            resp = await postFullResp('/set_leaderbird_visibility', { jwt: true, body: [{"visibility_status": 0}]});
             console.log("Invisible");
             break;
         case 1:
-            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, "visibility_status": 1});
+            resp = await postFullResp('/set_leaderbird_visibility', { jwt: true,  body: [{"visibility_status": 1}]});
             console.log("Friends");
             break;
         case 2:
-            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, "visibility_status": 2});
+            resp = await postFullResp('/set_leaderbird_visibility', { jwt: true,  body: [{"visibility_status": 2}]});
             console.log("Everyone");
             break;
         default: break;
@@ -275,7 +275,7 @@ const getUserAchievements = () => {
     { name: "Cracking Start!", summary: "You hatched your bird!" }]
 };
 
-const getLocation = () => {
+const getLocation = async () => {
     const data = await get('/get_bird_location', {jwt: true});
     return [data['lat'], data['long']];
     

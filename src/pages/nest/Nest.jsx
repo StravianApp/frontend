@@ -7,13 +7,15 @@ import bird1 from './assets/bird.png';
 import bird2 from './assets/bird2.png';
 
 import { useEffect, useState } from "react";
-const disUnit = getDisUnit();
 const fact = getBirdfact();
+
 const position = getLocation();
+
 const ICON = new icon({
     iconUrl: require("./assets/icon.png"),
     iconSize: [35, 42],
 });
+
 const distance = getDistance();
 const alldistance = getAggDistance();
 
@@ -22,6 +24,25 @@ const bird = Math.random()>0.5 ? bird1 : bird2;
 
 
 const Nest = () => {
+    
+    const [disUnit, setDisUnit] = useState('kilometres');
+    
+    const showUpdatedDisUnit = () => {
+        getDisUnit().then((v) => setDisUnit(v));
+    };
+
+
+    const [position, setPosition] = useState();
+    
+    const showUpdatedPosition = () => {
+        getLocation().then((v) => setPosition(v));
+    };
+
+    useEffect(() => {
+        showUpdatedDisUnit();
+        showUpdatedPosition();
+    }, []);
+
     const [birdname, setBirdName] = useState('');
     
     useEffect(() => {

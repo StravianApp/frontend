@@ -22,17 +22,15 @@ const Settwings = () => {
         getLeaderbirdVis().then((v) => setVisibility(v));
     };
 
-    useEffect(() => {
-        showUpdatedLeaderbirdVis();
-    }, []);
-
     const [disUnit, setDisUnit] = useState('kilometres');
+    
     const showUpdatedDisUnit = () => {
         getDisUnit().then((v) => setDisUnit(v));
     };
 
     useEffect(() => {
         showUpdatedDisUnit();
+        showUpdatedLeaderbirdVis();
     }, []);
 
 
