@@ -2,7 +2,22 @@ import './about.scss';
 import logo from '../../assets/logos/full-text-3.png';
 import poweredBy from '../../assets/powered-by-strava.svg';
 import { getBirdfact } from '../../utils/api';
+import bird1 from './assets/bird1.png';
+import bird2 from './assets/bird2.png';
+import bird3 from './assets/bird3.png';
+import bird4 from './assets/bird4.png';
+import bird5 from './assets/bird5.png';
+import bird6 from './assets/bird6.png';
+import bird7 from './assets/bird7.png';
+import bird8 from './assets/bird8.png';
+import bird9 from './assets/bird9.png';
+
+
 const fact = getBirdfact();
+
+const birdA = Math.random()<0.2 ? bird5 : Math.random()<0.4 ? bird6 : Math.random()<0.6 ? bird7 : Math.random()<0.8 ? bird8 : bird9;
+
+const birdB = Math.random()<0.2 ? bird1 : Math.random()<0.4 ? bird2 : Math.random()<0.6 ? bird3 : Math.random()<0.8 ? bird4 : bird9;
 
 
 const About = () => (
@@ -30,7 +45,11 @@ const About = () => (
                 </div>
             </div>
 
+            <hr className="section-divider" />
 
+        <div className="content-box">
+            <img className="bird" src={birdA} alt="Eagle" />
+        </div>
 
             <hr className="section-divider" />
 
@@ -58,6 +77,11 @@ const About = () => (
             </div> 
         </div>
 
+        <hr className="section-divider" />
+
+        <div className="content-box">
+                <img className="bird" src={birdB} alt="Eagle" />
+        </div>
 
             <hr className="section-divider" />
 
