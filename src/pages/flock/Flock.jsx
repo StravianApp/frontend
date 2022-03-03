@@ -49,7 +49,11 @@ const Flock = () => {
                         <Col xs={3}>
                             <button className="search-button" onClick={() => {
                                 newFriend(friendName.current.value.trim()).then((r) => {
-                                    if (r) setFriendMessage('Friend request sent!');
+                                    
+                                    if (r) {
+                                        setFriendMessage('Friend request sent!');
+                                        friendName.current.value = '';
+                                    }
                                     else setFriendMessage('What the flock!? That friend isn\'t flying at the moment, or you\'ve already sent them a friend request. Make sure you\'re adding them by User ID and not username.');
                                     updateFriends();
                                     updateFriendRequests();
