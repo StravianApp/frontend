@@ -12,7 +12,7 @@ import {
 
 const Leaderbird = () => {
     const [theLbDat, setLbDat] = useState([{ name: null, bird: null, dist: null }]);
-    const [yourRank, setRank] = useState([{rank: 51, name: null, bird: null, dist: null}]);
+    const [yourRank, setRank] = useState([{rank: 0, name: null, bird: null, dist: null}]);
     const [quote, setQuote] = useState("hi");
     const [disUnit, setDisUnit] = useState("");
 
@@ -22,13 +22,13 @@ const Leaderbird = () => {
 
         setType(type);
 
-        if (yourRank.rank < 50) {
-            document.getElementById("yourRank").style.height = "0%";
-            document.getElementById("divider").className = "section-divider-invisible";
-        }
-        else {
+        if (yourRank.rank > 50) {
             document.getElementById("yourRank").style.height = "auto";
             document.getElementById("divider").className = "section-divider";
+        }
+        else {
+            document.getElementById("yourRank").style.height = "0%";
+            document.getElementById("divider").className = "section-divider-invisible";
         }
         document.getElementById("globalButton").className = "single-button";
         document.getElementById("flockButton").className = "single-button";

@@ -228,7 +228,7 @@ const getGlobalRank = async () => {
 
 const getFlockRank = async () => {
     const data = await get('/get_flock_rank', {jwt: true});
-    return data["rank"];
+    return data;
 };
 
 const getUserStats = async () => {
