@@ -1,5 +1,5 @@
 import "./UserStats.scss";
-import { Component, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     getUserAchievements,
     getUserStats,
@@ -7,7 +7,6 @@ import {
 } from '../../utils/api.js';
 import { getUsername } from "../../utils/login";
 
-const disUnit = getDisUnit();
 
 const UserStats = () => {
     const [stats, setStats] = useState({week: null, month: null, year: null, allTime: null});

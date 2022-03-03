@@ -1,5 +1,6 @@
 import "./nest.scss";
-import { getBirdfact, getBirdname, getDisUnit, getLocation, getAggDistance, getDistance } from '../../utils/api';
+import { getBirdname, getDisUnit, getLocation, getAggDistance, getDistance } from '../../utils/api';
+import { getBirdfact } from "../../utils/birdfacts";
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { icon } from "leaflet";
@@ -8,8 +9,6 @@ import bird2 from './assets/bird2.png';
 
 import { useEffect, useState } from "react";
 const fact = getBirdfact();
-
-const position = getLocation();
 
 const ICON = new icon({
     iconUrl: require("./assets/icon.png"),
@@ -58,8 +57,7 @@ const Nest = () => {
 
     const [position, setPosition] = useState([0, 0]);
     
-    const showUpdatedPosition = async  () => {
-        const location = await getLocation
+    const showUpdatedPosition = () => {
         getLocation().then((v) => setPosition(v));
     };
 
@@ -73,8 +71,6 @@ const Nest = () => {
     useEffect(() => {
         getBirdname().then((birdName) => setBirdName(birdName));
     }, []);
-
-    //console.log(position);
 
     return (
         <div className="page-container">
