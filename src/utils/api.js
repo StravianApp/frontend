@@ -45,7 +45,8 @@ const submitLoginDetails = (code, scope) => {
 };
 
 const getDisUnit = async () => {
-    const data = await get('/get_dis_unit', { jwt: true});
+    const resp = await get('/get_dis_unit', { jwt: true});
+    const data = resp['preferred_unit_type'];
     switch (data) {
         case 0:
             return "kilometres";
@@ -57,7 +58,8 @@ const getDisUnit = async () => {
 };
 
 const getLeaderbirdVis = async () => {
-    const data = await get('/get_leaderbird_visible', { jwt: true});
+    const resp = await get('/get_leaderbird_visible', { jwt: true});
+    const data = resp["visibility_status"];
     switch (data) {
         case 0:
             return "invisible";
@@ -80,6 +82,7 @@ const getBirdname = async () => {
     return localStorage.getItem('birdName');
 };
 
+//STAY ON FRONTEND  
 const getBirdfact = () => {
     const facts = ["Greater Spotted Eagles are the largest raptors belonging to the Accipitridae family!", "Greater Spotted Eagles can weigh between 1.5 and 2.5 kg - as much as three bags of sugar!", "Greater Spotted Eagles' primary habitates are wetlands and forests!", "Greater Spotted Eagles have a wingspan of up to 180 cm - that's taller than the average UK male human!", "Greater Spotted Eagles are carnivorous, eating small mammals, snakes, lizards, fish, insects and even other birds!", "Greater Spotted eagles are endangered due to habitat loss.", "Greater Spotted Eagles face many threats every day, including illegal shooting, poaching, poisoning and electocution.", "Greater Spotted Eagles only have white spots as juveniles.", "When in gliding flight, Greater Spotted Eagles hold the feathers on their wingtips downwards.", "Greater Spotted Eagles are large, brown birds of prey!", "Greater Spotted Eagles are members of the Aquilinae family, also known as booted eagles!", "Greater Spotted Eagles make nests out of large sticks, which can be 70 to 110cm in diameter and 100cm deep!"];
     return facts[Math.floor(Math.random() * facts.length)];
@@ -168,15 +171,15 @@ const changeUnitsDis = async (choice) => {
     let resp;
     switch (choice) {
         case 0:
-            resp = await postFullResp('/set_dis_unit', { jwt: true, body: [0]});
+            resp = await postFullResp('/set_dis_unit', { jwt: true, "preferred_unit_type": 0});
             console.log("kilometres");
             break;
         case 1:
-            resp = await postFullResp('/set_dis_unit', { jwt: true, body: [1]});
+            resp = await postFullResp('/set_dis_unit', { jwt: true, "preferred_unit_type": 1});
             console.log("miles");
             break;
         case 2:
-            resp = await postFullResp('/set_dis_unit', { jwt: true, body: [2]});
+            resp = await postFullResp('/set_dis_unit', { jwt: true,  "preferred_unit_type": 2});
             console.log("wingspans");
             break;
         default: break;
@@ -187,15 +190,15 @@ const leaderbirdVisible = async (choice) => {
     let resp;
     switch (choice) {
         case 0:
-            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [0]});
+            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, "visibility_status": 0});
             console.log("Invisible");
             break;
         case 1:
-            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [1]});
+            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, "visibility_status": 1});
             console.log("Friends");
             break;
         case 2:
-            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [2]});
+            resp = await postFullResp('/set_leaderbird_visible', { jwt: true, "visibility_status": 2});
             console.log("Everyone");
             break;
         default: break;
@@ -273,9 +276,10 @@ const getUserAchievements = () => {
 };
 
 const getLocation = () => {
-    //const data = await get('/get_bird_location', {jwt: true});
-    //return data;
-    return [-0.56, 22.94]
+    const data = await get('/get_bird_location', {jwt: true});
+    return [data['lat'], data['long']];
+    
+    //return [-0.56, 22.94]
 };
 
 
