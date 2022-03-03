@@ -27,9 +27,9 @@ const Settwings = () => {
         <div className='settwings-main page-main'>
 
             <div className="btns">
-                <button className="press1" onClick={() => window.location.href = '/app/logout'}>Logout</button>
                 <button className="press1" onClick={() => setState({ isPaneOpen: true })}>Preferences</button>
                 <button className="press1" onClick={() => setState({ paneOpen: true })}>Privacy Settings</button>
+                <button className="press1" onClick={() => window.location.href = '/app/logout'}>Logout</button>
             </div>
             <SlidingPane theme={theme} isOpen={state.isPaneOpen} title="Units" onRequestClose={() => { setState({ isPaneOpen: false }) }}>
                 {/* <div className="text1"> Units for Temperature
