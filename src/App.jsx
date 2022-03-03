@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.scss';
 import React, { useEffect, useState } from 'react';
 import LoginRequired from './LoginRequired';
-import './App.scss';
 import Layout from './Layout';
 import DownloadPage from './pages/download-page/DownloadPage';
 import Nest from './pages/nest/Nest';
