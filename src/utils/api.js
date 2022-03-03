@@ -57,6 +57,19 @@ const getDisUnit = async () => {
     }
 };
 
+const getDisUnit2 = async () => {
+    const resp = await get('/get_dist_unit', { jwt: true});
+    const data = resp['preferred_unit_type'];
+    switch (data) {
+        case 0:
+            return "kilometres";
+        case 1:
+            return "miles";
+        case 2: 
+            return "wingspans";
+    }
+};
+
 const getLeaderbirdVis = async () => {
     const resp = await get('/get_leaderbird_visibility', { jwt: true});
     const data = resp["visibility_status"];
@@ -310,5 +323,6 @@ export {
     getDisUnit,
     getLeaderbirdVis,
     getEventLeaderbird,
-    getEventRank
+    getEventRank,
+    getDisUnit2,
 };

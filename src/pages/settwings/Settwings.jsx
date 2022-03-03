@@ -4,7 +4,7 @@ import "react-sliding-pane/dist/react-sliding-pane.css";
 import { useEffect, useState } from 'react';
 import poweredBy from '../../assets/powered-by-strava.svg';
 import theme from './theme.scss';
-import { changeUnitsDis, leaderbirdVisible, deleteAccount, getDisUnit, getLeaderbirdVis } from '../../utils/api';
+import { changeUnitsDis, leaderbirdVisible, deleteAccount, getDisUnit2, getLeaderbirdVis } from '../../utils/api';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
@@ -25,7 +25,7 @@ const Settwings = () => {
     const [disUnit, setDisUnit] = useState('kilometres');
     
     const showUpdatedDisUnit = () => {
-        getDisUnit().then((v) => setDisUnit(v));
+        getDisUnit2().then((v) => setDisUnit(v));
     };
 
     useEffect(() => {
