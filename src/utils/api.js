@@ -245,14 +245,14 @@ const getFlockRank = async () => {
 };
 
 const getUserStats = async () => {
-    //const data = await get('/get_user_stats', {jwt: true});
-    //return data;
-    return {
-        week: 5,
-        month: 10,
-        year: 20,
-        allTime: 20
-    }
+    const data = await get('/get_user_stats', {jwt: true});
+    return data;
+    // return {
+    //     week: 5,
+    //     month: 10,
+    //     year: 20,
+    //     allTime: 20
+    // }
 };
 
 const getUserAchievements = async () => {
