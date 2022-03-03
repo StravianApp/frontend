@@ -261,11 +261,11 @@ const getLocation = async () => {
 
 
 const getAggDistance = () => {
-    return 100
+    return 100;
 };
 
 const getDistance = () => {
-    return 10
+    return 10;
 };
 
 const getEventLeaderbird = () => {
