@@ -53,6 +53,10 @@ const getDisUnit = () => {
 };
 
 const getLeaderbirdVis = () => {
+    const data = await get('/get_leaderbird_visible', { jwt: true});
+    switch (data) {
+
+    }
     return (leaderbirdVisibility);
 };
 
@@ -175,7 +179,22 @@ const changeUnitsDis = (choice) => {
 };
 
 const leaderbirdVisible = (choice) => {
-    console.log(choice);
+    // switch (choice) {
+    //     case 1:
+    //         const resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [0]});
+    //         console.log("Invisible");
+    //         break;
+    //     case 2:
+    //         const resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [1]});
+    //         console.log("Friends");
+    //         break;
+    //     case 3:
+    //         const resp = await postFullResp('/set_leaderbird_visible', { jwt: true, body: [2]});
+    //         console.log("Everyone");
+    //         break;
+    //     default: break;
+    // }
+
     switch (choice) {
         case 1:
             console.log("Invisible");
