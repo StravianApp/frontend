@@ -7,13 +7,14 @@ import {
 } from "react-share";
 import {
     getGlobalLeaderbird, getFlockLeaderbird, getEventLeaderbird,
-    getGlobalRank, getFlockRank, getEventRank
+    getGlobalRank, getFlockRank, getEventRank, getDisUnit
 } from '../../utils/api.js';
 
 const Leaderbird = () => {
     const [theLbDat, setLbDat] = useState([{ name: null, bird: null, dist: null }]);
     const [yourRank, setRank] = useState([{rank: 51, name: null, bird: null, dist: null}]);
     const [quote, setQuote] = useState("hi");
+    const [disUnit, setDisUnit] = useState("");
 
     const [type, setType] = useState(null);
 
@@ -61,6 +62,9 @@ const Leaderbird = () => {
 
     useEffect(() => lB("Global"), []);
 
+    useEffect(() => 
+    getDisUnit().then((r) => setDisUnit(r)));
+
     return <div className="page-container">
         <div className="page-header">Leaderbird</div>
         <div className="leaderbird-main page-main">
@@ -87,7 +91,7 @@ const Leaderbird = () => {
                             <th className="rank rankH">Rank</th>
                             <th className="name">Name</th>
                             <th className="bName">Bird</th>
-                            <th className="dist">Distance</th>
+                            <th className="dist">Distance ({disUnit})</th>
                         </tr>
                         {theLbDat.map((val, key) => {
                             if (key.valueOf() < 50) {
