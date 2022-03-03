@@ -230,7 +230,9 @@ const getGlobalLeaderbird = async () => {
 };
 
 const getFlockLeaderbird = async () => {
+    console.log("HELP1");
     const data = await get('/get_flock_leaderbird', {jwt: true});
+    console.log("HELP");
     return data["leaderbird"];
 };
 
