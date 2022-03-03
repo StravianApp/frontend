@@ -21,7 +21,7 @@ const UserStats = () => {
     }, []);
 
     return <div className="page-container">
-        <div className="page-header">User Stats</div>
+        <div className="page-header">Profile</div>
         <div className="stats-main page-main">
             <div className="content-box username">
                 <div className="subtitle_">Your Username</div>
