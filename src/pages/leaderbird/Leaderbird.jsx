@@ -52,7 +52,6 @@ const Leaderbird = () => {
         else if (type === "Flock") {
             getFlockLeaderbird().then((r) => setLbDat(r));
             getFlockRank().then((r) => setRank(r));
-            console.log("AAA");
         }
         else {
             getEventLeaderbird().then((r) => setLbDat(r));

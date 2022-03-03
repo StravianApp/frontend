@@ -49,11 +49,11 @@ const getDisUnit = async () => {
     const data = resp['preferred_unit_type'];
     switch (data) {
         case 0:
-            return "kilometres";
+            return "km";
         case 1:
-            return "miles";
+            return "mi";
         case 2: 
-            return "wingspans";
+            return "ws";
     }
 };
 
