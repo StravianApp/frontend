@@ -128,19 +128,29 @@
         position: relative;
     }
 
-    .facebook-button {
+    .soc-med-button {
         padding-top: 3px;
         padding-bottom: 3px;
         font-size: 12px;  
-        border: 2px solid $shareColour;
+        //border: 2px solid $shareColour;
         margin-top: 5px;
         width: 70%;
         height: auto;
-        background-color: $shareColour;
+        //background-color: $shareColour;
         color: white;
         border-radius: 20px;
         position: relative;
         }
+    
+    .facebook-button {
+        border: 2px solid $facebookColour;
+        background-color: $facebookColour;
+    }
+
+    .twitter-button {
+        border: 2px solid $twitterColour;
+        background-color: $twitterColour;
+    }
       
 }
 

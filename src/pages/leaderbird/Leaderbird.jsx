@@ -1,7 +1,8 @@
 import {Row, Col} from 'reactstrap';
 import "./Leaderbird.scss";
 import { Component } from 'react';
-import { FacebookShareButton, TwitterShareButton } from "react-share";
+import { FacebookShareButton, TwitterShareButton,
+        FacebookIcon, TwitterIcon } from "react-share";
 import { getGlobalLeaderbird, getFlockLeaderbird, getEventLeaderbird,
     getGlobalRank, getFlockRank, getEventRank } from '../../utils/api.js';
 
@@ -93,19 +94,23 @@ class Board extends Component{
                 </tbody></table>
             </div>
 
-            <hr id="divider" className="section-divider"/>
+            <hr id="div1" className="section-divider"/>
 
             <div id="buttons" className="buttons">
                 <Row>
-                    <Col><button className='facebook-button'> <FacebookShareButton
+                    <Col>
+                    <button className='facebook-button soc-med-button'> <FacebookShareButton
                     url={"https://stravian.app"}
                     quote={this.state["quote"]}
-                    hashtag={"#Stravian"}>Share on FaceBook</FacebookShareButton> </button> </Col>
+                    hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on FaceBook</FacebookShareButton> </button> </Col>
                 </Row>
                 <Row>
-                    <Col><button className='facebook-button'> <TwitterShareButton
+                    <Col>
+                    <button className='twitter-button soc-med-button'> <TwitterShareButton
                     url={"https://stravian.app"}
-                    hashtags={["Stravian"]}>Share on Twitter</TwitterShareButton> </button> </Col>
+                    hashtags={["Stravian"]}
+                    title={this.state["quote"]}>
+                        {<TwitterIcon size={32} round={true} />}Share on Twitter</TwitterShareButton> </button> </Col>
                 </Row>
             </div>
         </div>
@@ -136,11 +141,13 @@ function lB(obj, type){
     });
     if(getRank(type)[0].rank < 50){
         document.getElementById("yourRank").style.height="0%";
-        document.getElementById("divider").style.width="0%";
+        document.getElementById("divider").className="section-divider-invisible";
+        //document.getElementById("div1").className="section-divider-invisible";
     }
     else{
         document.getElementById("yourRank").style.height="auto";
-        document.getElementById("divider").style.width="75%";
+        document.getElementById("divider").className="section-divider";
+        //document.getElementById("div1").className="section-divider";
     }
     document.getElementById("globalButton").className = "single-button";
     document.getElementById("flockButton").className = "single-button";
