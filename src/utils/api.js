@@ -271,6 +271,7 @@ const getLocation = async () => {
 
 
 const getAggDistance = () => {
+    
     return 100;
 };
 
