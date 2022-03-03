@@ -1,7 +1,7 @@
 import './settwings.scss';
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import poweredBy from '../../assets/powered-by-strava.svg';
 import theme from './theme.scss';
 import { changeUnitsDis, leaderbirdVisible, deleteAccount, getDisUnit, getLeaderbirdVis } from '../../utils/api';
@@ -10,21 +10,31 @@ import 'reactjs-popup/dist/index.css';
 
 //const tempUnit = getTempUnit();
 
-const visibility = () => {
-    getLeaderbirdVis().then();
-}
-    
-const disUnit = () => {
-    getDisUnit().then();
-}
-
-
-
 const Settwings = () => {
     const [state, setState] = useState({
         isPaneOpen: false,
         paneOpen: false,
     });
+
+    const [visibility, setVisibility] = useState('Everyone');
+
+    const showUpdatedLeaderbirdVis = () => {
+        getLeaderbirdVis().then((v) => setVisibility(v));
+    };
+
+    useEffect(() => {
+        showUpdatedLeaderbirdVis();
+    }, []);
+
+    const [disUnit, setDisUnit] = useState('Kilometres');
+    const showUpdatedDisUnit = () => {
+        getDisUnit().then((v) => setDisUnit(v));
+    };
+
+    useEffect(() => {
+        showUpdatedDisUnit();
+    }, []);
+
 
     return <div className="page-container">
         <div className='page-header'>
@@ -56,9 +66,9 @@ const Settwings = () => {
 
             <div> <SlidingPane isOpen={state.paneOpen} title="Privacy" onRequestClose={() => { setState({ paneOpen: false }) }}>
                 <div className="text1"> Leaderbird Visibility
-                    <button className="press" onClick={() => leaderbirdVisible(0)}>Invisible</button>
-                    <button className="press" onClick={() => leaderbirdVisible(1)}>Flock Mates</button>
-                    <button className="press" onClick={() => leaderbirdVisible(2)}>Everyone</button>
+                    <button className="press" onClick={() => leaderbirdVisible(0).then(showUpdatedLeaderbirdVis)}>Invisible</button>
+                    <button className="press" onClick={() => leaderbirdVisible(1).then(showUpdatedLeaderbirdVis)}>Flock Mates</button>
+                    <button className="press" onClick={() => leaderbirdVisible(2).then(showUpdatedLeaderbirdVis)}>Everyone</button>
                     <i>Your current visibility is set to <b>{visibility}</b></i>
                 </div>
                 <div className="text2"> Account deletion - beware!
