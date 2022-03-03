@@ -215,18 +215,19 @@ const getGlobalLeaderbird = async () => {
 };
 
 const getFlockLeaderbird = async () => {
+    console.log("FLOCK ME");
     const data = await get('/get_flock_leaderbird', {jwt: true});
+    console.log("FLOCK!");
     return data["leaderbird"];
 };
 
 const getGlobalRank = async () => {
-    console.log("JUST DO SOMETHING YOU SON OF A BITCH");
     const data = await get('/get_global_rank', {jwt: true});
-    console.log("Merci fucking beacoup");
     return data;
 };
 
 const getFlockRank = async () => {
+    console.log("Get ducks");
     const data = await get('/get_flock_rank', {jwt: true});
     console.log("hi");
     return data["rank"];

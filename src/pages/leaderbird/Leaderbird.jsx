@@ -12,7 +12,7 @@ import {
 
 const Leaderbird = () => {
     const [theLbDat, setLbDat] = useState([{ name: null, bird: null, dist: null }]);
-    const [yourRank, setRank] = useState([]);
+    const [yourRank, setRank] = useState([{rank: 51, name: null, bird: null, dist: null}]);
     const [quote, setQuote] = useState("hi");
 
     const [type, setType] = useState(null);
@@ -52,6 +52,7 @@ const Leaderbird = () => {
         else if (type === "Flock") {
             getFlockLeaderbird().then((r) => setLbDat(r));
             getFlockRank().then((r) => setRank(r));
+            console.log("AAA");
         }
         else {
             getEventLeaderbird().then((r) => setLbDat(r));
@@ -117,7 +118,7 @@ const Leaderbird = () => {
 
                 <hr id="divider" className="section-divider" />
 
-                <div id="yourRank" className="yourRank">
+                <div id="yourRank" className="yourRank" height="0%">
                     <table><tbody>
                         <tr>
                             <th className="rank rankH"> You! </th>
