@@ -98,7 +98,6 @@ const getFriends = async () => {
     return resp['friends'];
 };
 
-
 const exchangeStravaCodeForLoginCode = async (code) => {
     const data = await post('/exchange-strava-code', { body: { code } });
     return data['linking_code'];
@@ -107,7 +106,7 @@ const exchangeStravaCodeForLoginCode = async (code) => {
 const login = async (linkingCode) => {
     const data = await post('/login', { body: [{ linking_code: linkingCode }] });
     return { username: data['userName'], jwt: data['JWT'], stravaId: data['stravaId'] };
-}
+};
 
 const getUserDetails = async (loginCode) => {
     if (loginCode.length < 12) return null;
@@ -209,7 +208,6 @@ const deleteAccount = async () => {
     console.log("FUCK");
 };
 
-
 const getGlobalLeaderbird = () => {
     //const data = await get('/get_global_leaderbird', {jwt: true});
     //return data;
@@ -277,7 +275,8 @@ const getUserAchievements = () => {
 
 const getLocation = async () => {
     const data = await get('/get_bird_location', {jwt: true});
-    return [data['lat'], data['long']];
+    console.log([data['lat'], data['long']]);
+    return([data['lat'], data['long']]);
     
     //return [-0.56, 22.94]
 };
