@@ -11,19 +11,13 @@ import {
 } from '../../utils/api.js';
 
 const Leaderbird = () => {
-    const [theLbDat, setLbDat] = useState({ name: null, bird: null, dist: null });
+    const [theLbDat, setLbDat] = useState([{ name: null, bird: null, dist: null }]);
     const [yourRank, setRank] = useState([]);
     const [quote, setQuote] = useState("hi");
 
     const [type, setType] = useState(null);
 
     function lB(type) {
-        //document.getElementById("subtitle_").innerText = type;
-        /*obj.setState({
-            theLbDat: getLeaderbird(type),
-            yourRank: getRank(type),
-            quote: `${obj.state["yourRank"][0].name} and their bird, ${obj.state["yourRank"][0].bird}, ranked ${obj.state["yourRank"][0].rank} in the ${type} leaderbird!`
-        });*/
 
         setType(type);
 
@@ -53,15 +47,15 @@ const Leaderbird = () => {
         if (!type) return;
         if (type === "Global") {
             getGlobalLeaderbird().then((r) => setLbDat(r));
-            getGlobalRank.then((r) => setRank(r));
+            getGlobalRank().then((r) => setRank(r));
         }
         else if (type === "Flock") {
             getFlockLeaderbird().then((r) => setLbDat(r));
-            getFlockRank.then((r) => setRank(r));
+            getFlockRank().then((r) => setRank(r));
         }
         else {
             getEventLeaderbird().then((r) => setLbDat(r));
-            getEventRank.then((r) => setRank(r));
+            getEventRank().then((r) => setRank(r));
         }
     }, [type]);
 
@@ -75,10 +69,10 @@ const Leaderbird = () => {
                     <Row>
                         <Col xs="4"><button
                             id="globalButton" className='single-button'
-                            onClick={() => lB(this, "Global")}>Global</button></Col>
+                            onClick={() => lB("Global")}>Global</button></Col>
                         <Col xs="4"><button
                             id="flockButton" className='single-button'
-                            onClick={() => lB(this, "Flock")}>Flock</button></Col>
+                            onClick={() => lB("Flock")}>Flock</button></Col>
                         <Col xs="4"><button
                             id="eventButton" className='single-button'
                             onClick={() => doNothing(this, "Event")/*lB(this, "Event")*/}>Event</button></Col>
@@ -131,16 +125,15 @@ const Leaderbird = () => {
                             <th className="bName">Bird</th>
                             <th className="dist">Distance</th>
                         </tr>
-                        {yourRank.map((val, key) => {
-                            return (
-                                <tr key={key}>
-                                    <td className="rank">{val.rank}</td>
-                                    <td className="name">{splitUName(val.name)}</td>
-                                    <td className="bName">{val.bird}</td>
-                                    <td className="dist">{val.dist}</td>
+                        
+                                <tr>
+                                    <td className="rank">{yourRank.rank}</td>
+                                    <td className="name">{splitUName(yourRank.name)}</td>
+                                    <td className="bName">{yourRank.bird}</td>
+                                    <td className="dist">{yourRank.dist}</td>
                                 </tr>
                             )
-                        })}
+                        )
                     </tbody></table>
                 </div>
 
@@ -151,7 +144,7 @@ const Leaderbird = () => {
                         <Col>
                             <button className='facebook-button soc-med-button'> <FacebookShareButton
                                 url={"https://stravian.app"}
-                                quote={this.state["quote"]}
+                                quote={quote}
                                 hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on FaceBook</FacebookShareButton> </button> </Col>
                     </Row>
                     <Row>
@@ -159,7 +152,7 @@ const Leaderbird = () => {
                             <button className='twitter-button soc-med-button'> <TwitterShareButton
                                 url={"https://stravian.app"}
                                 hashtags={["Stravian"]}
-                                title={this.state["quote"]}>
+                                title={quote}>
                                 {<TwitterIcon size={32} round={true} />}Share on Twitter</TwitterShareButton> </button> </Col>
                     </Row>
                 </div>
@@ -175,6 +168,9 @@ function doNothing(obj, type) {
 
 function splitUName(uName) {
     var ret = "";
+    if (uName == null){
+        return ret;
+    }
     for (var i = 0; i < uName.length; i++) {
         if (i % 12 == 0 && i != 0) {
             ret += "\n";

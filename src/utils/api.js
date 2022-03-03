@@ -202,8 +202,8 @@ const deleteAccount = () => {
 
 
 const getGlobalLeaderbird = async () => {
-    //const data = await get('/get_global_leaderbird', {jwt: true});
-    //return data;
+    const data = await get('/get_global_leaderbird', {jwt: true});
+    return data["leaderbird"];
 
     return [{ name: "Fred", bird: "Kal", dist: 2.3 },
     { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 },
@@ -231,20 +231,20 @@ const getGlobalLeaderbird = async () => {
 };
 
 const getFlockLeaderbird = async () => {
-    //const data = await get('/get_flock_leaderbird', {jwt: true});
-    //return data;
+    const data = await get('/get_flock_leaderbird', {jwt: true});
+    return data["leaderbird"];
     return [{ name: "Fred", bird: "Kal", dist: 2.3 },
     { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }]
 };
 
 const getGlobalRank = async () => {
-    //const data = await get('/get_global_rank', {jwt: true});
-    //return data;
+    const data = await get('/get_global_rank', {jwt: true});
+    return data["rank"];
     return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
 
 const getFlockRank = async () => {
-    //const data = await get('/get_flock_rank', {jwt: true});
-    //return data;
+    const data = await get('/get_flock_rank', {jwt: true});
+    return data["rank"];
     return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
 
 const getUserStats = async () => {
