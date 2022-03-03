@@ -230,9 +230,7 @@ const getGlobalLeaderbird = async () => {
 };
 
 const getFlockLeaderbird = async () => {
-    console.log("HELP1");
     const data = await get('/get_flock_leaderbird', {jwt: true});
-    console.log("HELP");
     return data["leaderbird"];
 };
 
@@ -247,14 +245,14 @@ const getFlockRank = async () => {
 };
 
 const getUserStats = async () => {
-    //const data = await get('/get_user_stats', {jwt: true});
-    //return data;
-    return {
-        week: 5,
-        month: 10,
-        year: 20,
-        allTime: 20
-    }
+    const data = await get('/get_user_stats', {jwt: true});
+    return data;
+    // return {
+    //     week: 5,
+    //     month: 10,
+    //     year: 20,
+    //     allTime: 20
+    // }
 };
 
 const getUserAchievements = async () => {
