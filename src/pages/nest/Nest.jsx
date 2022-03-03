@@ -3,7 +3,9 @@ import { getBirdfact, getBirdname, getDisUnit, getLocation, getAggDistance, getD
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { icon } from "leaflet";
-import bird from './assets/bird.png';
+import bird1 from './assets/bird.png';
+import bird2 from './assets/bird2.png';
+
 import { useEffect, useState } from "react";
 const disUnit = getDisUnit();
 const fact = getBirdfact();
@@ -14,6 +16,9 @@ const ICON = new icon({
 });
 const distance = getDistance();
 const alldistance = getAggDistance();
+
+
+const bird = Math.random()>0.5 ? bird1 : bird2;
 
 
 const Nest = () => {
