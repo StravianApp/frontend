@@ -71,7 +71,7 @@ const Settwings = () => {
                 </div>
                 <div className="text2"> Account deletion - beware!
                     <Popup trigger={ <button  className="press">Delete Account</button>}>
-                        <div className='pop-up'>This will delete your account. Are you sure?<button  className='press2' onClick={() => deleteAccount()}>Yes</button> </div>
+                        <div className='pop-up'>This will delete your account. Are you sure?<button  className='press2' onClick={() => deleteAccount(), window.location.href = '/app/logout'}>Yes</button> </div>
                     </Popup>
                 </div>
             </SlidingPane> </div>

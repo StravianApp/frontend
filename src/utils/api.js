@@ -205,7 +205,9 @@ const leaderbirdVisible = async (choice) => {
 };
 
 const deleteAccount = async () => {
-    console.log("FUCK");
+    console.log("please help");
+    const resp = await postFullResp('/delete_user', { jwt: true });
+    return;
 };
 
 
