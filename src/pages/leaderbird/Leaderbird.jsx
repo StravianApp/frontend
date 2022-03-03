@@ -145,7 +145,7 @@ const Leaderbird = () => {
                         <Col>
                             <button className='facebook-button soc-med-button'> <FacebookShareButton
                                 url={"https://stravian.app"}
-                                quote={quote}
+                                quote={`${yourRank.name}`}
                                 hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on FaceBook</FacebookShareButton> </button> </Col>
                     </Row>
                     <Row>
