@@ -208,53 +208,31 @@ const deleteAccount = async () => {
     console.log("FUCK");
 };
 
-const getGlobalLeaderbird = () => {
-    //const data = await get('/get_global_leaderbird', {jwt: true});
-    //return data;
 
-    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
-    { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 },
-    { name: "Lucy", bird: "Lucky", dist: 1.4 }]
+const getGlobalLeaderbird = async () => {
+    const data = await get('/get_global_leaderbird', {jwt: true});
+    return data["leaderbird"];
 };
 
-const getFlockLeaderbird = () => {
-    //const data = await get('/get_flock_leaderbird', {jwt: true});
-    //return data;
-    return [{ name: "Fred", bird: "Kal", dist: 2.3 },
-    { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }]
+const getFlockLeaderbird = async () => {
+    const data = await get('/get_flock_leaderbird', {jwt: true});
+    return data["leaderbird"];
 };
 
-const getGlobalRank = () => {
-    //const data = await get('/get_global_rank', {jwt: true});
-    //return data;
-    return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
+const getGlobalRank = async () => {
+    console.log("JUST DO SOMETHING YOU SON OF A BITCH");
+    const data = await get('/get_global_rank', {jwt: true});
+    console.log("Merci fucking beacoup");
+    return data;
+};
 
-const getFlockRank = () => {
-    //const data = await get('/get_flock_rank', {jwt: true});
-    //return data;
-    return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
+const getFlockRank = async () => {
+    const data = await get('/get_flock_rank', {jwt: true});
+    console.log("hi");
+    return data["rank"];
+};
 
-const getUserStats = () => {
+const getUserStats = async () => {
     //const data = await get('/get_user_stats', {jwt: true});
     //return data;
     return {
@@ -265,12 +243,12 @@ const getUserStats = () => {
     }
 };
 
-const getUserAchievements = () => {
-    //const data = await get('/get_user_achievements', {jwt: true});
-    //return data;
+const getUserAchievements = async () => {
+    const data = await get('/get_user_achievements', {jwt: true});
+    return data["achievements"];
 
-    return [{ name: "Nothing!", summary: "You have never achieved anything!" },
-    { name: "Cracking Start!", summary: "You hatched your bird!" }]
+    //return [{ name: "Nothing!", summary: "You have never achieved anything!" },
+    //{ name: "Cracking Start!", summary: "You hatched your bird!" }]
 };
 
 const getLocation = async () => {
