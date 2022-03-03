@@ -1,9 +1,9 @@
 import './flock.scss';
-import glass from './assets/magglass.png'
 import { useRef, useState } from 'react';
 import { noFriend, newFriend, getFriendUpdates, getFriends } from '../../utils/api';
 import { getUsername } from '../../utils/login';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { Row, Col } from 'reactstrap';
 
@@ -26,19 +26,22 @@ const Flock = () => {
             <div className="add-friend content-box">
 
             <div className='find-new'>
-                <img className="magglass" src={glass} alt="Magnifying glass" />
+                <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>&nbsp;
                 Find a new Flockmate
             </div>
             <div className='in'>
                 <Row>
-                    <Col xs={8}>
+                    <Col xs={9}>
                         <input type="text" name="input" className="search-box" ref={friendName} />
                     </Col>
-                    <Col xs={4}>
-                        <input type="button" className="search-button" value="Search" onClick={() => {
+                    <Col xs={3}>
+                        <button className="search-button" onClick={() => {
                             if (newFriend(friendName.current.value)) setFriendMessage('Success! Another friend flies with you!');
                             else setFriendMessage('What the flock!? That friend isn\'t flying at the moment.');
-                        }} />
+                        }}>
+                            <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
+                        </button>
+                        {/* <input type="button" className="search-button" /> */}
                     </Col>
                 </Row>
                 <div className="friend-text">{friendMessage}</div>
