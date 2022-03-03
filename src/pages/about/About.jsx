@@ -66,7 +66,7 @@ const About = () => (
                     Credits
                 </div>
                 <div className='text_'>
-                    Programming by Nicole Choong, Fiona Gibbs, Neelu Saraswatibhatla, Balázs Tóth, Zalan Martinak and Alex Riddell-Webster. Consulting and eagle-eyed expertise from Adham Ashton-Butt. Data from the British Trust for Ornithology and Movebank. Many thanks to Strava for the use of their API.
+                    Programming by Nicole Choong, Fiona Gibbs, Neelu Saraswatibhatla, Balázs Tóth, Zalan Martinak and Alex Riddell-Webster. Consulting and eagle-eyed expertise from Adham Ashton-Butt. Photographs from Daniel Rosengren and Ülo Väli. Data from the British Trust for Ornithology and Movebank. Many thanks to Strava for the use of their API.
                 </div>
             </div>
 
