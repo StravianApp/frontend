@@ -239,10 +239,12 @@ const getFlockLeaderbird = () => {
     return [{ name: "Fred", bird: "Kal", dist: 2.3 },
     { name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }]
 };
+
 const getGlobalRank = () => {
     //const data = await get('/get_global_rank', {jwt: true});
     //return data;
     return [{ rank: 2, name: "DangerBirdStrikesAgain", bird: "Lucky", dist: 2.0 }] };
+
 const getFlockRank = () => {
     //const data = await get('/get_flock_rank', {jwt: true});
     //return data;
@@ -251,14 +253,13 @@ const getFlockRank = () => {
 const getUserStats = () => {
     //const data = await get('/get_user_stats', {jwt: true});
     //return data;
-
     return {
         week: 5,
         month: 10,
         year: 20,
         allTime: 20
     }
-}
+};
 
 const getUserAchievements = () => {
     //const data = await get('/get_user_achievements', {jwt: true});
@@ -266,28 +267,34 @@ const getUserAchievements = () => {
 
     return [{ name: "Nothing!", summary: "You have never achieved anything!" },
     { name: "Cracking Start!", summary: "You hatched your bird!" }]
-}
+};
 
 const getLocation = () => {
+    //const data = await get('/get_bird_location', {jwt: true});
+    //return data;
     return [-0.56, 22.94]
-}
+};
+
 
 const getAggDistance = () => {
     return 100
-}
+};
 
 const getDistance = () => {
     return 10
-}
+};
 
 const getEventLeaderbird = () => {
     //const data = await get('/get_event_leaderbird', {jwt: true});
     //return data;
-    return []};
+    return []
+};
+
 const getEventRank = () => {
     //const data = await get('/get_event_rank', {jwt: true});
     //return data;
-    return []};
+    return []
+};
 
 export {
     birdAssigned,
