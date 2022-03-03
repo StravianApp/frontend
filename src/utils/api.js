@@ -17,29 +17,29 @@ const xhr = async (path, { jwt, body, headers }, method) => {
     if (method !== 'GET') request.method = method;
     const fetchResponse = await fetch(`${backendUri}${path}`, request);
     return fetchResponse;
-}
+};
 
 const getFullResp = async (path, { jwt, body, headers }) => {
     const resp = await xhr(path, { jwt, body, headers }, 'GET');
     return resp;
-}
+};
 
 const postFullResp = async (path, { jwt, body, headers }) => {
     const resp = await xhr(path, { jwt, body, headers }, 'POST');
     return resp;
-}
+};
 
 const get = async (path, { jwt, body, headers }) => {
     const resp = await getFullResp(path, { jwt, body, headers });
     const data = await resp.json();
     return data;
-}
+};
 
 const post = async (path, { jwt, body, headers }) => {
     const resp = await postFullResp(path, { jwt, body, headers });
     const data = await resp.json();
     return data;
-}
+};
 
 const submitLoginDetails = (code, scope) => {
     console.log(code, scope);
@@ -50,15 +50,15 @@ const submitLoginDetails = (code, scope) => {
 
 const getDisUnit = () => {
     return (disUnit);
-}
+};
 
 const getLeaderbirdVis = () => {
     return (leaderbirdVisibility);
-}
+};
 
 // const getTempUnit = () => {
 //     return (tempUnit);
-// }
+// };
 
 const getBirdname = async () => {
     if (!localStorage.getItem('birdName')) {
@@ -90,7 +90,7 @@ const exchangeStravaCodeForLoginCode = async (code) => {
 const login = async (linkingCode) => {
     const data = await post('/login', { body: [{ linking_code: linkingCode }] });
     return { username: data['userName'], jwt: data['JWT'] };
-}
+};
 
 const getUserDetails = async (loginCode) => {
     if (loginCode.length < 12) return null;
@@ -101,7 +101,7 @@ const getUserDetails = async (loginCode) => {
     catch (err) {
         return null;
     }
-}
+};
 
 const birdAssigned = async () => {
     try {
@@ -154,7 +154,7 @@ const noFriend = (friend) => {
 //             break;
 //         default: break;
 //     }
-// }
+// };
 
 const changeUnitsDis = (choice) => {
     console.log(choice);
@@ -176,7 +176,7 @@ const changeUnitsDis = (choice) => {
             break;
         default: break;
     }
-}
+};
 
 const leaderbirdVisible = (choice) => {
     console.log(choice);
@@ -198,11 +198,11 @@ const leaderbirdVisible = (choice) => {
             break;
         default: break;
     }
-}
+};
 
 const deleteAccount = () => {
     console.log("FUCK");
-}
+};
 
 
 const getGlobalLeaderbird = () => {
@@ -233,6 +233,7 @@ const getGlobalLeaderbird = () => {
     { name: "Lucy", bird: "Lucky", dist: 1.4 },
     { name: "Lucy", bird: "Lucky", dist: 1.4 }]
 };
+
 const getFlockLeaderbird = () => {
     //const data = await get('/get_flock_leaderbird', {jwt: true});
     //return data;
