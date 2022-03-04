@@ -1,6 +1,6 @@
 import { Row, Col } from 'reactstrap';
 import "./Leaderbird.scss";
-import { Component, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     FacebookShareButton, TwitterShareButton,
     FacebookIcon, TwitterIcon
@@ -117,6 +117,7 @@ const Leaderbird = () => {
                                     </tr>
                                 )
                             }
+                            return null;
                         })}
                     </tbody></table>
                 </div>
@@ -175,7 +176,7 @@ function splitUName(uName) {
         return ret;
     }
     for (var i = 0; i < uName.length; i++) {
-        if (i % 12 == 0 && i != 0) {
+        if (i % 12 === 0 && i !== 0) {
             ret += "\n";
         }
         ret += uName.charAt(i);

@@ -1,7 +1,6 @@
 import './about.scss';
-import logo from '../../assets/logos/full-text-3.png';
 import poweredBy from '../../assets/powered-by-strava.svg';
-import { getBirdfact } from '../../utils/api';
+import { getBirdfact } from '../../utils/birdfacts';
 import bird1 from './assets/bird1.png';
 import bird2 from './assets/bird2.png';
 import bird3 from './assets/bird3.png';
