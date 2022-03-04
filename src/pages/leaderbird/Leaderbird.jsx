@@ -21,7 +21,7 @@ const Leaderbird = () => {
     function lB(type) {
 
         setType(type);
-
+        
         if (yourRank.rank > 50) {
             document.getElementById("yourRank").style.height = "auto";
             document.getElementById("divider").className = "section-divider";
@@ -64,6 +64,8 @@ const Leaderbird = () => {
 
     useEffect(() => 
     getDisUnit().then((r) => setDisUnit(r)));
+
+    useEffect(() => setQuote(`${yourRank.name} and their bird, ${yourRank.bird}, has ranked ${yourRank.rank} in the ${type} leaderbird!`));
 
     return <div className="page-container">
         <div className="page-header">Leaderbird</div>
@@ -145,7 +147,7 @@ const Leaderbird = () => {
                         <Col>
                             <button className='facebook-button soc-med-button'> <FacebookShareButton
                                 url={"https://stravian.app"}
-                                quote={`${yourRank.name}`}
+                                quote={quote}
                                 hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on FaceBook</FacebookShareButton> </button> </Col>
                     </Row>
                     <Row>

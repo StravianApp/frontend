@@ -225,12 +225,16 @@ const deleteAccount = async () => {
 
 
 const getGlobalLeaderbird = async () => {
+    console.log("get");
     const data = await get('/get_global_leaderbird', {jwt: true});
+    console.log("resp");
     return data["leaderbird"];
 };
 
 const getFlockLeaderbird = async () => {
+    console.log("getf");
     const data = await get('/get_flock_leaderbird', {jwt: true});
+    console.log("respf");
     return data["leaderbird"];
 };
 
