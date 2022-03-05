@@ -23,6 +23,13 @@ const About = () => (
     <div className="page-container">
         <div className="page-header">About Stravian</div>
         <div className="about-main page-main">
+            
+        <div className="content-box">
+            <img className="bird" src={birdA} alt="Eagle" />
+        </div>
+
+            <hr className="section-divider" />
+            
             <div className="content-box">
                 <div className="subtitle_">
                     What is this app?
@@ -43,12 +50,6 @@ const About = () => (
                     The greater spotted eagle is nearly extinct in Western Europe. Stravian aims to increase awareness and knowledge of this endangered species in a fun, active and de-flightful way; the medium of sport!
                 </div>
             </div>
-
-            <hr className="section-divider" />
-
-        <div className="content-box">
-            <img className="bird" src={birdA} alt="Eagle" />
-        </div>
 
             <hr className="section-divider" />
 
