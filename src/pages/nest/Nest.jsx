@@ -15,8 +15,6 @@ const ICON = new icon({
     iconSize: [35, 42],
 });
 
-
-
 const bird = Math.random()>0.5 ? bird1 : bird2;
 
 function SetView({ coords }) {
