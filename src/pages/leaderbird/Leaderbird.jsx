@@ -7,21 +7,20 @@ import {
 } from "react-share";
 import {
     getGlobalLeaderbird, getFlockLeaderbird, getEventLeaderbird,
-    getGlobalRank, getFlockRank, getEventRank, getDisUnit
+    getDisUnit
 } from '../../utils/api.js';
 
 const Leaderbird = () => {
-    const [theLbDat, setLbDat] = useState([{ name: null, bird: null, dist: null }]);
-    const [yourRank, setRank] = useState([{rank: 0, name: null, bird: null, dist: null}]);
+    const [theLbDat, setLbDat] = useState([]);
+    const [yourRank, setRank] = useState([]);
     const [quote, setQuote] = useState("hi");
     const [disUnit, setDisUnit] = useState("");
 
     const [type, setType] = useState(null);
 
     function lB(type) {
-
         setType(type);
-
+        
         if (yourRank.rank > 50) {
             document.getElementById("yourRank").style.height = "auto";
             document.getElementById("divider").className = "section-divider";
@@ -47,16 +46,13 @@ const Leaderbird = () => {
     useEffect(() => {
         if (!type) return;
         if (type === "Global") {
-            getGlobalLeaderbird().then((r) => setLbDat(r));
-            getGlobalRank().then((r) => setRank(r));
+            getGlobalLeaderbird().then((r) => {setLbDat(r[0]); setRank(r[1])});
         }
         else if (type === "Flock") {
-            getFlockLeaderbird().then((r) => setLbDat(r));
-            getFlockRank().then((r) => setRank(r));
+            getFlockLeaderbird().then((r) => {setLbDat(r[0]); setRank(r[1])});
         }
         else {
-            getEventLeaderbird().then((r) => setLbDat(r));
-            getEventRank().then((r) => setRank(r));
+            //getEventLeaderbird().then((r) => {setLbDat(r[0]); setRank(r[1])});
         }
     }, [type]);
 
@@ -65,6 +61,9 @@ const Leaderbird = () => {
     useEffect(() => 
     getDisUnit().then((r) => setDisUnit(r)));
 
+    useEffect(() => setQuote(`${yourRank.name} and their bird, ${yourRank.bird}, has ranked ${yourRank.rank} in the ${type} leaderbird!`));
+
+    
     return <div className="page-container">
         <div className="page-header">Leaderbird</div>
         <div className="leaderbird-main page-main">
@@ -146,7 +145,7 @@ const Leaderbird = () => {
                         <Col>
                             <button className='facebook-button soc-med-button'> <FacebookShareButton
                                 url={"https://stravian.app"}
-                                quote={`${yourRank.name}`}
+                                quote={quote}
                                 hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on FaceBook</FacebookShareButton> </button> </Col>
                     </Row>
                     <Row>
