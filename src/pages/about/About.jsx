@@ -82,6 +82,7 @@ const About = () => (
         <div className="content-box">
                 <img className="bird" src={birdB} alt="Eagle" />
         </div>
+            <a href={superImportantLink} className="blue-per">Help</a>
 
             <hr className="section-divider" />
 
@@ -103,5 +104,8 @@ const About = () => (
         </div>
     </div>
 );
+
+
+var superImportantLink = "#"
 
 export default About;
