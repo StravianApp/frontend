@@ -9,6 +9,7 @@ import {
     getGlobalLeaderbird, getFlockLeaderbird, getEventLeaderbird,
     getDisUnit
 } from '../../utils/api.js';
+import Popup from 'reactjs-popup';
 
 const Leaderbird = () => {
     const [theLbDat, setLbDat] = useState([]);
@@ -63,6 +64,17 @@ const Leaderbird = () => {
 
     useEffect(() => setQuote(`${yourRank.name} and their bird, ${yourRank.bird}, has ranked ${yourRank.rank} in the ${type} leaderbird!`));
 
+    function doNothing(type) {
+        /*document.getElementById("globalButton").className = "single-button";
+        document.getElementById("flockButton").className = "single-button";
+        document.getElementById("eventButton").className = "single-button-selected";
+        document.getElementById("yourRank").style.height = "0%";
+        document.getElementById("divider").className = "section-divider-invisible";
+        document.getElementById("theLeaderbirdFrame").style.height = "0%";
+        document.getElementById("buttons").style.height = "0%";
+        */
+       console.log("NOTHING");
+    }
     
     return <div className="page-container">
         <div className="page-header">Leaderbird</div>
@@ -76,9 +88,12 @@ const Leaderbird = () => {
                         <Col xs="4"><button
                             id="flockButton" className='single-button'
                             onClick={() => lB("Flock")}>Flock</button></Col>
-                        <Col xs="4"><button
-                            id="eventButton" className='single-button'
-                            onClick={() => doNothing(this, "Event")/*lB(this, "Event")*/}>Event</button></Col>
+                        <Col xs="4">
+                            <Popup trigger={ <button
+                                id="eventButton" className='single-button'>Event</button>}>
+                                <div className='pop-up'>Coming soon!</div>
+                            </Popup>
+                        </Col>
                     </Row>
                 </div>
 
@@ -163,7 +178,7 @@ const Leaderbird = () => {
 };
 export default Leaderbird;
 
-function doNothing(obj, type) {
+function doNothing(type) {
     console.log(type);
 }
 
