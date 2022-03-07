@@ -180,27 +180,13 @@ const deleteAccount = async () => {
 
 
 const getGlobalLeaderbird = async () => {
-    console.log("get");
     const data = await get('/get_global_leaderbird', {jwt: true});
-    console.log("resp");
-    return data["leaderbird"];
+    return [data["leaderbird"], data["global_rank"]];
 };
 
 const getFlockLeaderbird = async () => {
-    console.log("getf");
     const data = await get('/get_flock_leaderbird', {jwt: true});
-    console.log("respf");
-    return data["leaderbird"];
-};
-
-const getGlobalRank = async () => {
-    const data = await get('/get_global_rank', {jwt: true});
-    return data;
-};
-
-const getFlockRank = async () => {
-    const data = await get('/get_flock_rank', {jwt: true});
-    return data;
+    return [data["leaderbird"], data["flock_rank"]];
 };
 
 const getUserStats = async () => {
@@ -231,14 +217,8 @@ const getDistance = async () => {
 
 const getEventLeaderbird = () => {
     //const data = await get('/get_event_leaderbird', {jwt: true});
-    //return data;
-    return []
-};
-
-const getEventRank = () => {
-    //const data = await get('/get_event_rank', {jwt: true});
-    //return data;
-    return []
+    //return [data["leaderbird"], data["event_rank"]];
+    return [];
 };
 
 
@@ -247,8 +227,6 @@ export {
     birdAssigned,
     getGlobalLeaderbird,
     getFlockLeaderbird,
-    getFlockRank,
-    getGlobalRank,
     getFriends,
     getBirdname,
     exchangeStravaCodeForLoginCode,
@@ -268,6 +246,5 @@ export {
     getDisUnit,
     getLeaderbirdVis,
     getEventLeaderbird,
-    getEventRank,
     getDisUnit2,
 };
