@@ -44,6 +44,6 @@ This file contains methods to communicate with the backend. Use the following fo
 
 This simply serves `index.html` to all routes as routing is done within JavaScript. However, there is one exception to this: it serves `/webhook` itself as this is required with the Strava API, and just bounces these requests to the backend server.
 
-## `src/pages/...`
+### `src/pages/...`
 
 All page components are in the `src/pages` directory.
