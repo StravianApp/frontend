@@ -114,7 +114,7 @@ const Leaderbird = () => {
                 <div id="yourRank" className="yourRank" height="0%">
                     <table><tbody>
                         <tr>
-                            <th className="rank rankH"> You! </th>
+                            <th className="rank rankH">You!</th>
                             <th className="name">Name</th>
                             <th className="bName">Bird</th>
                             <th className="dist">Distance</th>
