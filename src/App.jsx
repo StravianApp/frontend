@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.scss';
 import React, { useEffect, useState } from 'react';
 import LoginRequired from './LoginRequired';
 import Layout from './Layout';
