@@ -35,7 +35,7 @@ const About = () => (
                     What is this app?
                 </div>
                 <div className="text_">
-                Stravian introduces you to a bird friend from the twenty egg-cellent eagles we have tracking data on. You then connect with your human friends and compete! Both data from radio tags attached to the birds to measure how far they fly each day and the distance you record on Strava counts towards your overall placement on the leaderbird, so no fowl play!
+                    Stravian introduces you to a bird friend from the twenty egg-cellent eagles we have tracking data on. You then connect with your human friends and compete! Both data from radio tags attached to the birds to measure how far they fly each day and the distance you record on Strava counts towards your overall placement on the leaderbird, so no fowl play!
                 </div>
             </div>
 
@@ -67,6 +67,7 @@ const About = () => (
             </div>
 
         <hr className="section-divider" />
+
         <div className="content-box">
             <div className='subtitle_'>
                 Did you know?
@@ -82,7 +83,6 @@ const About = () => (
         <div className="content-box">
                 <img className="bird" src={birdB} alt="Eagle" />
         </div>
-            <a href={superImportantLink} className="blue-per">Help</a>
 
             <hr className="section-divider" />
 
@@ -105,7 +105,5 @@ const About = () => (
     </div>
 );
 
-
-var superImportantLink = "#"
 
 export default About;

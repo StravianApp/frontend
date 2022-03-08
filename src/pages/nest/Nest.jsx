@@ -23,7 +23,7 @@ function SetView({ coords }) {
     const map = useMap();
     map.setView(coords, map.getZoom());
     return null;
-}
+};
 
 
 const Nest = () => {
@@ -74,9 +74,11 @@ const Nest = () => {
 
     return (
         <div className="page-container">
+            
             <div className="page-header">
                 {birdname}
             </div>
+
             <div className='nest-main page-main'>
                 <div className="content-box">
                 <img className="bird" src={bird} alt="Eagle" />
@@ -84,12 +86,13 @@ const Nest = () => {
                         <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br> This week, I've flown {distance} {disUnit}. Overall, I've flown {alldistance} {disUnit}! <br></br> Track me down below!
                     </div>
                 </div>
+
                 <hr className="section-divider" />
+
                 <div className="content-box">
                     <div className='subtitle_'>
                         Did you know?
                     </div>
-
                     <div className='text_'>
                         {fact}
                     </div>
@@ -112,6 +115,6 @@ const Nest = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Nest;
