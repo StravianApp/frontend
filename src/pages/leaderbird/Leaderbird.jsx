@@ -1,13 +1,8 @@
 import { Row, Col } from 'reactstrap';
 import "./Leaderbird.scss";
 import { useEffect, useState } from 'react';
-import {
-    FacebookShareButton, TwitterShareButton,
-    FacebookIcon, TwitterIcon
-} from "react-share";
-import {
-    getGlobalLeaderbird, getFlockLeaderbird, getDisUnit
-} from '../../utils/api.js';
+import { FacebookShareButton, TwitterShareButton, FacebookIcon, TwitterIcon } from "react-share";
+import { getGlobalLeaderbird, getFlockLeaderbird, getDisUnit } from '../../utils/api.js';
 import Popup from 'reactjs-popup';
 
 const Leaderbird = () => {
@@ -51,7 +46,7 @@ const Leaderbird = () => {
                             className={`single-button${type === "Flock" ? "-selected" : ""}`}
                             onClick={() => setType("Flock")}>Flock</button></Col>
                         <Col xs="4">
-                            <Popup trigger={<button
+                            <Popup className='pop-up' trigger={<button
                                 className={`single-button${type === "Event" ? "-selected" : ""}`}>Event</button>}>
                                 <div className='pop-up'>Coming soon!</div>
                             </Popup>
