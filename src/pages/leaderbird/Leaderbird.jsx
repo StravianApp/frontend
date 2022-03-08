@@ -32,22 +32,9 @@ const Leaderbird = () => {
         }
     }, [type]);
 
-    useEffect(() => {
-        document.getElementById("yourRank").style.height = "auto";
-        document.getElementById("divider").className = "section-divider";
-        // if (yourRank.rank > 50) {
-        //     document.getElementById("yourRank").style.height = "auto";
-        //     document.getElementById("divider").className = "section-divider";
-        // }
-        // else {
-        //     document.getElementById("yourRank").style.height = "0%";
-        //     document.getElementById("divider").className = "section-divider-invisible";
-        // }
-    }, [yourRank])
-
     useEffect(() => setType("Global"), []);
 
-    useEffect(() => getDisUnit().then((r) => setDisUnit(r)));
+    useEffect(() => getDisUnit().then((r) => setDisUnit(r)), []);
 
     useEffect(() => setQuote(`${yourRank.name} and their bird, ${yourRank.bird}, has ranked ${yourRank.rank} in the ${type} leaderbird!`), [yourRank, type]);
 
@@ -109,26 +96,27 @@ const Leaderbird = () => {
                     </tbody></table>
                 </div>
 
-                <hr id="divider" className="section-divider" />
+                {yourRank.rank > 50 && (
+                    <div id="yourRank" className="yourRank" height="0%">
+                        <table><tbody>
+                            <tr>
+                                <th className="rank rankH"> You! </th>
+                                <th className="name">Name</th>
+                                <th className="bName">Bird</th>
+                                <th className="dist">Distance</th>
+                            </tr>
+                            <tr>
+                                <td className="rank">{yourRank.rank}</td>
+                                <td className="name">{splitUName(yourRank.name)}</td>
+                                <td className="bName">{yourRank.bird}</td>
+                                <td className="dist">{yourRank.dist}</td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                )}
 
-                <div id="yourRank" className="yourRank" height="0%">
-                    <table><tbody>
-                        <tr>
-                            <th className="rank rankH"> You! </th>
-                            <th className="name">Name</th>
-                            <th className="bName">Bird</th>
-                            <th className="dist">Distance</th>
-                        </tr>
-                        <tr>
-                            <td className="rank">{yourRank.rank}</td>
-                            <td className="name">{splitUName(yourRank.name)}</td>
-                            <td className="bName">{yourRank.bird}</td>
-                            <td className="dist">{yourRank.dist}</td>
-                        </tr>
-                    </tbody></table>
-                </div>
 
-                <hr id="div1" className="section-divider" />
+                <br />
 
                 <div id="buttons" className="buttons">
                     <Row>
@@ -136,7 +124,7 @@ const Leaderbird = () => {
                             <div className='facebook-button soc-med-button'> <FacebookShareButton
                                 url={"https://stravian.app"}
                                 quote={quote}
-                                hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on FaceBook</FacebookShareButton> </div> </Col>
+                                hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on Facebook</FacebookShareButton> </div> </Col>
                     </Row>
                     <Row>
                         <Col>
