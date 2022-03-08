@@ -8,8 +8,6 @@ import { changeUnitsDis, leaderbirdVisible, deleteAccount, getDisUnit2, getLeade
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-//const tempUnit = getTempUnit();
-
 const Settwings = () => {
     const [state, setState] = useState({
         isPaneOpen: false,

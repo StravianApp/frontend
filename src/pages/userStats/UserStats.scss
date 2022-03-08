@@ -13,21 +13,11 @@
     height: 80%;
     width: 80%;
     margin: 0 auto;
-    /*top: 55%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);*/
-    //background-color: adjust-hue($color: $secondaryColor, $degrees: -50);
 }
-
-/*.stats table{
-    background-color: $secondaryColor;
-}*/
 
 .stats th{
     position: sticky;
     top: 0;
-    //background-color: adjust-hue($color: $secondaryColor, $degrees: 0);
 }
     .username {
         text-align: center;

@@ -54,6 +54,7 @@ const Leaderbird = () => {
         }
         else {
             //getEventLeaderbird().then((r) => {setLbDat(r[0]); setRank(r[1])});
+            // Can be expanded to event leaderbirds
         }
     }, [type]);
 
@@ -63,18 +64,6 @@ const Leaderbird = () => {
     getDisUnit().then((r) => setDisUnit(r)));
 
     useEffect(() => setQuote(`${yourRank.name} and their bird, ${yourRank.bird}, has ranked ${yourRank.rank} in the ${type} leaderbird!`));
-
-    function doNothing(type) {
-        /*document.getElementById("globalButton").className = "single-button";
-        document.getElementById("flockButton").className = "single-button";
-        document.getElementById("eventButton").className = "single-button-selected";
-        document.getElementById("yourRank").style.height = "0%";
-        document.getElementById("divider").className = "section-divider-invisible";
-        document.getElementById("theLeaderbirdFrame").style.height = "0%";
-        document.getElementById("buttons").style.height = "0%";
-        */
-       console.log("NOTHING");
-    }
     
     return <div className="page-container">
         <div className="page-header">Leaderbird</div>
@@ -177,10 +166,6 @@ const Leaderbird = () => {
     </div>
 };
 export default Leaderbird;
-
-function doNothing(type) {
-    console.log(type);
-}
 
 function splitUName(uName) {
     var ret = "";

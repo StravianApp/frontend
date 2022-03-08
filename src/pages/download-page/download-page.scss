@@ -10,13 +10,11 @@
     z-index: 1;
 
     .welcome-to-stravian {
-        
         .welcome-to {
             font-size: 2em;
             text-align: center;
             color: linear-gradient($primaryColor, white);
         }
-    
         .logo-container {
             text-align: center;
             .logo {
@@ -30,7 +28,6 @@
             height: 1.7em;
             transform: translateY(-1.5px);
         }
-
         .ios-share-icon {
             height: 1.2em;
         }

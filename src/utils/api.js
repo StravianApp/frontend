@@ -216,9 +216,8 @@ const getDistance = async () => {
 };
 
 const getEventLeaderbird = () => {
-    //const data = await get('/get_event_leaderbird', {jwt: true});
-    //return [data["leaderbird"], data["event_rank"]];
     return [];
+    // Can expand to implement event leaderbirds
 };
 
 
