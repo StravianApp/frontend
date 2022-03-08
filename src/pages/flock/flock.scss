@@ -16,7 +16,6 @@
         border-top-right-radius: 0;
     }
 
-
     .find-new {
         font-size: 1.3em;
         color: $textColor;
@@ -61,7 +60,6 @@
     }
 
     .text-updates {
-        // padding: 3px 0 3px 10px;
         width: 100%;
         .btns {
             float: right;
@@ -71,7 +69,6 @@
     .text-flockmates {
         padding: 3px 0 3px 10px;
         display: block;
-
         .remove {
             border-radius: 5px;
             border: 1px solid;
@@ -87,5 +84,4 @@
         border: 1px solid;
         background-color: $primaryColor;
     }
-
 }

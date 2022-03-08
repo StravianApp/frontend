@@ -67,9 +67,6 @@ const Flock = () => {
                 </div>
             </div>
 
-
-
-
             <hr className="section-divider" />
 
             <div className="content-box">
