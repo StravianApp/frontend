@@ -1,4 +1,4 @@
-# Stravian frontend
+# Stravian Frontend
 
 ## Config file
 
