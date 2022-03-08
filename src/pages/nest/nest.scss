@@ -1,25 +1,25 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 .nest-main {
-    .map {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
+  .map {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-    .bird {
-        max-width: 100%;
-        justify-content: center;
-        display: flex;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        img {
-            max-width: 100%;
-            justify-content: center;
-            display: flex;
-        }
+  .bird {
+    max-width: 100%;
+    justify-content: center;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      max-width: 100%;
+      justify-content: center;
+      display: flex;
     }
+  }
 }

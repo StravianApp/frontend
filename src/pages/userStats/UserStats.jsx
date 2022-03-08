@@ -9,7 +9,7 @@ import { getUsername } from "../../utils/login";
 
 
 const UserStats = () => {
-    const [stats, setStats] = useState({week: null, month: null, year: null, allTime: null});
+    const [stats, setStats] = useState({ week: null, month: null, year: null, allTime: null });
     const [achievements, setAchievements] = useState([]);
     const [disUnit, setDisUnit] = useState("");
 

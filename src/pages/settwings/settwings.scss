@@ -1,34 +1,32 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 .settwings-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  .press1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    font-size: 20px;
+    border: 2px solid;
+    margin-top: 40px;
+    align-content: center;
+    border-radius: 20px;
+    background: none;
+  }
 
-    .press1 {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        width: 100%;
-        font-size: 20px;  
-        border: 2px solid;
-        margin-top: 40px;
-        align-content: center;
-        border-radius: 20px;
-        background: none;
-    }
-
-      .units {
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        font-size: 20px;  
-        border: 2px solid;
-        align-content: center;
-        border-radius: 20px;
-      }
-
+  .units {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 20px;
+    border: 2px solid;
+    align-content: center;
+    border-radius: 20px;
+  }
 }
 
 .strava-container {
@@ -41,6 +39,6 @@
   padding-left: 3em;
   padding-right: 3em;
   .strava {
-      max-width: 100%;
+    max-width: 100%;
   }
 }

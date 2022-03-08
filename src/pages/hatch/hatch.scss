@@ -1,35 +1,34 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 .hatch-main {
-    height: 100%;
-    z-index: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 15px;
+  height: 100%;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
 
-    .subtitle_ {
-        height: 3.1em;
-        padding-bottom: 5em;
-    }
-    
+  .subtitle_ {
+    height: 3.1em;
+    padding-bottom: 5em;
+  }
 
-    .egg {
-        max-width: 100%;
-        text-align: center;
-        display: absolute;
-        img {
-            max-width: 70%;
-        }
+  .egg {
+    max-width: 100%;
+    text-align: center;
+    display: absolute;
+    img {
+      max-width: 70%;
     }
+  }
 
-    .bird {
-        max-width: 100%;
-        text-align: center;
-        padding-top: 70px;
-        img {
-            max-width: 70%;
-        }
+  .bird {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 70px;
+    img {
+      max-width: 70%;
     }
+  }
 }

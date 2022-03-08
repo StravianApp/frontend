@@ -17,7 +17,7 @@ const DownloadPage = () => {
             </div>
 
             <div className="instructions">
-                
+
                 <div className="content-box">
                     <div className="subtitle_">Android (Chrome)</div>
                     <div className="text_">Tap the <FontAwesomeIcon icon={faEllipsisV} /> (<b>Menu</b>) icon at the top-right and then tap "<b>Install</b>" to install <img className="logo" src={logo2} alt="Stravian" />.</div>
@@ -31,7 +31,7 @@ const DownloadPage = () => {
             </div>
 
             <div className="powered-by-strava"><img src={poweredByStravaIcon} alt="Powered by Strava" /></div>
-        </div>  
+        </div>
     );
 };
 

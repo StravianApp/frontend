@@ -1,25 +1,25 @@
 @mixin cloud($class, $width, $top, $start, $time) {
-    @keyframes #{$class} {
-        0% {
-            #{$start}: -#{$width};
-        }
-    
-        100% {
-            #{$start}: 100vw;
-        }
+  @keyframes #{$class} {
+    0% {
+      #{$start}: -#{$width};
     }
 
-    .#{$class} {
-        width: $width;
-        top: $top;
-        animation: $class $time linear infinite;
-        animation-delay: -60s;
+    100% {
+      #{$start}: 100vw;
     }
+  }
+
+  .#{$class} {
+    width: $width;
+    top: $top;
+    animation: $class $time linear infinite;
+    animation-delay: -60s;
+  }
 }
 
 .cloud {
-    position: fixed;
-    z-index: 0;
+  position: fixed;
+  z-index: 0;
 }
 
 @include cloud(cloud1, 30vw, 5vh, left, 90s);
@@ -29,7 +29,7 @@
 @include cloud(cloud5, 40vw, 75vh, left, 80s);
 
 @media screen and (min-width: 1000px) {
-    .cloud {
-        display: none;
-    }
+  .cloud {
+    display: none;
+  }
 }

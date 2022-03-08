@@ -10,11 +10,11 @@ const ErrorPage = ({ errorTitle, faIcon, errorCaption }) => (
         </div>
 
         <div className="content">
-            <h1>{ errorTitle }</h1>
+            <h1>{errorTitle}</h1>
             <FontAwesomeIcon icon={faIcon} className="icon" />
-            <h3>{ errorCaption }</h3>
+            <h3>{errorCaption}</h3>
         </div>
-        
+
     </div>
 );
 

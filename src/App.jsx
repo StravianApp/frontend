@@ -69,7 +69,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<RootLayout />}>
                     <Route index element={<DownloadPage />} />
-                    <Route path="not-on-mobile" element={<ErrorPage faIcon={faMobileAlt} errorTitle="Stravian is only available for mobile devices." errorCaption="Please visit this site on a smartphone to use Stravian."/>} />
+                    <Route path="not-on-mobile" element={<ErrorPage faIcon={faMobileAlt} errorTitle="Stravian is only available for mobile devices." errorCaption="Please visit this site on a smartphone to use Stravian." />} />
                     <Route path="logged-in" element={<LoggedIn />} />
                     <Route path="app"> {/* Without nav drawer */}
                         <Route path="login" element={<Login />} />
@@ -83,7 +83,7 @@ function App() {
                         <Route path="settwings" element={<LoginRequired component={<Settwings />} />} />
                         <Route path="user-stats" element={<LoginRequired component={<UserStats />} />} />
                         <Route path="leaderbird" element={<LoginRequired component={<Leaderbird />} />} />
-                        <Route path="about" element={<LoginRequired component={<About />} />} /> 
+                        <Route path="about" element={<LoginRequired component={<About />} />} />
                     </Route>
                     <Route path="*" element={<ErrorPage
                         faIcon={faSearch}

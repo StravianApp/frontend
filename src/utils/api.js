@@ -38,42 +38,42 @@ const post = async (path, { jwt, body, headers }) => {
 };
 
 const getDisUnit = async () => {
-    const resp = await get('/get_dist_unit', { jwt: true});
+    const resp = await get('/get_dist_unit', { jwt: true });
     const data = resp['preferred_unit_type'];
     switch (data) {
         case 0:
             return "km";
         case 1:
             return "mi";
-        case 2: 
+        case 2:
             return "ws";
         default: break;
     }
 };
 
 const getDisUnit2 = async () => {
-    const resp = await get('/get_dist_unit', { jwt: true});
+    const resp = await get('/get_dist_unit', { jwt: true });
     const data = resp['preferred_unit_type'];
     switch (data) {
         case 0:
             return "kilometres";
         case 1:
             return "miles";
-        case 2: 
+        case 2:
             return "wingspans";
         default: break;
     }
 };
 
 const getLeaderbirdVis = async () => {
-    const resp = await get('/get_leaderbird_visibility', { jwt: true});
+    const resp = await get('/get_leaderbird_visibility', { jwt: true });
     const data = resp["visibility_status"];
     switch (data) {
         case 0:
             return "invisible";
         case 1:
             return "friends";
-        case 2: 
+        case 2:
             return "everyone";
         default: break;
     }
@@ -89,7 +89,7 @@ const getBirdname = async () => {
 
 const getFriendRequests = async () => {
     const resp = await get('/friend_updates', { jwt: true });
-    return {incoming: resp['incomingRequests'], outgoing: resp['outgoingRequests']};
+    return { incoming: resp['incomingRequests'], outgoing: resp['outgoingRequests'] };
 };
 
 const getFriends = async () => {
@@ -134,25 +134,25 @@ const hatchEgg = async () => {
 };
 
 const newFriend = async (friend) => {
-    const resp = await postFullResp('/add_friend', { jwt: true, body: [{strava_id: friend}] });
+    const resp = await postFullResp('/add_friend', { jwt: true, body: [{ strava_id: friend }] });
     return resp.ok;
 };
 
 const noFriend = async (friend) => {
-    const resp = await postFullResp('/remove_friend', { jwt: true, body: [{strava_id: friend}] });
+    const resp = await postFullResp('/remove_friend', { jwt: true, body: [{ strava_id: friend }] });
     return resp.ok;
 };
 
 const changeUnitsDis = async (choice) => {
     switch (choice) {
         case 0:
-            await postFullResp('/set_dist_unit', { jwt: true, body: [{"preferred_unit_type": 0}]});
+            await postFullResp('/set_dist_unit', { jwt: true, body: [{ "preferred_unit_type": 0 }] });
             break;
         case 1:
-            await postFullResp('/set_dist_unit', { jwt: true, body: [{"preferred_unit_type": 1}]});
+            await postFullResp('/set_dist_unit', { jwt: true, body: [{ "preferred_unit_type": 1 }] });
             break;
         case 2:
-            await postFullResp('/set_dist_unit', { jwt: true,  body: [{"preferred_unit_type": 2}]});
+            await postFullResp('/set_dist_unit', { jwt: true, body: [{ "preferred_unit_type": 2 }] });
             break;
         default: break;
     }
@@ -161,13 +161,13 @@ const changeUnitsDis = async (choice) => {
 const leaderbirdVisible = async (choice) => {
     switch (choice) {
         case 0:
-            await postFullResp('/set_leaderbird_visibility', { jwt: true, body: [{"visibility_status": 0}]});
+            await postFullResp('/set_leaderbird_visibility', { jwt: true, body: [{ "visibility_status": 0 }] });
             break;
         case 1:
-            await postFullResp('/set_leaderbird_visibility', { jwt: true,  body: [{"visibility_status": 1}]});
+            await postFullResp('/set_leaderbird_visibility', { jwt: true, body: [{ "visibility_status": 1 }] });
             break;
         case 2:
-            await postFullResp('/set_leaderbird_visibility', { jwt: true,  body: [{"visibility_status": 2}]});
+            await postFullResp('/set_leaderbird_visibility', { jwt: true, body: [{ "visibility_status": 2 }] });
             break;
         default: break;
     }
@@ -180,38 +180,38 @@ const deleteAccount = async () => {
 
 
 const getGlobalLeaderbird = async () => {
-    const data = await get('/get_global_leaderbird', {jwt: true});
+    const data = await get('/get_global_leaderbird', { jwt: true });
     return [data["leaderbird"], data["global_rank"]];
 };
 
 const getFlockLeaderbird = async () => {
-    const data = await get('/get_flock_leaderbird', {jwt: true});
+    const data = await get('/get_flock_leaderbird', { jwt: true });
     return [data["leaderbird"], data["flock_rank"]];
 };
 
 const getUserStats = async () => {
-    const data = await get('/get_user_stats', {jwt: true});
+    const data = await get('/get_user_stats', { jwt: true });
     return data;
 };
 
 const getUserAchievements = async () => {
-    const data = await get('/get_user_achievements', {jwt: true});
+    const data = await get('/get_user_achievements', { jwt: true });
     return data["achievements"];
 };
 
 const getLocation = async () => {
-    const data = await get('/get_bird_location', {jwt: true});
-    return([data['lat'], data['long']]);
+    const data = await get('/get_bird_location', { jwt: true });
+    return ([data['lat'], data['long']]);
 };
 
 
 const getAggDistance = async () => {
-    const data = await get('/get_bird_distances', {jwt: true});
+    const data = await get('/get_bird_distances', { jwt: true });
     return data["lifetime"];
 };
 
 const getDistance = async () => {
-    const data = await get('/get_bird_distances', {jwt: true});
+    const data = await get('/get_bird_distances', { jwt: true });
     return data["week"];
 };
 

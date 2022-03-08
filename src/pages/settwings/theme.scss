@@ -1,4 +1,4 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 $paneThemeColor: $thePurple;
 
@@ -60,7 +60,7 @@ $paneThemeColor: $thePurple;
 .press {
   padding-top: 3px;
   padding-bottom: 3px;
-  font-size: 12px;  
+  font-size: 12px;
   border: 2px solid;
   color: white;
   margin-top: 5px;
@@ -73,7 +73,7 @@ $paneThemeColor: $thePurple;
 .press2 {
   padding-top: 3px;
   padding-bottom: 3px;
-  font-size: 12px;  
+  font-size: 12px;
   border: 2px solid;
   color: white;
   margin-top: 5px;
@@ -87,7 +87,6 @@ $paneThemeColor: $thePurple;
   color: red;
   text-align: center;
 }
-
 
 .text1 {
   font-size: 15px;
