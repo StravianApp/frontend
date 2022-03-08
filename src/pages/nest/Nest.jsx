@@ -17,7 +17,7 @@ const ICON = new icon({
 
 
 
-const bird = Math.random()>0.5 ? bird1 : bird2;
+const bird = Math.random() > 0.5 ? bird1 : bird2;
 
 function SetView({ coords }) {
     const map = useMap();
@@ -29,13 +29,13 @@ function SetView({ coords }) {
 const Nest = () => {
 
     const [distance, setDistance] = useState(0);
-    
+
     const showUpdatedDistance = () => {
         getDistance().then((v) => setDistance(v));
     };
 
     const [alldistance, setAggDistance] = useState(0);
-    
+
     const showUpdatedAggDistance = () => {
         getAggDistance().then((v) => setAggDistance(v));
     };
@@ -46,9 +46,9 @@ const Nest = () => {
     }, []);
 
 
-     
+
     const [disUnit, setDisUnit] = useState('kilometres');
-    
+
     const showUpdatedDisUnit = async () => {
         const unit = await getDisUnit()
         setDisUnit(unit);
@@ -56,7 +56,7 @@ const Nest = () => {
 
 
     const [position, setPosition] = useState([0, 0]);
-    
+
     const showUpdatedPosition = () => {
         getLocation().then((v) => setPosition(v));
     };
@@ -67,21 +67,21 @@ const Nest = () => {
     }, []);
 
     const [birdname, setBirdName] = useState('');
-    
+
     useEffect(() => {
         getBirdname().then((birdName) => setBirdName(birdName));
     }, []);
 
     return (
         <div className="page-container">
-            
+
             <div className="page-header">
                 {birdname}
             </div>
 
             <div className='nest-main page-main'>
                 <div className="content-box">
-                <img className="bird" src={bird} alt="Eagle" />
+                    <img className="bird" src={bird} alt="Eagle" />
                     <div className='text_'>
                         <i>Screech</i> hi there <i>screech</i>! I'm <b>{birdname}</b>, your friend and a greater spotted eagle!<br></br> This week, I've flown {distance} {disUnit}. Overall, I've flown {alldistance} {disUnit}! <br></br> Track me down below!
                     </div>

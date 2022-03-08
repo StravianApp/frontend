@@ -6,8 +6,7 @@ import {
     FacebookIcon, TwitterIcon
 } from "react-share";
 import {
-    getGlobalLeaderbird, getFlockLeaderbird, getEventLeaderbird,
-    getDisUnit
+    getGlobalLeaderbird, getFlockLeaderbird, getDisUnit
 } from '../../utils/api.js';
 import Popup from 'reactjs-popup';
 
@@ -19,38 +18,13 @@ const Leaderbird = () => {
 
     const [type, setType] = useState(null);
 
-    function lB(type) {
-        setType(type);
-        
-        if (yourRank.rank > 50) {
-            document.getElementById("yourRank").style.height = "auto";
-            document.getElementById("divider").className = "section-divider";
-        }
-        else {
-            document.getElementById("yourRank").style.height = "0%";
-            document.getElementById("divider").className = "section-divider-invisible";
-        }
-        document.getElementById("globalButton").className = "single-button";
-        document.getElementById("flockButton").className = "single-button";
-        document.getElementById("flockButton").className = "single-button";
-        if (type === "Global") {
-            document.getElementById("globalButton").className = "single-button-selected";
-        }
-        else if (type === "Flock") {
-            document.getElementById("flockButton").className = "single-button-selected";
-        }
-        else if (type === "Event") {
-            document.getElementById("eventButton").className = "single-button-selected";
-        }
-    }
-
     useEffect(() => {
         if (!type) return;
         if (type === "Global") {
-            getGlobalLeaderbird().then((r) => {setLbDat(r[0]); setRank(r[1])});
+            getGlobalLeaderbird().then((r) => { setLbDat(r[0]); setRank(r[1]) });
         }
         else if (type === "Flock") {
-            getFlockLeaderbird().then((r) => {setLbDat(r[0]); setRank(r[1])});
+            getFlockLeaderbird().then((r) => { setLbDat(r[0]); setRank(r[1]) });
         }
         else {
             //getEventLeaderbird().then((r) => {setLbDat(r[0]); setRank(r[1])});
@@ -58,13 +32,12 @@ const Leaderbird = () => {
         }
     }, [type]);
 
-    useEffect(() => lB("Global"), []);
+    useEffect(() => setType("Global"), []);
 
-    useEffect(() => 
-    getDisUnit().then((r) => setDisUnit(r)));
+    useEffect(() => getDisUnit().then((r) => setDisUnit(r)), []);
 
-    useEffect(() => setQuote(`${yourRank.name} and their bird, ${yourRank.bird}, has ranked ${yourRank.rank} in the ${type} leaderbird!`));
-    
+    useEffect(() => setQuote(`${yourRank.name} and their bird, ${yourRank.bird}, has ranked ${yourRank.rank} in the ${type} leaderbird!`), [yourRank, type]);
+
     return <div className="page-container">
         <div className="page-header">Leaderbird</div>
         <div className="leaderbird-main page-main">
@@ -72,14 +45,14 @@ const Leaderbird = () => {
                 <div id="buttons" className="buttons2">
                     <Row>
                         <Col xs="4"><button
-                            id="globalButton" className='single-button'
-                            onClick={() => lB("Global")}>Global</button></Col>
+                            className={`single-button${type === "Global" ? "-selected" : ""}`}
+                            onClick={() => setType("Global")}>Global</button></Col>
                         <Col xs="4"><button
-                            id="flockButton" className='single-button'
-                            onClick={() => lB("Flock")}>Flock</button></Col>
+                            className={`single-button${type === "Flock" ? "-selected" : ""}`}
+                            onClick={() => setType("Flock")}>Flock</button></Col>
                         <Col xs="4">
-                            <Popup trigger={ <button
-                                id="eventButton" className='single-button'>Event</button>}>
+                            <Popup trigger={<button
+                                className={`single-button${type === "Event" ? "-selected" : ""}`}>Event</button>}>
                                 <div className='pop-up'>Coming soon!</div>
                             </Popup>
                         </Col>
@@ -123,42 +96,43 @@ const Leaderbird = () => {
                     </tbody></table>
                 </div>
 
-                <hr id="divider" className="section-divider" />
+                {yourRank.rank > 50 && (
+                    <div id="yourRank" className="yourRank" height="0%">
+                        <table><tbody>
+                            <tr>
+                                <th className="rank rankH"> You! </th>
+                                <th className="name">Name</th>
+                                <th className="bName">Bird</th>
+                                <th className="dist">Distance</th>
+                            </tr>
+                            <tr>
+                                <td className="rank">{yourRank.rank}</td>
+                                <td className="name">{splitUName(yourRank.name)}</td>
+                                <td className="bName">{yourRank.bird}</td>
+                                <td className="dist">{yourRank.dist}</td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                )}
 
-                <div id="yourRank" className="yourRank" height="0%">
-                    <table><tbody>
-                        <tr>
-                            <th className="rank rankH"> You! </th>
-                            <th className="name">Name</th>
-                            <th className="bName">Bird</th>
-                            <th className="dist">Distance</th>
-                        </tr>
-                        <tr>
-                            <td className="rank">{yourRank.rank}</td>
-                            <td className="name">{splitUName(yourRank.name)}</td>
-                            <td className="bName">{yourRank.bird}</td>
-                            <td className="dist">{yourRank.dist}</td>
-                        </tr>
-                    </tbody></table>
-                </div>
 
-                <hr id="div1" className="section-divider" />
+                <br />
 
                 <div id="buttons" className="buttons">
                     <Row>
                         <Col>
-                            <button className='facebook-button soc-med-button'> <FacebookShareButton
+                            <div className='facebook-button soc-med-button'> <FacebookShareButton
                                 url={"https://stravian.app"}
                                 quote={quote}
-                                hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on FaceBook</FacebookShareButton> </button> </Col>
+                                hashtag={"#Stravian"}>{<FacebookIcon size={32} round={true} />}Share on Facebook</FacebookShareButton> </div> </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <button className='twitter-button soc-med-button'> <TwitterShareButton
+                            <div className='twitter-button soc-med-button'> <TwitterShareButton
                                 url={"https://stravian.app"}
                                 hashtags={["Stravian"]}
                                 title={quote}>
-                                {<TwitterIcon size={32} round={true} />}Share on Twitter</TwitterShareButton> </button> </Col>
+                                {<TwitterIcon size={32} round={true} />}Share on Twitter</TwitterShareButton> </div> </Col>
                     </Row>
                 </div>
             </div>
@@ -169,7 +143,7 @@ export default Leaderbird;
 
 function splitUName(uName) {
     var ret = "";
-    if (uName == null){
+    if (uName == null) {
         return ret;
     }
     for (var i = 0; i < uName.length; i++) {

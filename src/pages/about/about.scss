@@ -1,49 +1,47 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 .about-main {
-
-    .logo-container {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 5px;
-        text-align: center;
-        .logo {
-            max-width: 60%;
-        }
+  .logo-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    .logo {
+      max-width: 60%;
     }
+  }
 
-    .strava-container {
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        padding-top: 2em;
-        position: relative;
-        padding-bottom: 0.5em;
-        padding-left: 3em;
-        padding-right: 3em;
-        .strava {
-            max-width: 100%;
-        }
+  .strava-container {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 2em;
+    position: relative;
+    padding-bottom: 0.5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    .strava {
+      max-width: 100%;
     }
+  }
 
-    .bird {
-        max-width: 100%;
-        justify-content: center;
-        display: flex;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        img {
-            max-width: 100%;
-            justify-content: center;
-            display: flex;
-        }
+  .bird {
+    max-width: 100%;
+    justify-content: center;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      max-width: 100%;
+      justify-content: center;
+      display: flex;
     }
-    
+  }
 }

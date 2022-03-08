@@ -14,22 +14,22 @@ import bird9 from './assets/bird9.png';
 
 const fact = getBirdfact();
 
-const birdA = Math.random()<0.2 ? bird5 : Math.random()<0.4 ? bird6 : Math.random()<0.6 ? bird7 : Math.random()<0.8 ? bird8 : bird9;
+const birdA = Math.random() < 0.2 ? bird5 : Math.random() < 0.4 ? bird6 : Math.random() < 0.6 ? bird7 : Math.random() < 0.8 ? bird8 : bird9;
 
-const birdB = Math.random()<0.2 ? bird1 : Math.random()<0.4 ? bird2 : Math.random()<0.6 ? bird3 : Math.random()<0.8 ? bird4 : bird9;
+const birdB = Math.random() < 0.2 ? bird1 : Math.random() < 0.4 ? bird2 : Math.random() < 0.6 ? bird3 : Math.random() < 0.8 ? bird4 : bird9;
 
 
 const About = () => (
     <div className="page-container">
         <div className="page-header">About Stravian</div>
         <div className="about-main page-main">
-            
-        <div className="content-box">
-            <img className="bird" src={birdA} alt="Eagle" />
-        </div>
+
+            <div className="content-box">
+                <img className="bird" src={birdA} alt="Eagle" />
+            </div>
 
             <hr className="section-divider" />
-            
+
             <div className="content-box">
                 <div className="subtitle_">
                     What is this app?
@@ -66,23 +66,23 @@ const About = () => (
                 </div>
             </div>
 
-        <hr className="section-divider" />
+            <hr className="section-divider" />
 
-        <div className="content-box">
-            <div className='subtitle_'>
-                Did you know?
+            <div className="content-box">
+                <div className='subtitle_'>
+                    Did you know?
+                </div>
+
+                <div className='text_'>
+                    {fact}
+                </div>
             </div>
 
-            <div className='text_'>
-                {fact}
-            </div> 
-        </div>
+            <hr className="section-divider" />
 
-        <hr className="section-divider" />
-
-        <div className="content-box">
+            <div className="content-box">
                 <img className="bird" src={birdB} alt="Eagle" />
-        </div>
+            </div>
 
             <hr className="section-divider" />
 

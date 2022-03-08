@@ -12,7 +12,7 @@ const Flock = () => {
     const friendName = useRef(null);
     const [friendMessage, setFriendMessage] = useState(null);
     const [friends, setFriends] = useState([]);
-    const [friendRequests, setFriendRequests] = useState({incoming: [], outgoing: []});
+    const [friendRequests, setFriendRequests] = useState({ incoming: [], outgoing: [] });
 
     const updateFriends = () => {
         getFriends().then((f) => setFriends(f));
@@ -49,7 +49,7 @@ const Flock = () => {
                         <Col xs={3}>
                             <button className="search-button" onClick={() => {
                                 newFriend(friendName.current.value.trim()).then((r) => {
-                                    
+
                                     if (r) {
                                         setFriendMessage('Friend request sent!');
                                         friendName.current.value = '';
@@ -67,9 +67,6 @@ const Flock = () => {
                 </div>
             </div>
 
-
-
-
             <hr className="section-divider" />
 
             <div className="content-box">
@@ -79,11 +76,11 @@ const Flock = () => {
                 {friendRequests.incoming.map((e) => <div className='text_ text-updates'>
                     <div className="text_">{e.userName}</div>
                     <div className="btns">
-                        <Button size="sm" color="success" onClick={() => newFriend(e.strava_id).then(() => {updateFriends(); updateFriendRequests();})}>
+                        <Button size="sm" color="success" onClick={() => newFriend(e.strava_id).then(() => { updateFriends(); updateFriendRequests(); })}>
                             <FontAwesomeIcon icon={faCheck} />
                         </Button> &nbsp;
                         <Button size="sm" color="danger">
-                            <FontAwesomeIcon icon={faTimes} onClick={() => noFriend(e.strava_id).then(() => {updateFriends(); updateFriendRequests();})} />
+                            <FontAwesomeIcon icon={faTimes} onClick={() => noFriend(e.strava_id).then(() => { updateFriends(); updateFriendRequests(); })} />
                         </Button>
                     </div>
                 </div>)}
@@ -95,7 +92,7 @@ const Flock = () => {
                 <div className='subtitle_'>
                     Your Flockmates
                 </div>
-                
+
                 {friends.map((e) => <div className='text_ text-flockmates'>{e.userName}<button className="remove" onClick={() => noFriend(e.strava_id).then(updateFriends)}>Remove</button></div>)}
             </div>
             <br /><br />

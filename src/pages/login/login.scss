@@ -1,111 +1,108 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 .login-main {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  .picture {
     width: 100%;
     height: 100%;
-    text-align: center;
-    position: relative;
-    z-index: 1;
+    object-fit: cover;
+  }
 
-    .picture {
+  .photo-credit {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 12px;
+    text-align: end;
+    padding-right: 12px;
+  }
+
+  .login-steps {
+    .step {
+      display: inline-block;
+      border: 5px solid $primaryColor;
+      width: 70%;
+      padding: 0 8px 0 8px;
+      border-radius: 12px;
+      margin: 10px;
+
+      &::before {
+        display: inline-block;
+        position: relative;
+        top: -17px;
+        left: -95px;
+        font-weight: bold;
+        color: white;
+        border-radius: 100%;
+        width: 25px;
+        height: 25px;
+        font-size: 17px;
+        background-color: $primaryColor;
+      }
+    }
+    .step1 {
+      &::before {
+        content: "1";
+      }
+
+      button {
+        position: relative;
+        top: -12px;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        padding: 0;
+        border: 0;
+        background: none;
+
+        img {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+      }
     }
 
-    .photo-credit {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        font-size: 12px;
-        text-align: end;
-        padding-right: 12px;
-    }
+    .step2 {
+      &::before {
+        content: "2";
+      }
 
-    .login-steps {
-        .step {
-            display: inline-block;
-            border: 5px solid $primaryColor;
-            width: 70%;
-            padding: 0 8px 0 8px;
-            border-radius: 12px;
-            margin: 10px;
-
-            &::before {
-                display: inline-block;
-                position: relative;
-                top: -17px;
-                left: -95px;
-                font-weight: bold;
-                color: white;
-                border-radius: 100%;
-                width: 25px;
-                height: 25px;
-                font-size: 17px;
-                background-color: $primaryColor;
-            }
-        }
-        .step1 {
-
-            &::before {
-                content: '1';
-            }
-
-            button {
-                position: relative;
-                top: -12px;
-                width: 100%;
-                padding: 0;
-                border: 0;
-                background: none;
-    
-                img {
-                    width: 100%;
-                    margin: 0;
-                    padding: 0;
-                    border: 0;
-                }
-            }
-        }
-
-        .step2 {
-
-            &::before {
-                content: '2';
-            }
-            
-            input {
-                position: relative;
-                top: -10px;
-                width: 100%;
-                border: none;
-                padding: 6px;
-                box-shadow: none;
-
-                &.invalid-code {
-                    box-shadow: 0 0 8px red;
-                }
-            }
-        }
-        
-        
+      input {
+        position: relative;
+        top: -10px;
         width: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        border: none;
+        padding: 6px;
+        box-shadow: none;
+
+        &.invalid-code {
+          box-shadow: 0 0 8px red;
+        }
+      }
     }
 
-    .logo-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding-top: 10px;
-        padding-left: 60px;
-        padding-right: 60px;
-        .logo {
-            max-width: 100%;
-        }
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    .logo {
+      max-width: 100%;
     }
+  }
 }

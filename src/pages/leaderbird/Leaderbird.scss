@@ -1,160 +1,150 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 .page-container {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.parent {
-    position: absolute;
-    height: 100%;
-    width: 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .leaderbird-main {
-    padding: 0 !important;
-    position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  .YOU {
+    background-color: $thePurpleLite;
+  }
+
+  table {
+    text-align: left;
+    border-collapse: collapse;
+    margin: 0 auto;
     width: 100%;
-    height: 100%;    
+  }
+  th,
+  td {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 
-    .YOU{
-        background-color: $thePurpleLite;
-    }
+  .leaderbird {
+    max-height: 50%;
+    background-color: rgba(255, 255, 255, 0.65);
+    overflow-y: scroll;
+    color: $textColor;
+  }
+  th {
+    position: sticky;
+    top: 0;
+    color: white;
+    background-color: $thePurple;
+  }
 
-    table {
-        text-align: left;
-        position: relative;
-        border-collapse: collapse;
-        margin: 0 auto;
-        width: 100%;
-    }
-    th,td {
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    
-    .leaderbird{
-        position: relative;
-        width: 90%;
-        max-height: 50%;
-        margin: 0 auto;
-        background-color: rgba(255,255,255,0.65);
-        overflow-y: scroll;
-        color: $textColor;
-    }
-    th{
-        position: sticky;
-        top: 0;
-        color: white;
-        background-color: $thePurple;
-    }
+  .leaderbird .rankH,
+  .yourRank .rankH {
+    background-color: white;
+    color: $thePurple;
+    z-index: 2;
+  }
 
-    .leaderbird .rankH, .yourRank .rankH{
-        background-color: white;
-        color: $thePurple;
-        z-index: 2;
-    }
-    
-    .yourRank{
-        position: relative;
-        width: 90%;
-        max-height: 65%;
-        margin: 0 auto;
-        background-color: rgba(255,255,255,0.65);
-        overflow-y: scroll;
-        color: $textColor;
-    }
-    .rank, .dist{
-        text-align: center;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-    }
-    .rank {
-        position: sticky;
-        left: 0;
-        z-index: 1;
-        color: white;
-        background-color: $thePurple;
-    }
+  .yourRank {
+    max-height: 65%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.65);
+    overflow-y: scroll;
+    color: $textColor;
+    margin-top: 12px;
+  }
+  .rank,
+  .dist {
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .rank {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    color: white;
+    background-color: $thePurple;
+  }
 
-    .name, .bName {
-        text-align: left;
-        padding-left: 0.5rem;
-        padding-right: 0rem;
-    }
-    
-    .buttons {
-        position: relative;
-        margin: 0 auto;
-        width: 100%;
-        height: auto;
-        padding-bottom: 1em;
-        text-align: center;        
-    }
+  .name,
+  .bName {
+    text-align: left;
+    padding-left: 0.5rem;
+    padding-right: 0rem;
+  }
 
-    .buttons2 {
-        position: relative;
-        width: 70%;
-        margin-left: 15%;
-        height: auto;
-        text-align: center;
-    }
+  .buttons {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    padding-bottom: 1em;
+    text-align: center;
+  }
 
-    .single-button {
-        padding-top: 3px;
-        padding-bottom: 3px;
-        font-size: 12px;  
-        border: 2px solid $thePurple;
-        margin-top: 10px;
-        width: 100%;
-        background-color: $thePurple;
-        color: white;
-        border-radius: 20px;
-        position: relative;
-        }
-    
-    .single-button-selected {
-        padding-top: 3px;
-        padding-bottom: 3px;
-        font-size: 12px;  
-        border: 2px solid $thePurple;
-        margin-top: 10px;
-        width: 100%;
-        background-color: $thePurpleLite;
-        color: $textColor;
-        border-radius: 20px;
-        position: relative;
-    }
+  .buttons2 {
+    position: relative;
+    width: 70%;
+    margin-left: 15%;
+    height: auto;
+    text-align: center;
+  }
 
-    .soc-med-button {
-        padding-top: 3px;
-        padding-bottom: 3px;
-        font-size: 12px;
-        margin-top: 5px;
-        width: 70%;
-        height: auto;
-        color: white;
-        border-radius: 20px;
-        position: relative;
-        }
-    
-    .facebook-button {
-        border: 2px solid $facebookColour;
-        background-color: $facebookColour;
-    }
+  .single-button {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 12px;
+    border: 2px solid $thePurple;
+    margin-top: 10px;
+    width: 100%;
+    background-color: $thePurple;
+    color: white;
+    border-radius: 20px;
+    position: relative;
+  }
 
-    .twitter-button {
-        border: 2px solid $twitterColour;
-        background-color: $twitterColour;
-    }
+  .single-button-selected {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 12px;
+    border: 2px solid $thePurple;
+    margin-top: 10px;
+    width: 100%;
+    background-color: $thePurpleLite;
+    color: $textColor;
+    border-radius: 20px;
+    position: relative;
+  }
 
-    .pop-up {
-        color: $textColor;
-        text-align: center;
-    }
-      
+  .soc-med-button {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 12px;
+    width: 70%;
+    height: auto;
+    color: white;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 5px;
+  }
+
+  .facebook-button {
+    border: 2px solid $facebookColour;
+    background-color: $facebookColour;
+  }
+
+  .twitter-button {
+    border: 2px solid $twitterColour;
+    background-color: $twitterColour;
+  }
+
+  .pop-up {
+    color: $textColor;
+    text-align: center;
+  }
 }
-

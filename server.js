@@ -24,7 +24,7 @@ app.post('/webhook', async (req, res) => {
         const resp = await axios.post(`${backendUri}/webhook`, req.body);
         res.status(resp.status).send(resp.data);
     }
-    catch (e) {}
+    catch (e) { console.log(e) }
 });
 
 app.get('/*', function (req, res) {

@@ -36,7 +36,7 @@ const LoggedIn = () => {
             <div className="logo-container">
                 <img className='logo' src={logo} alt="Stravian Logo" />
             </div>
-            { code && (<>
+            {code && (<>
                 <div className="content-box">
                     <div className="text_">Copy the login code:</div>
                     <input type="text" contentEditable={false} value={code} ref={codeEl} /><br />
@@ -50,8 +50,8 @@ const LoggedIn = () => {
                     <div className="text_">(If you're on iOS you may have to manually go back to the app)</div>
                 </div>
             </>)}
-            { error && (<div className="error content-box">
-                <div className="text_">{ error }</div>
+            {error && (<div className="error content-box">
+                <div className="text_">{error}</div>
                 <Button className="closeBtn" onClick={() => setCloseWindow(true)}>Close window</Button>
             </div>)}
         </div>

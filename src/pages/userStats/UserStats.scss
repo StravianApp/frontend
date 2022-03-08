@@ -1,51 +1,49 @@
-@import '../../theme.scss';
+@import "../../theme.scss";
 
 .stats-main {
-
-.parent {
+  .parent {
     position: relative;
     width: 100%;
     height: 100%;
-}
+  }
 
-.stats {
+  .stats {
     position: relative;
     height: 80%;
     width: 80%;
     margin: 0 auto;
-}
+  }
 
-.stats th{
+  .stats th {
     position: sticky;
     top: 0;
-}
-    .username {
-        text-align: center;
-    }
+  }
+  .username {
+    text-align: center;
+  }
 
-    .distance-stat {
-        width: 100%;
-        font-size: 1em;
-        div {
-            display: inline-block;
-        }
-        .period {
-            font-weight: bold;
-            float: left;
-        }
-        .stat {
-            float: right;
-        }
+  .distance-stat {
+    width: 100%;
+    font-size: 1em;
+    div {
+      display: inline-block;
     }
-
-    .achievements {
-
-        .achievement {
-            .title {
-                font-size: 1.1em;
-                font-weight: bold;
-            }
-            margin-top: 8px;
-        }
+    .period {
+      font-weight: bold;
+      float: left;
     }
+    .stat {
+      float: right;
+    }
+  }
+
+  .achievements {
+    .achievement {
+      .title {
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      margin-top: 8px;
+    }
+  }
 }

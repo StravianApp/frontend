@@ -21,7 +21,7 @@ const Settwings = () => {
     };
 
     const [disUnit, setDisUnit] = useState('kilometres');
-    
+
     const showUpdatedDisUnit = () => {
         getDisUnit2().then((v) => setDisUnit(v));
     };
@@ -68,8 +68,8 @@ const Settwings = () => {
                     <i>Your current visibility is set to <b>{visibility}</b></i>
                 </div>
                 <div className="text2"> Account deletion - beware!
-                    <Popup trigger={ <button  className="press">Delete Account</button>}>
-                        <div className='pop-up'>This will delete your account. Are you sure?<button  className='press2' onClick={() => {deleteAccount(); window.location.href = '/app/logout'}}>Yes</button> </div>
+                    <Popup trigger={<button className="press">Delete Account</button>}>
+                        <div className='pop-up'>This will delete your account. Are you sure?<button className='press2' onClick={() => { deleteAccount(); window.location.href = '/app/logout' }}>Yes</button> </div>
                     </Popup>
                 </div>
             </SlidingPane> </div>
