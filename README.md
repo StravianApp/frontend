@@ -14,7 +14,7 @@ Run `npm install` to install dependencies.
 
 ### Development
 
-For development, run `npm run dev` to serve the app on localhost:3000. This has hot-reloading.
+For development, run `npm run dev` to serve the app on localhost:3000. This has hot-reloading. Also, while Stravian is only available for mobile devices and shows a message on desktops on production, it is viewable on desktop on development.
 
 ### Production
 
