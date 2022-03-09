@@ -127,7 +127,7 @@ const Leaderbird = () => {
                     </tbody></table>
                 </div>
 
-                <br/>
+                <br />
 
                 <div id="buttons" className="buttons">
                     <Row>
