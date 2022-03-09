@@ -110,23 +110,6 @@ const Leaderbird = () => {
                     </div>
                 )}
 
-                <div id="yourRank" className="yourRank" height="0%">
-                    <table><tbody>
-                        <tr>
-                            <th className="rank rankH">You!</th>
-                            <th className="name">Name</th>
-                            <th className="bName">Bird</th>
-                            <th className="dist">Distance</th>
-                        </tr>
-                        <tr>
-                            <td className="rank">{yourRank.rank}</td>
-                            <td className="name">{splitUName(yourRank.name)}</td>
-                            <td className="bName">{yourRank.bird}</td>
-                            <td className="dist">{yourRank.dist}</td>
-                        </tr>
-                    </tbody></table>
-                </div>
-
                 <br />
 
                 <div id="buttons" className="buttons">
